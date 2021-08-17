@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Competition:</strong>
+  <%= @stream.competition %>
+</p>
+
+<p>
+  <strong>Home team:</strong>
+  <%= @stream.home_team %>
+</p>
+
+<p>
+  <strong>Away team:</strong>
+  <%= @stream.away_team %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @stream.date %>
+</p>
+
+<p>
+  <strong>Tip time:</strong>
+  <%= @stream.tip_time %>
+</p>
+
+<p>
+  <strong>Stream link:</strong>
+  <%= @stream.stream_link %>
+</p>
+
+<p>
+  <strong>Live stats link:</strong>
+  <%= @stream.live_stats_link %>
+</p>
+
+<%= link_to 'Edit', edit_stream_path(@stream) %> |
+<%= link_to 'Back', streams_path %>
