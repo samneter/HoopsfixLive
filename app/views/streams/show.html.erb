@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Competition:</strong>
   <%= @stream.competition %>
@@ -35,5 +33,5 @@
   <%= @stream.live_stats_link %>
 </p>
 
-<%= link_to 'Edit', edit_stream_path(@stream) %> |
-<%= link_to 'Back', streams_path %>
+<%= link_to 'Edit', edit_stream_path(@stream), class:"btn btn-secondary" %>
+<%= link_to 'Back', streams_path, class:"btn btn-secondary" %>

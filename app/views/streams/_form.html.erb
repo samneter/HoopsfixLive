@@ -11,42 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :competition %>
-    <%= form.text_field :competition %>
+  <div class="field form-group">
+    <%= form.text_field :competition, class:"form-control", placeholder: "Competition" %>
   </div>
-
-  <div class="field">
-    <%= form.label :home_team %>
-    <%= form.text_field :home_team %>
+  </br>
+  <div class="field form-group">
+    <%= form.text_field :home_team, class:"form-control", placeholder: "Home Team" %>
   </div>
-
-  <div class="field">
-    <%= form.label :away_team %>
-    <%= form.text_field :away_team %>
+  </br>
+  <div class="field form-group">
+    <%= form.text_field :away_team, class:"form-control", placeholder: "Away Team" %>
   </div>
-
-  <div class="field">
+  </br>
+  <div class="field form-group">
     <%= form.label :date %>
-    <%= form.date_select :date %>
+    <%= form.date_select :date, class:"form-control" %>
   </div>
-
-  <div class="field">
+  </br>
+  <div class="field form-group">
     <%= form.label :tip_time %>
-    <%= form.time_select :tip_time %>
+    <%= form.time_select :tip_time, class:"form-control" %>
   </div>
-
-  <div class="field">
-    <%= form.label :stream_link %>
-    <%= form.text_field :stream_link %>
+  </br>
+  <div class="field form-group">
+    <%= form.text_field :stream_link, class:"form-control", placeholder: "Stream link" %>
   </div>
-
-  <div class="field">
-    <%= form.label :live_stats_link %>
-    <%= form.text_field :live_stats_link %>
+  </br>
+  <div class="field form-group">
+    <%= form.text_field :live_stats_link, class:"form-control", placeholder: "Stats link" %>
   </div>
-
+  </br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-secondary' %>
   </div>
 <% end %>
