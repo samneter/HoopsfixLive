@@ -20,8 +20,8 @@
         <td><%= stream.competition %></td>
         <td><%= stream.home_team %></td>
         <td><%= stream.away_team %></td>
-        <td><%= stream.date %></td>
-        <td><%= stream.tip_time %></td>
+        <td><%= stream.date.strftime("%d/%m/%Y") %></td>
+        <td><%= stream.tip_time.strftime('%H:%M') %></td>
         <td><%= link_to image_tag("emojis/tv.png"), stream.stream_link, target: "_blank" %></td>
         <td><%= link_to image_tag("emojis/bar-chart.png"), stream.live_stats_link, target: "_blank" %></td>
         <td><%= link_to 'Show', stream %></td>
