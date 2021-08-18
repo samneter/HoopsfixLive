@@ -22,8 +22,8 @@
         <td><%= stream.away_team %></td>
         <td><%= stream.date %></td>
         <td><%= stream.tip_time %></td>
-        <td><%= stream.stream_link %></td>
-        <td><%= stream.live_stats_link %></td>
+        <td><%= link_to image_tag("emojis/tv.png"), stream.stream_link, target: "_blank" %></td>
+        <td><%= link_to image_tag("emojis/bar-chart.png"), stream.live_stats_link, target: "_blank" %></td>
         <td><%= link_to 'Show', stream %></td>
         <td><%= link_to 'Edit', edit_stream_path(stream) %></td>
         <td><%= link_to 'Destroy', stream, method: :delete, data: { confirm: 'Are you sure?' } %></td>
