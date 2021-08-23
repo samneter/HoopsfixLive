@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  home_team: MyString
+  away_team: MyString
+  competition: MyString
+  live_stats: MyString
+  tip_time: 2021-08-23 19:45:51
+  date: 2021-08-23
+  stream: MyString
+
+two:
+  home_team: MyString
+  away_team: MyString
+  competition: MyString
+  live_stats: MyString
+  tip_time: 2021-08-23 19:45:51
+  date: 2021-08-23
+  stream: MyString

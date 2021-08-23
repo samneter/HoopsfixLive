@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :memberships
+  resources :games
+  resources :live_stats
+  resources :clubs
+  resources :competitions
   resources :streams
   root :to => "home#index"
   get "submit", to: "pages#submit"

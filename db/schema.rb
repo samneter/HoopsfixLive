@@ -10,7 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_17_052612) do
+ActiveRecord::Schema.define(version: 2021_08_23_184643) do
+
+  create_table "clubs", force: :cascade do |t|
+    t.string "name"
+    t.string "website"
+    t.string "youtube"
+    t.string "facebook"
+    t.string "twitter"
+    t.string "instagram"
+    t.string "tiktok"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "competitions", force: :cascade do |t|
+    t.string "name"
+    t.string "website"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "competition"
+    t.string "home_club"
+    t.string "away_club"
+    t.date "date"
+    t.time "tip_time"
+    t.string "live_stats_url"
+    t.string "stream_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "live_stats", force: :cascade do |t|
+    t.string "live_stats_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.string "competition"
+    t.string "club"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "streams", force: :cascade do |t|
     t.string "competition"

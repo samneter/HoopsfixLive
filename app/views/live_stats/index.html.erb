@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Live Stats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @live_stats.each do |live_stat| %>
+      <tr>
+        <td><%= live_stat.url %></td>
+        <td><%= link_to 'Show', live_stat %></td>
+        <td><%= link_to 'Edit', edit_live_stat_path(live_stat) %></td>
+        <td><%= link_to 'Destroy', live_stat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Live Stat', new_live_stat_path %>
