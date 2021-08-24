@@ -11,42 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :home_team %>
-    <%= form.text_field :home_team %>
+  <div class="field form-group">
+    <%= form.label "Competition" %>
+    <%= form.collection_select(:competition_id, Competition.all, :id, :name, {}, { :multiple => false } ) %>
   </div>
-
-  <div class="field">
-    <%= form.label :away_team %>
-    <%= form.text_field :away_team %>
+  </br>
+  <div class="field form-group">
+    <%= form.label "Home Team" %>
+    <%= form.collection_select(:club_id, Club.all, :id, :name, {}, { :multiple => false } ) %>
   </div>
-
-  <div class="field">
-    <%= form.label :competition %>
-    <%= form.text_field :competition %>
+  </br>
+  <div class="field form-group">
+    <%= form.label "Away Team" %>
+    <%= form.collection_select(:club_id, Club.all, :id, :name, {}, { :multiple => false } ) %>
   </div>
-
-  <div class="field">
-    <%= form.label :live_stats %>
-    <%= form.text_field :live_stats %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tip_time %>
-    <%= form.time_select :tip_time %>
-  </div>
-
-  <div class="field">
+  </br>
+  <div class="field form-group">
     <%= form.label :date %>
-    <%= form.date_select :date %>
+    <%= form.date_select :date, class:"form-control" %>
   </div>
-
-  <div class="field">
-    <%= form.label :stream %>
-    <%= form.text_field :stream %>
+  </br>
+  <div class="field form-group">
+    <%= form.label :tip_time %>
+    <%= form.time_select :tip_time, class:"form-control" %>
   </div>
-
+  </br>
+  <div class="field form-group">
+    <%= form.text_field :stream_link, class:"form-control", placeholder: "Stream link" %>
+  </div>
+  </br>
+  <div class="field form-group">
+    <%= form.text_field :live_stats_link, class:"form-control", placeholder: "Stats link" %>
+  </div>
+  </br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-secondary' %>
   </div>
 <% end %>

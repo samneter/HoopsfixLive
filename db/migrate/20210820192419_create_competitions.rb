@@ -1,6 +1,7 @@
 class CreateCompetitions < ActiveRecord::Migration[6.1]
   def change
     create_table :competitions do |t|
+      t.integer :id
       t.string :name
       t.string :website
       t.string :description
