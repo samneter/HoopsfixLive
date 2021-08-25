@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_25_050538) do
+ActiveRecord::Schema.define(version: 2021_08_25_052713) do
 
   create_table "clubs", force: :cascade do |t|
     t.string "name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2021_08_25_050538) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "away_club_id"
     t.integer "home_club_id"
+    t.integer "competition_id"
   end
 
   create_table "live_stats", force: :cascade do |t|
