@@ -18,12 +18,12 @@
   </br>
   <div class="field form-group">
     <%= form.label "Home Team" %>
-    <%= form.collection_select(:club_id, Club.all, :id, :name, {}, { :multiple => false } ) %>
+    <%= form.collection_select(:home_club_id, Club.all, :id, :name, {}, { :multiple => false } ) %>
   </div>
   </br>
   <div class="field form-group">
     <%= form.label "Away Team" %>
-    <%= form.collection_select(:club_id, Club.all, :id, :name, {}, { :multiple => false } ) %>
+    <%= form.collection_select(:away_club_id, Club.all, :id, :name, {}, { :multiple => false } ) %>
   </div>
   </br>
   <div class="field form-group">
