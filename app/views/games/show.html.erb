@@ -2,12 +2,12 @@
 
 <p>
   <strong>Home team:</strong>
-  <%= @game.home_team %>
+  <%= @game.home_club %>
 </p>
 
 <p>
   <strong>Away team:</strong>
-  <%= @game.away_team %>
+  <%= @game.away_club %>
 </p>
 
 <p>
@@ -17,7 +17,7 @@
 
 <p>
   <strong>Live stats:</strong>
-  <%= @game.live_stats %>
+  <%= @game.live_stats_url %>
 </p>
 
 <p>
@@ -32,7 +32,7 @@
 
 <p>
   <strong>Stream:</strong>
-  <%= @game.stream %>
+  <%= @game.stream_url %>
 </p>
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
