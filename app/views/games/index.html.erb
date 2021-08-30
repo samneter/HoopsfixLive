@@ -19,8 +19,8 @@
   <tbody>
     <% @games.each do |game| %>
       <tr>
-        <td><%= game.home_club_id %></td>
-        <td><%= game.away_club_id %></td>
+        <td><%= game.home_club %></td>
+        <td><%= game.away_club %></td>
         <td><%= game.competition %></td>
         <td><%= game.live_stats_url %></td>
         <td><%= game.tip_time %></td>

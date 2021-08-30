@@ -17,7 +17,7 @@
   <tbody>
     <% @streams.each do |stream| %>
       <tr>
-        <td><%= stream.competition %></td>
+        <td><%= stream.competition_id %></td>
         <td><%= stream.home_team %></td>
         <td><%= stream.away_team %></td>
         <td><%= stream.date.strftime("%d/%m/%Y") %></td>
