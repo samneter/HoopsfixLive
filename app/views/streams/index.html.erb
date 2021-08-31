@@ -18,12 +18,12 @@
     <% @streams.each do |stream| %>
       <tr>
         <td><%= stream.competition_id %></td>
-        <td><%= stream.home_team %></td>
-        <td><%= stream.away_team %></td>
+        <td><%= stream.home_club %></td>
+        <td><%= stream.away_club %></td>
         <td><%= stream.date.strftime("%d/%m/%Y") %></td>
         <td><%= stream.tip_time.strftime('%H:%M') %></td>
-        <td><%= link_to image_tag("emojis/tv.png"), stream.stream_link, target: "_blank" %></td>
-        <td><%= link_to image_tag("emojis/bar-chart.png"), stream.live_stats_link, target: "_blank" %></td>
+        <td><%= link_to image_tag("emojis/tv.png"), stream.stream_url, target: "_blank" %></td>
+        <td><%= link_to image_tag("emojis/bar-chart.png"), stream.live_stats_url, target: "_blank" %></td>
         <td><%= link_to 'Show', stream %></td>
         <td><%= link_to 'Edit', edit_stream_path(stream) %></td>
         <td><%= link_to 'Destroy', stream, method: :delete, data: { confirm: 'Are you sure?' } %></td>

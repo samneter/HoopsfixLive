@@ -64,7 +64,7 @@ class StreamsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def stream_params
-      params.require(:stream).permit(:home_club_id, :away_club_id, :competition_id, :live_stats_id, :tip_time, :date, :stream_id, :game_id)
+      params.require(:stream).permit(:home_club_id, :away_club_id, :competition_id, :live_stats_url, :tip_time, :date, :stream_url, :game_id)
     end
 
   def create_game

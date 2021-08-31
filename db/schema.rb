@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_28_054500) do
+ActiveRecord::Schema.define(version: 2021_08_31_054204) do
 
   create_table "clubs", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_08_28_054500) do
     t.string "tiktok"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "club_id"
   end
 
   create_table "competitions", force: :cascade do |t|
@@ -52,7 +53,7 @@ ActiveRecord::Schema.define(version: 2021_08_28_054500) do
     t.string "live_stats_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "live_stats_id"
+    t.integer "game_id"
   end
 
   create_table "memberships", force: :cascade do |t|
@@ -63,16 +64,10 @@ ActiveRecord::Schema.define(version: 2021_08_28_054500) do
   end
 
   create_table "streams", force: :cascade do |t|
-    t.string "competition_id"
-    t.string "home_team"
-    t.string "away_team"
-    t.date "date"
-    t.time "tip_time"
-    t.string "stream_link"
-    t.string "live_stats_link"
+    t.string "stream_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "stream_id"
+    t.integer "game_id"
   end
 
 end
