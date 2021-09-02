@@ -21,7 +21,17 @@ class StreamsController < ApplicationController
 
   # POST /streams or /streams.json
   def create
-    @stream = Stream.new(stream_params)
+        sp = stream_params
+        comp_id = sp[:competition_id]
+        away_id = sp[:away_club_id]
+        home_id = sp[:home_club_id]
+        game_id = sp[:game_id]
+        stream_url = sp[:stream_url]
+        live_stats = sp[:live_stats_url]
+        tip_time = sp[:tip_time]
+        date = sp[:date]
+        @game = Game.create(competition_id: comp_id, away_club_id: away_id, home_club_id: home_id, game_id: game_id, stream_url: stream_url, live_stats_url: live_stats, tip_time: tip_time, date: date)
+        @stream = Stream.new(stream_params.merge(game: @game))
 
     respond_to do |format|
       if @stream.save
@@ -64,14 +74,7 @@ class StreamsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def stream_params
-      params.require(:stream).permit(:home_club_id, :away_club_id, :competition_id, :live_stats_url, :tip_time, :date, :stream_url, :game_id)
-    end
-
-  def create_game
-    @stream = Stream.new(user.params)
-    @stream.build_game
-    if @stream.save
-      # do whatever else you need to do
+      params.require(:stream).permit(:home_club_id, :away_club_id, :competition, :live_stats, :tip_time, :date, :stream_url, :game_id)
     end
   end
-end
+

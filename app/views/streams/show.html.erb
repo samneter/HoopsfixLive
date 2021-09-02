@@ -5,12 +5,12 @@
 
 <p>
   <strong>Home team:</strong>
-  <%= @stream.home_team %>
+  <%= @stream.home_club %>
 </p>
 
 <p>
   <strong>Away team:</strong>
-  <%= @stream.away_team %>
+  <%= @stream.away_club %>
 </p>
 
 <p>
@@ -25,12 +25,12 @@
 
 <p>
   <strong>Stream link:</strong>
-  <%= @stream.stream_link %>
+  <%= @stream.stream_url %>
 </p>
 
 <p>
   <strong>Live stats link:</strong>
-  <%= @stream.live_stats_link %>
+  <%= @stream.live_stats_url %>
 </p>
 
 <%= link_to 'Edit', edit_stream_path(@stream), class:"btn btn-secondary" %>

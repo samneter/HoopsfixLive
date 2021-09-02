@@ -1,3 +1,6 @@
 class Stream < ApplicationRecord
-  belongs_to :game, optional: true
+  belongs_to :game
+  before_validation on: :create do
+    create_game
+  end
 end
