@@ -30,19 +30,18 @@ class StreamsController < ApplicationController
 
   # POST /streams or /streams.json
   def create
-        sp = stream_params
-        comp_id = sp[:competition_id]
-        away_id = sp[:away_club_id]
-        home_id = sp[:home_club_id]
-        game_id = sp[:game_id]
-        stream_url = sp[:stream_url]
-        live_stats = sp[:live_stats_url]
-        tip_time = sp[:tip_time]
-        date = sp[:date]
-        @game = Game.create(competition_id: comp_id, away_club_id: away_id, home_club_id: home_id, game_id: game_id, stream_url: stream_url, live_stats_url: live_stats, tip_time: tip_time, date: date)
-        puts @game.id
-        puts @game.errors.full_messages.to_s
-        @stream = Stream.create!(game_id: @game.id, stream_url: stream_url)
+    sp = stream_params
+    comp_id = sp[:competition_id]
+    away_id = sp[:away_club_id]
+    home_id = sp[:home_club_id]
+    game_id = sp[:game_id]
+    stream_url = sp[:stream_url]
+    live_stats = sp[:live_stats_url]
+    tip_time = sp[:tip_time]
+    date = sp[:date]
+    @game = Game.create(competition_id: comp_id, away_club_id: away_id, home_club_id: home_id, game_id: game_id, stream_url: stream_url, live_stats_url: live_stats, tip_time: tip_time, date: date)
+
+    @stream = @game.create_stream(stream_url: stream_url)
 
     respond_to do |format|
       if @stream.save
