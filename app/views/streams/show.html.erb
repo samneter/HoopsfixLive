@@ -1,26 +1,26 @@
 <p>
   <strong>Competition:</strong>
-  <%= @stream.competition_id %>
+  <%= @stream.game.competition_id %>
 </p>
 
 <p>
   <strong>Home team:</strong>
-  <%= @stream.home_club %>
+  <%= @stream.game.home_club %>
 </p>
 
 <p>
   <strong>Away team:</strong>
-  <%= @stream.away_club %>
+  <%= @stream.game.away_club %>
 </p>
 
 <p>
   <strong>Date:</strong>
-  <%= @stream.date %>
+  <%= @stream.game.date %>
 </p>
 
 <p>
   <strong>Tip time:</strong>
-  <%= @stream.tip_time %>
+  <%= @stream.game.tip_time %>
 </p>
 
 <p>
@@ -30,7 +30,7 @@
 
 <p>
   <strong>Live stats link:</strong>
-  <%= @stream.live_stats_url %>
+  <%= @stream.game.live_stats_url %>
 </p>
 
 <%= link_to 'Edit', edit_stream_path(@stream), class:"btn btn-secondary" %>

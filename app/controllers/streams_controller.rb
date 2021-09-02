@@ -3,11 +3,20 @@ class StreamsController < ApplicationController
 
   # GET /streams or /streams.json
   def index
-    @streams = Stream.all
+    @streams = Stream.where.not(game_id: nil)
   end
 
   # GET /streams/1 or /streams/1.json
   def show
+    puts '#####################'
+    puts @stream.id
+    puts @stream.game_id
+  end
+
+  def show
+    puts '#####################'
+    puts @stream.attributes
+    puts @stream.game_id
   end
 
   # GET /streams/new
@@ -31,7 +40,9 @@ class StreamsController < ApplicationController
         tip_time = sp[:tip_time]
         date = sp[:date]
         @game = Game.create(competition_id: comp_id, away_club_id: away_id, home_club_id: home_id, game_id: game_id, stream_url: stream_url, live_stats_url: live_stats, tip_time: tip_time, date: date)
-        @stream = Stream.new(stream_params.merge(game: @game))
+        puts @game.id
+        puts @game.errors.full_messages.to_s
+        @stream = Stream.create!(game_id: @game.id, stream_url: stream_url)
 
     respond_to do |format|
       if @stream.save
@@ -74,7 +85,7 @@ class StreamsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def stream_params
-      params.require(:stream).permit(:home_club_id, :away_club_id, :competition, :live_stats, :tip_time, :date, :stream_url, :game_id)
+      params.require(:stream).permit(:home_club_id, :away_club_id, :competition_id, :live_stats_url, :tip_time, :date, :stream_url, :game_id)
     end
   end
 
