@@ -19,13 +19,13 @@
   <tbody>
     <% @games.each do |game| %>
       <tr>
-        <td><%= game.home_club %></td>
-        <td><%= game.away_club %></td>
-        <td><%= game.competition %></td>
-        <td><%= game.live_stats_url %></td>
+        <td><%= game.competition.name %></td>
+        <td><%= game.home_club.name %></td>
+        <td><%= game.away_club.name %></td>
         <td><%= game.tip_time %></td>
         <td><%= game.date %></td>
         <td><%= game.stream_url %></td>
+        <td><%= game.live_stats_url %></td>
         <td><%= link_to 'Show', game %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
