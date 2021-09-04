@@ -17,6 +17,15 @@
   </div>
 
   <div class="field">
+    <% if @club.logo.attached? %>
+      <%= image_tag @club.logo, style: "width: 200px; display: block" %>
+    <% end %>
+
+    <%= form.label :logo %>
+    <%= form.file_field :logo %>
+  </div>
+
+  <div class="field">
     <%= form.label :website %>
     <%= form.text_field :website %>
   </div>

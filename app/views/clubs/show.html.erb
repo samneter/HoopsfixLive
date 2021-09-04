@@ -5,5 +5,42 @@
   <%= @club.name %>
 </p>
 
+
+<% if @club.logo.attached? %>
+  <p>
+  <%= image_tag @club.logo, :size => "200x200" %>
+</p>
+<% end %>
+
+<p>
+  <strong>Website:</strong>
+  <%= @club.website %>
+</p>
+
+<p>
+  <strong>YouTube:</strong>
+  <%= @club.youtube %>
+</p>
+
+<p>
+  <strong>Facebook:</strong>
+  <%= @club.facebook %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @club.twitter %>
+</p>
+
+<p>
+  <strong>Instagram:</strong>
+  <%= @club.instagram %>
+</p>
+
+<p>
+  <strong>Tiktok:</strong>
+  <%= @club.tiktok %>
+</p>
+
 <%= link_to 'Edit', edit_club_path(@club) %> |
 <%= link_to 'Back', clubs_path %>

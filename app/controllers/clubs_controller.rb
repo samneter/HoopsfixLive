@@ -64,6 +64,6 @@ class ClubsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def club_params
-      params.require(:club).permit(:name)
+      params.require(:club).permit(:name, :logo, :website, :youtube, :facebook, :twitter, :instagram, :tiktok)
     end
 end

@@ -5,4 +5,5 @@ class Club < ApplicationRecord
   has_many :live_stats, through: :games
   has_many :memberships
   has_many :competitions, through: :memberships
+  has_one_attached :logo
 end
