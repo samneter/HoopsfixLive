@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_04_050946) do
+ActiveRecord::Schema.define(version: 2021_09_09_050035) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -62,9 +62,6 @@ ActiveRecord::Schema.define(version: 2021_09_04_050946) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.string "competition"
-    t.string "home_club"
-    t.string "away_club"
     t.date "date"
     t.time "tip_time"
     t.string "live_stats_url"
