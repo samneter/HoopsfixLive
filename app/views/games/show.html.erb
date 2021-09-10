@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
-<iframe src='https://www.youtube.com/embed/<%= @game.stream_url[32..42] %>?rel=0&autoplay=<%= params[:autoplay] || 0 %>' frameborder='0' allowfullscreen></iframe>
+<iframe src='https://www.youtube.com/embed/<%=
+%>?rel=0&autoplay=<%= params[:autoplay] || 0 %>' frameborder='0' allowfullscreen></iframe>
 <p>
   <strong>Date:</strong>
   <%= @game.date.strftime("%d/%m/%Y") %>

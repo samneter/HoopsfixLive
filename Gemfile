@@ -57,3 +57,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Group events by date
 gem 'groupdate'
+
+# Extract youtube ID for embedding
+gem 'youtube_addy'
