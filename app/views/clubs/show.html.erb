@@ -14,32 +14,32 @@
 
 <p>
   <strong>Website:</strong>
-  <%= @club.website %>
+  <%= link_to @club.website, @club.website, target: "_blank" %>
 </p>
 
 <p>
   <strong>YouTube:</strong>
-  <%= @club.youtube %>
+  <%= link_to @club.youtube, @club.youtube, target: "_blank" %>
 </p>
 
 <p>
   <strong>Facebook:</strong>
-  <%= @club.facebook %>
+  <%= link_to @club.facebook, @club.facebook, target: "_blank" %>
 </p>
 
 <p>
   <strong>Twitter:</strong>
-  <%= @club.twitter %>
+  <%= link_to @club.twitter, @club.twitter, target: "_blank" %>
 </p>
 
 <p>
   <strong>Instagram:</strong>
-  <%= @club.instagram %>
+  <%= link_to @club.instagram, @club.instagram, target: "_blank" %>
 </p>
 
 <p>
   <strong>Tiktok:</strong>
-  <%= @club.tiktok %>
+  <%= link_to @club.tiktok, @club.tiktok, target: "_blank" %>
 </p>
 
 <%= link_to 'Edit', edit_club_path(@club) %> |
