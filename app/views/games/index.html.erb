@@ -1,36 +1,35 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Games</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Home team</th>
-      <th>Away team</th>
-      <th>Competition</th>
-      <th>Live stats</th>
-      <th>Tip time</th>
-      <th>Date</th>
-      <th>Stream</th>
-      <th colspan="3"></th>
-    </tr>
+<table class="table table-striped table-bordered table-hover">
+  <thead class="table-dark">
+  <tr>
+    <th>Competition</th>
+    <th>Home team</th>
+    <th>Away team</th>
+    <th>Date</th>
+    <th>Tip time</th>
+    <th>Stream link</th>
+    <th>Live stats link</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @games.each do |game| %>
-      <tr>
-        <td><%= game.competition.name %></td>
-        <td><%= game.home_club.name %></td>
-        <td><%= game.away_club.name %></td>
-        <td><%= game.tip_time %></td>
-        <td><%= game.date %></td>
-        <td><%= game.stream_url %></td>
-        <td><%= game.live_stats_url %></td>
-        <td><%= link_to 'Show', game %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @games.each do |game| %>
+    <tr>
+      <td><%= game.competition.name %></td>
+      <td><%= game.home_club.name %></td>
+      <td><%= game.away_club.name %></td>
+      <td><%= game.date.strftime("%d/%m/%Y") %></td>
+      <td><%= game.tip_time.strftime("%H:%M") %></td>
+      <td><%= link_to image_tag("emojis/tv.png"), game.stream_url, target: "_blank" %></td></td>
+      <td><%= link_to image_tag("emojis/bar-chart.png"), game.live_stats_url, target: "_blank" %></td>
+      <td><%= link_to 'Show', game %></td>
+      <td><%= link_to 'Edit', edit_game_path(game) %></td>
+      <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 

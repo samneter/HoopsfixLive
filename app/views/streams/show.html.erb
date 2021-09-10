@@ -1,6 +1,12 @@
+<iframe width="100%" height="700" src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(@stream.game.stream_url) %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>
-  <strong>Competition:</strong>
-  <%= @stream.game.competition.name %>
+  <strong>Date:</strong>
+  <%= @stream.game.date.strftime("%d/%m/%Y") %>
+</p>
+
+<p>
+  <strong>Tip time:</strong>
+  <%= @stream.game.tip_time.strftime("%H:%M") %>
 </p>
 
 <p>
@@ -14,22 +20,17 @@
 </p>
 
 <p>
-  <strong>Date:</strong>
-  <%= @stream.game.date %>
+  <strong>Competition:</strong>
+  <%= @stream.game.competition.name %>
 </p>
 
 <p>
-  <strong>Tip time:</strong>
-  <%= @stream.game.tip_time %>
+  <strong>Stream:</strong>
+  <%= @stream.game.stream_url %>
 </p>
 
 <p>
-  <strong>Stream link:</strong>
-  <%= @stream.stream_url %>
-</p>
-
-<p>
-  <strong>Live stats link:</strong>
+  <strong>Live stats:</strong>
   <%= @stream.game.live_stats_url %>
 </p>
 
