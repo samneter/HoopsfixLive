@@ -11,6 +11,7 @@ class ClubsController < ApplicationController
     @games = Game.where('date >= ?', Date.current).order(:date)
     @streams = Stream.where('date >= ?', Date.today).order(:date)
     @grouped_games = Game.where('date >= ?', Date.today).order(:tip_time).group_by{ |g| g.date.strftime("%A %d %B %Y")}
+    @club_games = Game.where('date >= ?', Date.today).order(:tip_time).group_by{ |g| g.date.strftime("%A %d %B %Y")}
   end
 
   # GET /clubs/new
