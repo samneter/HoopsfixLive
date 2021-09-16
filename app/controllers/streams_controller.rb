@@ -9,12 +9,6 @@ class StreamsController < ApplicationController
   # GET /streams/1 or /streams/1.json
   def show
     puts '#####################'
-    puts @stream.id
-    puts @stream.game_id
-  end
-
-  def show
-    puts '#####################'
     puts @stream.attributes
     puts @stream.game_id
   end
@@ -34,7 +28,7 @@ class StreamsController < ApplicationController
     comp_id = sp[:competition_id]
     away_id = sp[:away_club_id]
     home_id = sp[:home_club_id]
-    game_id = sp[:game_id]
+    game_id = sp[:games_id]
     stream_url = sp[:stream_url]
     live_stats = sp[:live_stats_url]
     tip_time = sp[:tip_time]
@@ -84,7 +78,7 @@ class StreamsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def stream_params
-      params.require(:stream).permit(:home_club_id, :away_club_id, :competition_id, :live_stats_url, :tip_time, :date, :stream_url, :game_id)
+      params.require(:stream).permit(:home_club_id, :away_club_id, :competition_id, :live_stats_url, :tip_time, :date, :stream_url)
     end
   end
 

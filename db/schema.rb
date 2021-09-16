@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_14_045856) do
+ActiveRecord::Schema.define(version: 2021_09_16_045854) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -78,7 +78,8 @@ ActiveRecord::Schema.define(version: 2021_09_14_045856) do
     t.string "live_stats_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "game_id"
+    t.integer "game_id", null: false
+    t.index ["game_id"], name: "index_live_stats_on_game_id"
   end
 
   create_table "memberships", force: :cascade do |t|
@@ -92,11 +93,14 @@ ActiveRecord::Schema.define(version: 2021_09_14_045856) do
     t.string "stream_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "game_id"
+    t.integer "game_id", null: false
+    t.index ["game_id"], name: "index_streams_on_game_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "games", "live_stats", column: "game_id"
   add_foreign_key "games", "streams", column: "game_id"
+  add_foreign_key "live_stats", "games"
+  add_foreign_key "streams", "games"
 end
