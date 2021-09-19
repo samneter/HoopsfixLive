@@ -10,8 +10,9 @@ class ClubsController < ApplicationController
   def show
     @games = Game.where('date >= ?', Date.current).order(:date)
     @streams = Stream.where('date >= ?', Date.today).order(:date)
-    @grouped_games = Game.where('date >= ?', Date.today).order(:tip_time).group_by{ |g| g.date.strftime("%A %d %B %Y")}
     @club_games = Game.where('date >= ?', Date.today).order(:tip_time).group_by{ |g| g.date.strftime("%A %d %B %Y")}
+    @grouped_games = Game.where('(home_club_id = ? OR away_club_id = ?) AND date >= ?', @club.id, @club.id, Date.today).order(:tip_time).group_by{ |g| g.date.strftime("%A %d %B %Y")}
+
   end
 
   # GET /clubs/new

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_16_045854) do
+ActiveRecord::Schema.define(version: 2021_09_18_041146) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2021_09_16_045854) do
     t.string "live_stats_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "game_id", null: false
+    t.integer "game_id"
     t.index ["game_id"], name: "index_live_stats_on_game_id"
   end
 
