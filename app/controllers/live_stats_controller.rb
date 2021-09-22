@@ -64,6 +64,6 @@ class LiveStatsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def live_stat_params
-      params.require(:live_stat).permit(:url)
+      params.require(:live_stat).permit(:live_stats_url)
     end
 end
