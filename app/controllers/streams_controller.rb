@@ -30,15 +30,16 @@ class StreamsController < ApplicationController
     comp_id = sp[:competition_id]
     away_id = sp[:away_club_id]
     home_id = sp[:home_club_id]
-    game_id = sp[:games_id]
+    #game_id = sp[:games_id]
     stream_url = sp[:stream_url]
     live_stats = sp[:live_stats_url]
     tip_time = sp[:tip_time]
     date = sp[:date]
-    @game = Game.create(competition_id: comp_id, away_club_id: away_id, home_club_id: home_id, game_id: game_id, stream_url: stream_url, live_stats_url: live_stats, tip_time: tip_time, date: date)
+    @game = Game.create(competition_id: comp_id, away_club_id: away_id, home_club_id: home_id, stream_url: stream_url, live_stats_url: live_stats, tip_time: tip_time, date: date)
 
     @stream = @game.create_stream(stream_url: stream_url)
     @live_stat = @game.create_live_stat(live_stats_url: live_stats)
+
     respond_to do |format|
       if @stream.save
         format.html { redirect_to @stream, notice: "Stream was successfully created." }
