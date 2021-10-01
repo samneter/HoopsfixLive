@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_01_040413) do
+ActiveRecord::Schema.define(version: 2021_10_01_045956) do
 
   create_table "Competitions", force: :cascade do |t|
     t.string "name"
@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 2021_10_01_040413) do
     t.string "tiktok"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "club_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -81,8 +80,8 @@ ActiveRecord::Schema.define(version: 2021_10_01_040413) do
   end
 
   create_table "memberships", force: :cascade do |t|
-    t.string "competition"
-    t.string "club"
+    t.integer "competition"
+    t.integer "club"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

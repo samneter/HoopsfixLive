@@ -24,8 +24,8 @@
         <td><%= link_to game.home_club.name, club_path(game.home_club) %></td>
         <td><%= link_to game.away_club.name, club_path(game.away_club) %></td>
         <td><%= link_to game.competition.name, competition_path(game.competition) %></td>
-        <td><%= link_to image_tag("emojis/bar-chart.png"), game.live_stats_url, target: "_blank" %></td>
-        <td><%= link_to image_tag("emojis/tv.png"), game.stream_url, target: "_blank" %></td>
+        <td><%= link_to image_tag("emojis/bar-chart.png"), game.live_stats_id.to_s, target: "_blank" %></td>
+        <td><%= link_to image_tag("emojis/tv.png"), game.stream_id.to_s, target: "_blank" %></td>
         <td><%= link_to 'Watch now', game %></td>
       </tr>
     <% end %>
