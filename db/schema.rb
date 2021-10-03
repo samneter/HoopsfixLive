@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_01_045956) do
-
-  create_table "Competitions", force: :cascade do |t|
-    t.string "name"
-    t.string "website"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2021_10_03_065221) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -57,6 +50,17 @@ ActiveRecord::Schema.define(version: 2021_10_01_045956) do
     t.string "tiktok"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "memberships_id"
+    t.index ["memberships_id"], name: "index_clubs_on_memberships_id"
+  end
+
+  create_table "competitions", force: :cascade do |t|
+    t.string "name"
+    t.string "website"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "membership_id"
+    t.index ["membership_id"], name: "index_competitions_on_membership_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -76,7 +80,6 @@ ActiveRecord::Schema.define(version: 2021_10_01_045956) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "game_id"
-    t.index ["game_id"], name: "index_live_stats_on_game_id"
   end
 
   create_table "memberships", force: :cascade do |t|
@@ -84,6 +87,10 @@ ActiveRecord::Schema.define(version: 2021_10_01_045956) do
     t.integer "club"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "club_id"
+    t.integer "competition_id"
+    t.index ["club_id"], name: "index_memberships_on_club_id"
+    t.index ["competition_id"], name: "index_memberships_on_competition_id"
   end
 
   create_table "streams", force: :cascade do |t|
@@ -91,7 +98,6 @@ ActiveRecord::Schema.define(version: 2021_10_01_045956) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "game_id"
-    t.index ["game_id"], name: "index_streams_on_game_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
