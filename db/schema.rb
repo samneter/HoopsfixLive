@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_03_065221) do
+ActiveRecord::Schema.define(version: 2021_10_04_051326) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -66,13 +66,16 @@ ActiveRecord::Schema.define(version: 2021_10_03_065221) do
   create_table "games", force: :cascade do |t|
     t.date "date"
     t.time "tip_time"
-    t.integer "live_stats_id"
-    t.integer "stream_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "away_club_id"
-    t.integer "home_club_id"
+    t.integer "live_stats_id_id"
+    t.integer "stream_id_id"
     t.integer "competition_id"
+    t.integer "home_club_id"
+    t.integer "away_club_id"
+    t.index ["competition_id"], name: "index_games_on_competition_id"
+    t.index ["live_stats_id_id"], name: "index_games_on_live_stats_id_id"
+    t.index ["stream_id_id"], name: "index_games_on_stream_id_id"
   end
 
   create_table "live_stats", force: :cascade do |t|
@@ -80,6 +83,7 @@ ActiveRecord::Schema.define(version: 2021_10_03_065221) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "game_id"
+    t.index ["game_id"], name: "index_live_stats_on_game_id"
   end
 
   create_table "memberships", force: :cascade do |t|
@@ -98,10 +102,9 @@ ActiveRecord::Schema.define(version: 2021_10_03_065221) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "game_id"
+    t.index ["game_id"], name: "index_streams_on_game_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "live_stats", "games"
-  add_foreign_key "streams", "games"
 end

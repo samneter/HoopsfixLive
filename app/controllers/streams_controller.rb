@@ -31,7 +31,7 @@ class StreamsController < ApplicationController
     away_id = sp[:away_club_id]
     home_id = sp[:home_club_id]
     #game_id = sp[:games_id]
-    stream_url = sp[:stream_url]
+    stream_url = sp[:stream_urk]
     live_stats = sp[:live_stats_url]
     tip_time = sp[:tip_time]
     date = sp[:date]
