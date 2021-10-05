@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_04_051326) do
+ActiveRecord::Schema.define(version: 2021_10_05_043644) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -68,14 +68,14 @@ ActiveRecord::Schema.define(version: 2021_10_04_051326) do
     t.time "tip_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "live_stats_id_id"
-    t.integer "stream_id_id"
     t.integer "competition_id"
     t.integer "home_club_id"
     t.integer "away_club_id"
+    t.integer "live_stats_id"
+    t.integer "stream_id"
     t.index ["competition_id"], name: "index_games_on_competition_id"
-    t.index ["live_stats_id_id"], name: "index_games_on_live_stats_id_id"
-    t.index ["stream_id_id"], name: "index_games_on_stream_id_id"
+    t.index ["live_stats_id"], name: "index_games_on_live_stats_id"
+    t.index ["stream_id"], name: "index_games_on_stream_id"
   end
 
   create_table "live_stats", force: :cascade do |t|
