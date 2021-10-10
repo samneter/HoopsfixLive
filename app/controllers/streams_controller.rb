@@ -34,9 +34,11 @@ class StreamsController < ApplicationController
     live_stats_url = sp[:live_stats_url]
     tip_time = sp[:tip_time]
     date = sp[:date]
-    @game = Game.create(competition_id: comp_id, away_club_id: away_club_id, home_club_id: home_club_id, stream_url: stream_url, live_stats_url: live_stats_url, tip_time: tip_time, date: date)
+    @game = Game.create(competition_id: comp_id, away_club_id: away_club_id, home_club_id: home_club_id, tip_time: tip_time, date: date)
     @stream = @game.create_stream(stream_url: stream_url)
     @live_stat = @game.create_live_stat(live_stats_url: live_stats_url)
+    @live_stat.save
+    @game.update(live_stats_id: @live_stat.id, stream_id: @stream.id)
 
 
     respond_to do |format|
@@ -80,9 +82,7 @@ class StreamsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def stream_params
-      params.require(:stream).permit(:home_club_id, :away_club_id, :competition_id, :live_stats_id, :tip_time, :date, :stream_url,
-      game_attributes: [:home_club_id, :away_club_id, :competition_id, :live_stats_id, :tip_time, :date, :stream_url])
-
+      params.require(:stream).permit(:home_club_id, :away_club_id, :competition_id, :live_stats_url, :tip_time, :date, :stream_url, :live_stats_url)
     end
   end
 

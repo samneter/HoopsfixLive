@@ -1,4 +1,4 @@
-<iframe width="100%" height="700" src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(@stream.game.stream_url) %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="700" src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(@stream.game.stream_url.to_s %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>
   <strong>Date:</strong>
   <%= @stream.game.date.strftime("%d/%m/%Y") %>
