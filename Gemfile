@@ -60,3 +60,5 @@ gem 'groupdate'
 
 # Extract youtube ID for embedding
 gem 'youtube_addy'
+
+gem 'pry'
