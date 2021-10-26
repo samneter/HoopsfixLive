@@ -10,35 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_14_041419) do
+ActiveRecord::Schema.define(version: 2021_10_24_043511) do
 
-  create_table "active_storage_attachments", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
-  end
-
-  create_table "active_storage_blobs", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
-    t.text "metadata"
-    t.string "service_name", null: false
-    t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
-    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
-
-  create_table "active_storage_variant_records", force: :cascade do |t|
-    t.integer "blob_id", null: false
-    t.string "variation_digest", null: false
-    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-  end
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "clubs", force: :cascade do |t|
     t.string "name"
@@ -50,8 +25,7 @@ ActiveRecord::Schema.define(version: 2021_10_14_041419) do
     t.string "tiktok"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "memberships_id"
-    t.index ["memberships_id"], name: "index_clubs_on_memberships_id"
+    t.index ["name"], name: "index_clubs_on_name"
   end
 
   create_table "competitions", force: :cascade do |t|
@@ -59,52 +33,34 @@ ActiveRecord::Schema.define(version: 2021_10_14_041419) do
     t.string "website"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "membership_id"
-    t.index ["membership_id"], name: "index_competitions_on_membership_id"
+    t.index ["name"], name: "index_competitions_on_name"
   end
 
   create_table "games", force: :cascade do |t|
-    t.date "date"
-    t.time "tip_time"
+    t.date "date", null: false
+    t.time "tip_time", null: false
+    t.bigint "competitions_id", null: false
+    t.integer "home_club_id", null: false
+    t.integer "away_club_id", null: false
+    t.string "live_stat_url"
+    t.string "stream_url", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "competition_id"
-    t.integer "home_club_id"
-    t.integer "away_club_id"
-    t.integer "live_stat_id"
-    t.integer "stream_id"
-    t.index ["competition_id"], name: "index_games_on_competition_id"
-    t.index ["live_stat_id"], name: "index_games_on_live_stat_id"
-    t.index ["stream_id"], name: "index_games_on_stream_id"
-  end
-
-  create_table "live_stats", force: :cascade do |t|
-    t.string "live_stats_url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "game_id"
-    t.index ["game_id"], name: "index_live_stats_on_game_id"
+    t.index ["away_club_id"], name: "index_games_on_away_club_id"
+    t.index ["competitions_id"], name: "index_games_on_competitions_id"
+    t.index ["home_club_id"], name: "index_games_on_home_club_id"
   end
 
   create_table "memberships", force: :cascade do |t|
-    t.integer "competition"
-    t.integer "club"
+    t.bigint "clubs_id", null: false
+    t.bigint "competitions_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "club_id"
-    t.integer "competition_id"
-    t.index ["club_id"], name: "index_memberships_on_club_id"
-    t.index ["competition_id"], name: "index_memberships_on_competition_id"
+    t.index ["clubs_id"], name: "index_memberships_on_clubs_id"
+    t.index ["competitions_id"], name: "index_memberships_on_competitions_id"
   end
 
-  create_table "streams", force: :cascade do |t|
-    t.string "stream_url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "game_id"
-    t.index ["game_id"], name: "index_streams_on_game_id"
-  end
-
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "games", "competitions", column: "competitions_id"
+  add_foreign_key "memberships", "clubs", column: "clubs_id"
+  add_foreign_key "memberships", "competitions", column: "competitions_id"
 end
