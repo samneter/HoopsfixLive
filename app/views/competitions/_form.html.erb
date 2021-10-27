@@ -16,6 +16,15 @@
     <%= form.text_field :name %>
   </div>
 
+  <div class="field">
+    <% if @competition.logo.attached? %>
+      <%= image_tag @competition.logo, style: "width: 200px; display: block" %>
+    <% end %>
+
+    <%= form.label :logo %>
+    <%= form.file_field :logo %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
