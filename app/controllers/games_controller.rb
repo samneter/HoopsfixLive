@@ -4,7 +4,6 @@ class GamesController < ApplicationController
   # GET /games or /games.json
   def index
       @games = Game.all
-      @streams = Stream.where.not(game_id: nil)
       @grouped_games = Game.order(:date, :tip_time).group_by{ |g| g.date.strftime("%A %d %B %Y")}
 
   end
@@ -67,6 +66,6 @@ class GamesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def game_params
-      params.require(:game).permit(:home_club_id, :away_club_id, :competition_id, :live_stats_url, :tip_time, :date, :stream_url)
+      params.require(:game).permit(:home_club_id, :away_club_id, :competition_id, :live_stat_url, :tip_time, :date, :stream_url)
     end
 end

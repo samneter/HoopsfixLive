@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<iframe width="100%" height="700" src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(@game.stream.stream_url) %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="700" src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(@game.stream_url) %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>
   <strong>Date:</strong>
   <%= @game.date.strftime("%d/%m/%Y") %>
@@ -27,12 +27,12 @@
 
 <p>
   <strong>Stream:</strong>
-  <%= @game.stream.stream_url %>
+  <%= @game.stream_url %>
 </p>
 
 <p>
   <strong>Live stats:</strong>
-  <%= @game.live_stat.live_stats_url %>
+  <%= @game.live_stat_url %>
 </p>
 
 

@@ -1,10 +1,8 @@
 class CreateCompetitions < ActiveRecord::Migration[6.1]
   def change
     create_table :competitions do |t|
-      t.integer :id
-      t.string :name
+      t.string :name, index: true
       t.string :website
-      t.string :description
 
       t.timestamps
     end
