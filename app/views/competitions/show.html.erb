@@ -5,6 +5,12 @@
   <%= @competition.name %>
 </p>
 
+<% if @competition.logo.attached? %>
+  <p>
+    <%= image_tag @competition.logo, :size => "200x200" %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_competition_path(@competition) %> |
 <%= link_to 'Back', competitions_path %>
 
@@ -32,7 +38,7 @@
         <td><%= link_to game.home_club.name, club_path(game.home_club) %></td>
         <td><%= link_to game.away_club.name, club_path(game.away_club) %></td>
         <td><%= link_to game.competition.name, competition_path(game.competition) %></td>
-        <td><%= link_to image_tag("emojis/bar-chart.png"), game.live_stats_url, target: "_blank" %></td>
+        <td><%= link_to image_tag("emojis/bar-chart.png"), game.live_stat_url, target: "_blank" %></td>
         <td><%= link_to image_tag("emojis/tv.png"), game.stream_url, target: "_blank" %></td>
         <td><%= link_to 'Show', game %></td>
       </tr>

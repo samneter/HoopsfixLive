@@ -9,7 +9,6 @@ class ClubsController < ApplicationController
   # GET /clubs/1 or /clubs/1.json
   def show
     @games = Game.where('date >= ?', Date.current).order(:date)
-    @streams = Stream.where('date >= ?', Date.today).order(:date)
     @club_games = Game.where('(home_club_id = ? OR away_club_id = ?) AND date >= ?', @club.id, @club.id, Date.today).order(:date).group_by{ |g| g.date.strftime("%A %d %B %Y")}
   end
 
