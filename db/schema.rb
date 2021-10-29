@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 2021_10_27_040448) do
     t.date "date", null: false
     t.time "tip_time", null: false
     t.bigint "competition_id", null: false
-    t.integer "home_club_id", null: false
-    t.integer "away_club_id", null: false
+    t.bigint "home_club_id", null: false
+    t.bigint "away_club_id", null: false
     t.string "live_stat_url"
     t.string "stream_url", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(version: 2021_10_27_040448) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "games", "clubs", column: "away_club_id"
+  add_foreign_key "games", "clubs", column: "home_club_id"
   add_foreign_key "games", "competitions"
   add_foreign_key "memberships", "clubs", column: "clubs_id"
   add_foreign_key "memberships", "competitions", column: "competitions_id"
