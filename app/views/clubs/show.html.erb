@@ -13,6 +13,13 @@
 <% end %>
 
 <p>
+
+  <strong>Competitions:</strong>
+  <% @club.competitions.each do |competitions| %>
+    <%= link_to competitions.name, competitions, target: "_blank" %>
+  <% end %>
+</p>
+
   <strong>Website:</strong>
   <%= link_to @club.website, @club.website, target: "_blank" %>
 </p>

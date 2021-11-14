@@ -80,12 +80,12 @@ ActiveRecord::Schema.define(version: 2021_10_27_040448) do
   end
 
   create_table "memberships", force: :cascade do |t|
-    t.bigint "clubs_id", null: false
-    t.bigint "competitions_id", null: false
+    t.bigint "club_id", null: false
+    t.bigint "competition_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["clubs_id"], name: "index_memberships_on_clubs_id"
-    t.index ["competitions_id"], name: "index_memberships_on_competitions_id"
+    t.index ["club_id"], name: "index_memberships_on_club_id"
+    t.index ["competition_id"], name: "index_memberships_on_competition_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -93,6 +93,6 @@ ActiveRecord::Schema.define(version: 2021_10_27_040448) do
   add_foreign_key "games", "clubs", column: "away_club_id"
   add_foreign_key "games", "clubs", column: "home_club_id"
   add_foreign_key "games", "competitions"
-  add_foreign_key "memberships", "clubs", column: "clubs_id"
-  add_foreign_key "memberships", "competitions", column: "competitions_id"
+  add_foreign_key "memberships", "clubs"
+  add_foreign_key "memberships", "competitions"
 end

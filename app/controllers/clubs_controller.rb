@@ -15,6 +15,7 @@ class ClubsController < ApplicationController
   # GET /clubs/new
   def new
     @club = Club.new
+    @competitions = Competition.all
   end
 
   # GET /clubs/1/edit
@@ -66,6 +67,6 @@ class ClubsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def club_params
-      params.require(:club).permit(:name, :logo, :website, :youtube, :facebook, :twitter, :instagram, :tiktok)
+      params.require(:club).permit(:name, :logo, :website, :youtube, :facebook, :twitter, :instagram, :tiktok, :competition_ids=>[])
     end
 end
