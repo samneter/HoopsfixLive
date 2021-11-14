@@ -11,6 +11,12 @@
   </p>
 <% end %>
 
+<strong>Clubs:</strong>
+<% @competition.clubs.each do |clubs| %>
+  <%= link_to clubs.name, clubs, target: "_blank" %>
+<% end %>
+</p>
+
 <%= link_to 'Edit', edit_competition_path(@competition) %> |
 <%= link_to 'Back', competitions_path %>
 

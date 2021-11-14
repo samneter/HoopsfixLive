@@ -26,6 +26,15 @@
   </div>
 
   <div class="field">
+    <%= form.label "Competitions" %>
+    <%= hidden_field_tag "club[competition_ids][]", nil %>
+    <% Competition.all.each do |competition| %>
+      <%= check_box_tag "club[competition_ids][]", competition.id, @club.competitions.include?(competition), id: dom_id(competition) %>
+      <%= label_tag dom_id(competition), competition.name %>
+    <% end %>
+    </div>
+
+  <div class="field">
     <%= form.label :website %>
     <%= form.text_field :website %>
   </div>

@@ -3,7 +3,7 @@ class CreateGames < ActiveRecord::Migration[6.1]
     create_table :games do |t|
       t.date :date, null: false
       t.time :tip_time, null: false
-      t.references :competition, index: true, foreign_key: true, null: false
+      t.references :competition, foreign_key: { to_table: :competitions}, index: true, null: false
       t.references :home_club, foreign_key: { to_table: :clubs}, index: true, null: false
       t.references :away_club, foreign_key: { to_table: :clubs}, index: true, null: false
       t.string :live_stat_url
