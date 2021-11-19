@@ -11,8 +11,8 @@
           gameAwayClubId[0].options,
         ];
 
-        for (teamOption of teamOptions) {
-          for (option of teamOption) {
+        for (let teamOption of teamOptions) {
+          for (let option of teamOption) {
             const optionGroup = option.parentNode;
             const optionGroupLabel = optionGroup.label;
 
@@ -24,6 +24,9 @@
               option.style.display = "none";
             }
           }
+
+          gameHomeClubId[0].value = null;
+          gameAwayClubId[0].value = null;
         }
       }
 
