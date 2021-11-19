@@ -1,24 +1,40 @@
-<script>(function() {
-    jQuery(function() {
-        var clubs;
-        $('#game_home_club_id').parent().hide();
-        clubs = $('#game_home_club_id').html();
-        console.log(clubs);
-        return $('#game_competition_id').change(function() {
-            var competition;
-            competition = $('game_competition_id :selected').text();
-            $(clubs).filter("optgroup[label='" + competition + "']").html();
-            if (options) {
-                $('#game_home_club_id').html(options);
-                return $('#game_home_club_id').parent().show();
-            } else {
-                $('#game_home_club_id').empty();
-                return $('#game_home_club_id').parent().hide();
-            }
-        });
-    });
+<script>
+  (function($) {
+    $(function(){
+      const gameHomeClubId = $('#game_home_club_id');
+      const gameCompetitionId = $('#game_competition_id');
 
-}).call(this);</script>
+      function updateMenuOptions(selectedGameText) {
+          for (option of gameHomeClubId[0].options) {
+              const optionGroup = option.parentNode;
+              const optionGroupLabel = optionGroup.label;
+
+              if (optionGroupLabel === selectedGameText) {
+                optionGroup.style.display = "inherit";
+                option.style.display = "inherit";
+              } else {
+                optionGroup.style.display = "none";
+                option.style.display = "none";
+              }
+          }
+      }
+
+      function handleCompetitionChange(event) {
+          const gameCompetitionMenuOptions = event.target.options;
+          const selectedGameIndex = event.target.selectedIndex;
+          const selectedGameText = gameCompetitionMenuOptions[selectedGameIndex].innerText;
+
+          updateMenuOptions(selectedGameText);
+      }
+
+
+      const initialSelectedGameText = gameCompetitionId[0].options[0].innerText;
+      updateMenuOptions(initialSelectedGameText);
+
+      gameCompetitionId.change(handleCompetitionChange);
+    });
+})(jQuery)
+</script>
 <%= form_with(model: game) do |form| %>
   <% if game.errors.any? %>
     <div id="error_explanation">
