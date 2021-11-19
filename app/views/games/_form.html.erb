@@ -1,3 +1,24 @@
+<script>(function() {
+    jQuery(function() {
+        var clubs;
+        $('#game_home_club_id').parent().hide();
+        clubs = $('#game_home_club_id').html();
+        console.log(clubs);
+        return $('#game_competition_id').change(function() {
+            var competition;
+            competition = $('game_competition_id :selected').text();
+            $(clubs).filter("optgroup[label='" + competition + "']").html();
+            if (options) {
+                $('#game_home_club_id').html(options);
+                return $('#game_home_club_id').parent().show();
+            } else {
+                $('#game_home_club_id').empty();
+                return $('#game_home_club_id').parent().hide();
+            }
+        });
+    });
+
+}).call(this);</script>
 <%= form_with(model: game) do |form| %>
   <% if game.errors.any? %>
     <div id="error_explanation">
@@ -10,22 +31,20 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field form-group">
     <%= form.label "Competition" %>
     <%= form.collection_select(:competition_id, Competition.all, :id, :name, {}, { :multiple => false } ) %>
   </div>
   </br>
+
   <div class="field form-group">
     <%= form.label "Home Team" %>
-    <%= form.grouped_collection_select :home_club_id, Club.order(:name), :id, :name, {}, { :multiple => false } %>
+    <%= form.grouped_collection_select(:home_club_id, Competition.order(:name), :clubs, :name, :id, :name, {}, { :multiple => false } ) %>
   </div>
   </br>
-  <div class="field form-group">
-    <%= form.label "Away Team" %>
-    <%= form.grouped_collection_select :away_club_id, Club.order(:name), :id, :name, {}, { :multiple => false } %>
-  </div>
-  </br>
+
+
+
   <div class="field form-group">
     <%= form.label :date %>
     <%= form.date_field :date, class:"form-control" %>
