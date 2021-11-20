@@ -1,3 +1,51 @@
+<script>
+  (function($) {
+    $(function(){
+      const gameHomeClubId = $('#game_home_club_id');
+      const gameAwayClubId = $('#game_away_club_id');
+      const gameCompetitionId = $('#game_competition_id');
+
+      function updateMenuOptions(selectedGameText) {
+        const teamOptions = [
+          gameHomeClubId[0].options,
+          gameAwayClubId[0].options,
+        ];
+
+        for (let teamOption of teamOptions) {
+          for (let option of teamOption) {
+            const optionGroup = option.parentNode;
+            const optionGroupLabel = optionGroup.label;
+
+            if (optionGroupLabel === selectedGameText) {
+              optionGroup.style.display = "inherit";
+              option.style.display = "inherit";
+            } else {
+              optionGroup.style.display = "none";
+              option.style.display = "none";
+            }
+          }
+
+          gameHomeClubId[0].value = null;
+          gameAwayClubId[0].value = null;
+        }
+      }
+
+      function handleCompetitionChange(event) {
+        const gameCompetitionMenuOptions = event.target.options;
+        const selectedGameIndex = event.target.selectedIndex;
+        const selectedGameText = gameCompetitionMenuOptions[selectedGameIndex].innerText;
+
+        updateMenuOptions(selectedGameText);
+      }
+
+
+      const initialSelectedGameText = gameCompetitionId[0].options[0].innerText;
+      updateMenuOptions(initialSelectedGameText);
+
+      gameCompetitionId.change(handleCompetitionChange);
+    });
+})(jQuery)
+</script>
 <%= form_with(model: game) do |form| %>
   <% if game.errors.any? %>
     <div id="error_explanation">
@@ -10,22 +58,25 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field form-group">
     <%= form.label "Competition" %>
     <%= form.collection_select(:competition_id, Competition.all, :id, :name, {}, { :multiple => false } ) %>
   </div>
   </br>
+
   <div class="field form-group">
     <%= form.label "Home Team" %>
-    <%= form.grouped_collection_select :home_club_id, Club.order(:name), :id, :name, {}, { :multiple => false } %>
+    <%= form.grouped_collection_select(:home_club_id, Competition.order(:name), :clubs, :name, :id, :name, {}, { :multiple => false } ) %>
   </div>
   </br>
+
   <div class="field form-group">
     <%= form.label "Away Team" %>
-    <%= form.grouped_collection_select :away_club_id, Club.order(:name), :id, :name, {}, { :multiple => false } %>
+    <%= form.grouped_collection_select(:away_club_id, Competition.order(:name), :clubs, :name, :id, :name, {}, { :multiple => false } ) %>
   </div>
   </br>
+
+
   <div class="field form-group">
     <%= form.label :date %>
     <%= form.date_field :date, class:"form-control" %>
