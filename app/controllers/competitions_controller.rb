@@ -33,6 +33,9 @@ class CompetitionsController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @competition.errors, status: :unprocessable_entity }
       end
+      if params[:competition][:logo].present?
+        @competition.logo.attach(params[:competition][:logo])
+      end
     end
   end
 
@@ -66,6 +69,6 @@ class CompetitionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def competition_params
-      params.require(:competition).permit(:name)
+      params.require(:competition).permit(:name, :logo)
     end
 end
