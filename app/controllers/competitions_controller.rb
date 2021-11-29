@@ -33,9 +33,6 @@ class CompetitionsController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @competition.errors, status: :unprocessable_entity }
       end
-      if params[:competition][:logo].present?
-        @competition.logo.attach(params[:competition][:logo])
-      end
     end
   end
 
