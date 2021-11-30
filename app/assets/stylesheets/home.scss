@@ -4,3 +4,12 @@
 .heading {
   text-align: center;
 }
+
+.streams-table {
+  display: flex;
+  text-align: center;
+}
+
+.streams-table > * {
+  flex-basis: 100%;
+}
