@@ -38,15 +38,15 @@
 
 <% @grouped_games.each do |hash_elements|%>
   <h3 class="heading"> <%= hash_elements.first %> </h3>
-
+<table>
     <tbody>
     <% hash_elements.last.each do |game| %>
       <tr>
         <td><%= link_to image_tag(game.competition.logo, :size => "100x100"), competition_path(game.competition) %></td>
         <td><%= game.tip_time.strftime("%H:%M") %></td>
+        <td><%= image_tag (game.home_club.logo), :size => "50x50" %> </td>
         <td><%= link_to "#{game.home_club.name} vs #{game.away_club.name}", game_path(game) %> </td>
-
-
+        <td> <%= image_tag (game.away_club.logo), :size => "50x50" %> </td>
         <td><%= link_to image_tag("emojis/bar-chart.png"), game.live_stat_url, target: "_blank" %></td>
         <td></td>
       </tr>
