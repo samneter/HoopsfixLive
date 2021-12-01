@@ -7,10 +7,12 @@
 
 .streams-table {
   display: grid;
-  grid-gap: 20px;
+  width: 500px;
+  margin: 0 auto;
+  grid-gap: 0px;
   align-content: center;
-  grid-template-columns: repeat (3, 1fr);
-  grid-template-rows: repeat (4, 80px);
+  grid-template-columns: auto 240px auto;
+  grid-template-rows: auto auto auto auto;
   justify-items: center;
   grid-template-areas:
   "CompLogo CompLogo CompLogo"
@@ -27,6 +29,7 @@
 
 .home-club-logo {
   grid-area: HomeLogo;
+  padding: 0px;
 }
 
 .away-club-logo {
