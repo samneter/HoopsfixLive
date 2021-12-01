@@ -6,10 +6,38 @@
 }
 
 .streams-table {
-  display: flex;
-  text-align: center;
+  display: grid;
+  grid-gap: 20px;
+  align-content: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 80px 80px 80px 80px;
+  justify-content: space-evenly;
 }
 
-.streams-table > * {
-  flex-basis: 100%;
+.competition-logo {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  justify-items: center;
+}
+
+.home-club-logo {
+
+}
+
+.away-club-logo {
+
+}
+
+.game-link {
+
+}
+
+.tip-off {
+  grid-column: 3 / span 3;
+}
+
+.live-stats {
+
 }
