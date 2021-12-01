@@ -9,35 +9,39 @@
   display: grid;
   grid-gap: 20px;
   align-content: center;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 80px 80px 80px 80px;
-  justify-content: space-evenly;
+  grid-template-columns: repeat (3, 1fr);
+  grid-template-rows: repeat (4, 80px);
+  justify-items: center;
+  grid-template-areas:
+  "CompLogo CompLogo CompLogo"
+  "HomeLogo link AwayLogo"
+  "TipTime TipTime TipTime"
+  "StatsLink StatsLink StatsLink"
+;
 }
 
 .competition-logo {
-  grid-column-start: 1;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  justify-items: center;
+  grid-area: CompLogo;
+  justify-self: center;
 }
 
 .home-club-logo {
-
+  grid-area: HomeLogo;
 }
 
 .away-club-logo {
+  grid-area: AwayLogo;
 
 }
 
 .game-link {
-
+  grid-area: link;
 }
 
 .tip-off {
-  grid-column: 3 / span 3;
+  grid-area: TipTime;
 }
 
 .live-stats {
-
+  grid-area: StatsLink;
 }

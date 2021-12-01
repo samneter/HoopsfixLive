@@ -38,9 +38,8 @@
 
 <% @grouped_games.each do |hash_elements|%>
   <h3 class="heading"> <%= hash_elements.first %> </h3>
+  <% hash_elements.last.each do |game| %>
   <div class="streams-table">
-    <% hash_elements.last.each do |game| %>
-
       <div class="competition-logo"><%= link_to image_tag(game.competition.logo, :size => "100x100"), competition_path(game.competition) %></div>
 
       <div class="home-club-logo"><%= image_tag (game.home_club.logo), :size => "50x50" %></div>
