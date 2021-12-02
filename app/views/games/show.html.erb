@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
-<iframe width="100%" height="700" src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(@game.stream_url) %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h1 class="heading"><%= @game.home_club.name %> vs <%= @game.away_club.name %> </h1>
+<h2 class="heading">Live Stream</h2>
+
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(@game.stream_url) %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>
   <strong>Date:</strong>
   <%= @game.date.strftime("%d/%m/%Y") %>
@@ -12,27 +15,27 @@
 
 <p>
   <strong>Home team:</strong>
-  <%= @game.home_club.name %>
+  <%= link_to @game.home_club.name, @game.home_club %>
 </p>
 
 <p>
   <strong>Away team:</strong>
-  <%= @game.away_club.name %>
+  <%= link_to @game.away_club.name, @game.away_club %>
 </p>
 
 <p>
   <strong>Competition:</strong>
-  <%= @game.competition.name %>
+  <%= link_to @game.competition.name, @game.competition %>
 </p>
 
 <p>
   <strong>Stream:</strong>
-  <%= @game.stream_url %>
+  <%= link_to image_tag("emojis/tv.png"), @game.stream_url, target: "_blank" %>
 </p>
 
 <p>
   <strong>Live stats:</strong>
-  <%= @game.live_stat_url %>
+  <%= link_to image_tag("emojis/bar-chart.png"), @game.live_stat_url, target: "_blank" %>
 </p>
 
 

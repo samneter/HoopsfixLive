@@ -10,21 +10,24 @@
   width: 500px;
   margin: 0 auto;
   grid-gap: 0px;
-  align-content: center;
-  grid-template-columns: auto 240px auto;
+  align-items: center;
+  grid-template-columns: auto 280px auto;
   grid-template-rows: auto auto auto auto;
   justify-items: center;
   grid-template-areas:
   "CompLogo CompLogo CompLogo"
-  "HomeLogo link AwayLogo"
   "TipTime TipTime TipTime"
-  "StatsLink StatsLink StatsLink"
+  "HomeLogo link AwayLogo"
 ;
 }
 
 .competition-logo {
   grid-area: CompLogo;
   justify-self: center;
+}
+
+.tip-off {
+  grid-area: TipTime;
 }
 
 .home-club-logo {
@@ -39,12 +42,4 @@
 
 .game-link {
   grid-area: link;
-}
-
-.tip-off {
-  grid-area: TipTime;
-}
-
-.live-stats {
-  grid-area: StatsLink;
 }

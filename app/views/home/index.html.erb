@@ -7,14 +7,13 @@
   <% hash_elements.last.each do |game| %>
 
   <div class="streams-table">
-      <div class="competition-logo"><%= link_to image_tag(game.competition.logo, :size => "100x100"), competition_path(game.competition) %></div>
-
-      <div class="home-club-logo"><%= image_tag (game.home_club.logo), :size => "60x60" %></div>
-      <div class="game-link"><%= link_to "#{game.home_club.name} vs #{game.away_club.name}", game_path(game) %></div>
-      <div class="away-club-logo"><%= image_tag (game.away_club.logo), :size => "60x60" %></div>
+      <div class="competition-logo"><%= link_to image_tag(game.competition.logo, :size => "30x30"), competition_path(game.competition) %></div>
       <div class="tip-off"><%= game.tip_time.strftime("%H:%M") %></div>
-      <div class="live-stats"><%= link_to image_tag("emojis/bar-chart.png"), game.live_stat_url, target: "_blank" %></div>
+      <div class="home-club-logo"><%= link_to image_tag(game.home_club.logo, :size => "60x60"), game.home_club %></div>
+      <div class="game-link"><%= link_to "#{game.home_club.name} vs #{game.away_club.name}", game_path(game) %></div>
+      <div class="away-club-logo"><%= link_to image_tag(game.away_club.logo, :size => "60x60"), game.away_club  %></div>
       </div>
+    </br>
     <% end %>
 <% end %>
 
