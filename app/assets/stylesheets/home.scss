@@ -23,7 +23,7 @@
 
 .competition-logo {
   grid-area: CompLogo;
-  justify-self: center;
+  align-items: center;
 }
 
 .tip-off {
@@ -40,6 +40,22 @@
 
 }
 
-.game-link {
-  grid-area: link;
+//.game-link-with-logos {
+//  style: white-space: nowrap;
+//}
+
+@mixin width {
+  width: auto !important;
+}
+table {
+  &.table-fit {
+    @include width;
+    table-layout: auto !important;
+    thead th, tfoot th  {
+      @include width;
+    }
+    tbody td, tfoot td {
+      @include width;
+    }
+  }
 }
