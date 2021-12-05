@@ -3,25 +3,24 @@
     $(function(){
       const gameHomeClubId = $('#game_home_club_id');
       const gameAwayClubId = $('#game_away_club_id');
+      const gameHomeClubOptionGroups = $('#game_home_club_id > optgroup');
+      const gameAwayClubOptionGroups = $('#game_away_club_id > optgroup');
       const gameCompetitionId = $('#game_competition_id');
 
       function updateMenuOptions(selectedGameText) {
-        const teamOptions = [
-          gameHomeClubId[0].options,
-          gameAwayClubId[0].options,
+        const teamOptionGroups = [
+          gameHomeClubOptionGroups,
+          gameAwayClubOptionGroups,
         ];
 
-        for (let teamOption of teamOptions) {
-          for (let option of teamOption) {
-            const optionGroup = option.parentNode;
+        for (let teamOptionGroup of teamOptionGroups) {
+          for (let optionGroup of teamOptionGroup) {
             const optionGroupLabel = optionGroup.label;
 
             if (optionGroupLabel === selectedGameText) {
               optionGroup.style.display = "inherit";
-              option.style.display = "inherit";
             } else {
               optionGroup.style.display = "none";
-              option.style.display = "none";
             }
           }
 
