@@ -1,4 +1,5 @@
 class ClubsController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
   before_action :set_club, only: %i[ show edit update destroy ]
 
   # GET /clubs or /clubs.json
@@ -57,6 +58,12 @@ class ClubsController < ApplicationController
       format.html { redirect_to clubs_url, notice: "Club was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def authenticate_user!
+    # code here
   end
 
   private

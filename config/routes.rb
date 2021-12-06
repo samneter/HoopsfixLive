@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :memberships
   resources :games
   resources :live_stats
