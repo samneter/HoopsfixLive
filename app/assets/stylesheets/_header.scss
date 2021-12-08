@@ -1,0 +1,50 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  max-width: 1000px;
+  padding: 15px;
+  color: white;
+  margin: 0 auto;
+  background: #333333 url(https://www.hoopsfix.com/wp-content/themes/hottopix/images/menu-fade.png) repeat-x bottom;
+}
+
+.navbar .container-fluid {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-nav {
+  height: 100%;
+}
+
+a.nav-link {
+  max-width: 110px;
+  padding: 5px 20px;
+  text-transform: uppercase;
+  height: 100%;
+}
+
+a:active.nav-link,
+a:visited.nav-link
+{
+  color: white;
+}
+
+.btn-warning {
+  background-color: #f0ad4e;
+}
+
+.btn {
+  padding: 15px 20px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
