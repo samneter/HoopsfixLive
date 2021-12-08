@@ -26,7 +26,6 @@ class CompetitionsController < ApplicationController
   # POST /competitions or /competitions.json
   def create
     @competition = Competition.new(competition_params)
-    @competition.user = current_user
     respond_to do |format|
       if @competition.save
         format.html { redirect_to @competition, notice: "Competition was successfully created." }
@@ -58,12 +57,6 @@ class CompetitionsController < ApplicationController
       format.html { redirect_to competitions_url, notice: "Competition was successfully destroyed." }
       format.json { head :no_content }
     end
-  end
-
-  private
-
-  def authenticate_user!
-    # code here
   end
 
   private
