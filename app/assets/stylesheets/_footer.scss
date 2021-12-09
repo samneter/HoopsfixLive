@@ -4,44 +4,44 @@
   box-sizing: border-box;
 }
 
-.navbar {
+.footer {
   max-width: 1000px;
-  padding: 15px;
+  padding: 20px;
   color: white;
   margin: 0 auto;
   background: #333333 url(https://www.hoopsfix.com/wp-content/themes/hottopix/images/menu-fade.png) repeat-x bottom;
 }
 
-.navbar .container-fluid {
+.footer .container-fluid {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.navbar-nav {
+.footer-nav {
+  display: flex;
   height: 100%;
 }
 
-a.nav-link {
+a.nav-link-footer {
   max-width: 110px;
   padding: 5px 20px;
   text-transform: uppercase;
   height: 100%;
+  justify-content: flex-end;
 }
 
-a:active.nav-link,
-a:visited.nav-link
+a:active.nav-link-footer,
+a:visited.nav-link-footer
 {
   color: white;
 }
 
 .btn-warning {
-  background-color: #ffbf00
-;
+  background-color: #f0ad4e;
 }
 
 .btn {

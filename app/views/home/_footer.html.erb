@@ -1,0 +1,21 @@
+<nav class="footer">
+  <div class="container-fluid">
+    <div class="love">Made with ❤️ by the <a href="https://hoopsfixfoundation.org" target="_blank">Hoopsfix Foundation</a></div>
+     <div>
+      <ul class="foooter-nav">
+      <% if current_user %>
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class:"nav-link-footer" %>
+      <% else %>
+        <%= link_to 'Sign In', new_user_session_path, class:"nav-link-footer" %>
+      <% end %>
+      <%= link_to 'Competitions', competitions_path, class:"nav-link-footer" %>
+      <%= link_to 'Clubs', clubs_path, class:"nav-link-footer" %>
+      <%= link_to 'Archive', archive_path, class:"nav-link-footer" %>
+    </ul>
+     </div>
+  </div>
+</nav>
+
+
+
+

@@ -53,35 +53,49 @@
 <%= link_to 'Back', clubs_path %>
 
 <h1 class="heading">Upcoming <%=@club.name%> live streams</h1>
-</br>
-<% @club_games.each do |hash_elements|%>
-  <h3 class="heading"> <%= hash_elements.first %> </h3>
-  <table class="table table-striped table-bordered table-hover">
-    <thead class="table-dark">
-    <tr>
-      <th>Tip time</th>
-      <th>Home team</th>
-      <th>Away team</th>
-      <th>Competition</th>
-      <th>Live stats</th>
-      <th>Stream</th>
-      <th colspan="1"></th>
-    </tr>
-    </thead>
+<div class="container">
+  <!-- Dynamically insert date -->
+  <% @club_games.each do |hash_elements|%>
+    <h2 class="comp-date"><%= hash_elements.first %></h2>
+    <!-- Stream Info is set as grid with 3 columns and auto rows -->
+    <div class="stream-info">
+      <!-- Stream item is a single item created dynamically for each entry -->
+      <% hash_elements.last.each do |game| %>
+        <div class="stream-item">
+          <!-- Play button that takes you to the live event -->
+          <%= link_to raw('<i class="far fa-play-circle"></i>'), game, :method =>"get", class:"live" %>
 
-    <tbody>
-    <% hash_elements.last.each do |game| %>
-      <tr>
-        <td><%= game.tip_time.strftime("%H:%M") %></td>
-        <td><%= link_to game.home_club.name, club_path(game.home_club) %></td>
-        <td><%= link_to game.away_club.name, club_path(game.away_club) %></td>
-        <td><%= link_to game.competition.name, competition_path(game.competition) %></td>
-        <td><%= link_to image_tag("emojis/bar-chart.png"), game.live_stat_url, target: "_blank" %></td>
-        <td><%= link_to image_tag("emojis/tv.png"), game.stream_url, target: "_blank" %></td>
-        <td><%= link_to 'Show', game %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-  <br />
-<% end %>
+          <!-- Team division -->
+          <div class="teams">
+            <!-- Team details on left -->
+            <div class="home-team">
+              <!-- Home team logo -->
+              <%= link_to image_tag(game.home_club.logo), game.home_club %>
+              <p class="name-city"><%= link_to game.home_club.name, game.home_club %></p>
+              <!--<p class="name-team">RIDERS</p>-->
+            </div>
+            <p class="at">VS</p>
+            <!-- Team details on right -->
+            <div class="away-team">
+              <!-- Away team logo-->
+              <%= link_to image_tag(game.away_club.logo), game.away_club  %>
+              <p class="name-city"><%= link_to game.away_club.name, game.away_club %></p>
+              <!--<p class="name-team">RAIDERS</p>-->
+            </div>
+
+          </div>
+          <!-- Fixture information -->
+          <div class="fixture-details">
+            <!-- Tipoff time -->
+            <p class="time"><%= game.tip_time.strftime("%H:%M") %></p>
+            <p class="live-marker hidden"><i class="fas fa-circle"></i> LIVE</p>
+          </div>
+          <div class="competition">
+            <!-- Competition logo -->
+            <%= link_to image_tag(game.competition.logo), competition_path(game.competition) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  <% end %>
