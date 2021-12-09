@@ -45,12 +45,19 @@ wrap on the page when using different devices */
 .stream-info {
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   max-width: 1000px;
   width: 100%;
   height: auto;
   margin-top: 50px;
+}
+
+/* Make responsive, reduce stream item list to 1 column when on small screens <1000px */
+@media screen and (max-width: 1000px) {
+  .stream-info {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Individual stream information item. Displayed as grid as well.
