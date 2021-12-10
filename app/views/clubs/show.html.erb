@@ -1,11 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @club.name %>
-</p>
-
-
 <% if @club.logo.attached? %>
   <p>
   <%= image_tag @club.logo, :size => "200x200" %>
@@ -13,44 +7,29 @@
 <% end %>
 
 <p>
-
-  <strong>Competitions:</strong>
-  <% @club.competitions.each do |competitions| %>
-    <%= link_to competitions.name, competitions, target: "_blank" %>
-  <% end %>
+<% if @club.instagram.present? %>
+<%= link_to image_tag("social/web.png", :size => "20x20"), @club.website, target: "_blank" %>
+<% end %>
+<% if @club.instagram.present? %>
+<%= link_to image_tag("social/youtube.png", :size => "20x20"), @club.youtube, target: "_blank" %>
+<% end %>
+  <% if @club.instagram.present? %>
+<%= link_to image_tag("social/facebook.png", :size => "20x20"), @club.facebook, target: "_blank" %>
+<% end %>
+  <% if @club.twitter.present? %>
+<%= link_to image_tag("social/twitter.png", :size => "20x20"), @club.twitter, target: "_blank" %>
+<% end %>
+  <% if @club.instagram.present? %>
+<%= link_to image_tag("social/instagram.png", :size => "20x20"), @club.instagram, target: "_blank" %>
+<% end %>
+<% if @club.tiktok.present? %>
+<%= link_to image_tag("social/tiktok.png", :size => "20x20"), @club.tiktok, target: "_blank" %>
+<% end %>
 </p>
-
-  <strong>Website:</strong>
-  <%= link_to @club.website, @club.website, target: "_blank" %>
-</p>
-
-<p>
-  <strong>YouTube:</strong>
-  <%= link_to @club.youtube, @club.youtube, target: "_blank" %>
-</p>
-
-<p>
-  <strong>Facebook:</strong>
-  <%= link_to @club.facebook, @club.facebook, target: "_blank" %>
-</p>
-
-<p>
-  <strong>Twitter:</strong>
-  <%= link_to @club.twitter, @club.twitter, target: "_blank" %>
-</p>
-
-<p>
-  <strong>Instagram:</strong>
-  <%= link_to @club.instagram, @club.instagram, target: "_blank" %>
-</p>
-
-<p>
-  <strong>Tiktok:</strong>
-  <%= link_to @club.tiktok, @club.tiktok, target: "_blank" %>
-</p>
-
-<%= link_to 'Edit', edit_club_path(@club) %> |
-<%= link_to 'Back', clubs_path %>
+<strong>Competitions:</strong>
+<% @club.competitions.each do |competitions| %>
+  <%= link_to competitions.name, competitions, target: "_blank" %>
+<% end %>
 
 <h1 class="heading">Upcoming <%=@club.name%> live streams</h1>
 <div class="container">
