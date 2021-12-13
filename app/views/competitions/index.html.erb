@@ -1,19 +1,13 @@
 <p id="notice"><%= notice %></p>
+<h1 class="heading">Competitions</h1>
 
-<h1>Competitions</h1>
+<div class="comp-container">
+  <% @competitions.each do |competition| %>
 
-<table>
+    <%= link_to image_tag(competition.logo, size: "80x80"), competition, class:"comp-competition" %>
+      <%= link_to competition.name, competition, class:"comp-competition-name" %>
 
-  <tbody>
-    <% @competitions.each do |competition| %>
-      <tr>
-        <td><%= link_to image_tag(competition.logo, size: "30x30"), competition %></td>
-        <td><%= link_to competition.name, competition %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Competition', new_competition_path %>
+  <% end %>
+    </div>
+    <%= link_to 'New Competition', new_competition_path %>
