@@ -5,7 +5,7 @@ class GamesController < ApplicationController
   def index
       @games = Game.all
       @grouped_games = Game.order(:date, :tip_time).group_by{ |g| g.date.strftime("%A %d %B %Y")}
-
+      @game_end = Game.tip_time + 105*60
   end
 
   # GET /games/1 or /games/1.json

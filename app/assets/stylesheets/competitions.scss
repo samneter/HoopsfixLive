@@ -11,6 +11,13 @@
   max-width: 1000px;
   align-items: center;
   margin: 0 auto;
+  justify-content: space-evenly;
+}
+
+.comp-logo-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .comp-competition {

@@ -3,10 +3,10 @@
 
 <div class="comp-container">
   <% @competitions.each do |competition| %>
-
+    <div class="comp-logo-name"
     <%= link_to image_tag(competition.logo, size: "80x80"), competition, class:"comp-competition" %>
       <%= link_to competition.name, competition, class:"comp-competition-name" %>
-
+    </div>
 
   <% end %>
     </div>
