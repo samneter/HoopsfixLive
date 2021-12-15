@@ -36,8 +36,8 @@
       <div class="fixture-details">
         <!-- Tipoff time -->
         <p class="time"><%= game.tip_time.strftime("%H:%M") %></p>
-        <% if Time.now.between?(game.tip_time, @game_end) %>
-        <p class="live-marker hidden"><i class="fas fa-circle"></i> LIVE</p>
+        <% if game.is_live? %>
+        <p class="live-marker"><i class="fas fa-circle"></i> LIVE</p>
         <% end %>
       </div>
       <div class="competition">

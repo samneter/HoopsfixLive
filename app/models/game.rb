@@ -7,4 +7,14 @@ class Game < ApplicationRecord
   def clubs
     [self.home_club, self.away_club]
   end
+
+  def is_live?
+    is_live_at?(Time.now)
+  end
+
+  def is_live_at?(time)
+    time.between?(self.tip_time, self.tip_time + 105.minutes)
+  end
+
+
 end
