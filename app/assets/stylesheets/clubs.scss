@@ -1,3 +1,34 @@
 // Place all the styles related to the Clubs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.heading {
+padding-bottom: 30px;
+}
+
+.club-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.club-box {
+flex: auto;
+}
+
+
+
+.club-logo {
+
+}
+
+.club-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.club-functions {
+}
+
+.new-club {
+}

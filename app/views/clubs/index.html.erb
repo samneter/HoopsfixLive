@@ -1,27 +1,28 @@
 <p id="notice"><%= notice %></p>
+<h1 class="heading">Clubs</h1>
 
-<h1>Clubs</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @clubs.each do |club| %>
-      <tr>
-        <td><%= club.name %></td>
-        <td><%= link_to 'Show', club %></td>
-        <td><%= link_to 'Edit', edit_club_path(club) %></td>
-        <td><%= link_to 'Destroy', club, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="club-container">
+  <% @clubs.each do |club| %>
+    <div class="club-box">
+        <% if club.logo.attached? %>
+          <%= link_to image_tag(club.logo, size: "80x80"), club, class:"club-logo" %>
+          <%= link_to club.name, club, class:"club-name" %>
+          <div class="club-functions">
+            <%= link_to 'Show', club %>
+            <%= link_to 'Edit', edit_club_path(club) %>
+            <%= link_to 'Destroy', club, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% else %>
+           <%= link_to club.name, club, class:"club-name" %>
+            <div class="club-functions">
+              <%= link_to 'Show', club %>
+              <%= link_to 'Edit', edit_club_path(club) %>
+              <%= link_to 'Destroy', club, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
-
-<%= link_to 'New Club', new_club_path %>
+  <div class="new-club">
+  <%= link_to 'New Club', new_club_path %>
+  </div>
