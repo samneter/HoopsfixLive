@@ -6,28 +6,39 @@ padding-bottom: 30px;
 }
 
 .club-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
 .club-box {
-flex: auto;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 1fr;
 }
 
-
-
 .club-logo {
-
+  display: grid;
+  grid-column: 1/2;
+  grid-row: 1/3;
+  padding: 20px;
 }
 
 .club-name {
-  display: flex;
+  display: grid;
+  grid-column: 2/3;
+  grid-row: -3/-1;
   align-items: center;
-  justify-content: center;
 }
 
 .club-functions {
+  display: flex;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  font-size: x-small;
+  padding: 15px;
+  justify-content: space-evenly;
+
 }
 
 .new-club {
