@@ -3,18 +3,16 @@
 
 <div class="club-container">
   <% @clubs.each do |club| %>
+
     <div class="club-box">
         <% if club.logo.attached? %>
           <%= link_to image_tag(club.logo, size: "80x80"), club, class:"club-logo" %>
           <%= link_to club.name, club, class:"club-name" %>
-          <div class="club-functions">
-            <%= link_to 'Show', club %>
-            <%= link_to 'Edit', edit_club_path(club) %>
-            <%= link_to 'Destroy', club, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% else %>
-           <%= link_to club.name, club, class:"club-name" %>
+      <% else %>
+        <%= link_to club.name, club, class:"club-name" %>
+      <% end %>
+      <% if user_signed_in? %>
             <div class="club-functions">
-              <%= link_to 'Show', club %>
               <%= link_to 'Edit', edit_club_path(club) %>
               <%= link_to 'Destroy', club, method: :delete, data: { confirm: 'Are you sure?' } %>
               <% end %>
@@ -23,6 +21,8 @@
     <% end %>
   </div>
 
+  <% if user_signed_in? %>
   <div class="new-club">
   <%= link_to 'New Club', new_club_path %>
   </div>
+  <% end %>
