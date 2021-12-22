@@ -11,8 +11,8 @@
       <% else %>
         <%= link_to club.name, club, class:"club-name" %>
       <% end %>
-      <% if user_signed_in? %>
             <div class="club-functions">
+              <% if user_signed_in? %>
               <%= link_to 'Edit', edit_club_path(club) %>
               <%= link_to 'Destroy', club, method: :delete, data: { confirm: 'Are you sure?' } %>
               <% end %>
