@@ -7,6 +7,12 @@
     <%= link_to image_tag(competition.logo, size: "80x80"), competition, class:"comp-competition" %>
       <%= link_to competition.name, competition, class:"comp-competition-name" %>
     </div>
+    <div class="competition-functions">
+      <% if current_user && current_user.admin %>
+        <%= link_to 'Edit', edit_competition_path(competition) %>
+        <%= link_to 'Destroy', competition, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </div>
 
   <% end %>
     </div>

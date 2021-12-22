@@ -12,7 +12,7 @@
         <%= link_to club.name, club, class:"club-name" %>
       <% end %>
             <div class="club-functions">
-              <% if user_signed_in? %>
+              <% if current_user && current_user.admin %>
               <%= link_to 'Edit', edit_club_path(club) %>
               <%= link_to 'Destroy', club, method: :delete, data: { confirm: 'Are you sure?' } %>
               <% end %>
@@ -21,7 +21,7 @@
     <% end %>
   </div>
 
-  <% if user_signed_in? %>
+  <% if current_user && current_user.admin %>
   <div class="new-club">
   <%= link_to 'New Club', new_club_path %>
   </div>

@@ -3,7 +3,7 @@
     <div class="love">Made with ❤️ by the <a href="https://hoopsfixfoundation.org" target="_blank">Hoopsfix Foundation</a></div>
      <div>
       <ul class="foooter-nav">
-      <% if current_user %>
+      <% if current_user && current_user.admin %>
         <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class:"nav-link-footer" %>
       <% else %>
         <%= link_to 'Sign In', new_user_session_path, class:"nav-link-footer" %>
