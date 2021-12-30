@@ -2,12 +2,12 @@
 <h1 class="heading">Pending British basketball live streams</h1>
 <div class="container">
   <!-- Dynamically insert date -->
-  <% @unapproved_games.each do |hash_elements|%>
-    <h2 class="comp-date"><%= hash_elements.first %></h2>
+  <% @unapproved_games.each do |unapproved_game|%>
+    <h2 class="comp-date"><%= unapproved_game.first %></h2>
     <!-- Stream Info is set as grid with 3 columns and auto rows -->
     <div class="stream-info">
       <!-- Stream item is a single item created dynamically for each entry -->
-      <% hash_elements.last.each do |game| %>
+      <% unapproved_game.last.each do |game| %>
         <div class="stream-item">
           <!-- Play button that takes you to the live event -->
           <%= link_to raw('<i class="far fa-play-circle"></i>'), game, :method =>"get", class:"live" %>
@@ -35,6 +35,13 @@
           <div class="fixture-details">
             <!-- Tipoff time -->
             <p class="time"><%= game.tip_time.strftime("%H:%M") %></p>
+
+            <% if game.approved? %>
+              <%= link_to 'Unapprove', approve_game_path(game, status: 'unapproved'), method: :put %>
+            <% else %>
+              <%= link_to 'Approve', approve_game_path(game, status: 'approved'), method: :put %>
+            <% end %>
+
             <% if game.is_live? %>
               <p class="live-marker"><i class="fas fa-circle"></i> LIVE</p>
             <% end %>

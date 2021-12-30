@@ -5,7 +5,6 @@ class GamesController < ApplicationController
   def index
       @games = Game.all
       @grouped_games = Game.order(:date, :tip_time).group_by{ |g| g.date.strftime("%A %d %B %Y")}
-      @unapproved_games = Game.where(:status => 'unapproved').all
   end
 
   # GET /games/1 or /games/1.json
@@ -27,7 +26,7 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       if @game.save
-        format.html { redirect_to @game, notice: "Game was successfully created." }
+        format.html { redirect_to @game, notice: "Game was successfully submitted for approval." }
         format.json { render :show, status: :created, location: @game }
       else
         format.html { render :new, status: :unprocessable_entity }
