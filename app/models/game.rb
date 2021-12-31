@@ -4,17 +4,18 @@ class Game < ApplicationRecord
   belongs_to :competition
   enum status: [ :unapproved, :approved ]
 
+  def formatted_tip_time
+    "#{tip_time.to_s[0..1]}:#{tip_time.to_s[2..-1]}"
+  end
+
   # List both clubs as array
   def clubs
     [home_club, away_club]
   end
 
   def is_live?
-    is_live_at?(Time.now)
-  end
-
-  def is_live_at?(time)
-    time.between?(self.tip_time, self.tip_time + 105.minutes)
+    start_time = "#{date} #{formatted_tip_time}".to_time
+    Time.zone.now.between?(start_time, start_time + 105.minutes)
   end
 
 

@@ -67,7 +67,7 @@
           <!-- Fixture information -->
           <div class="fixture-details">
             <!-- Tipoff time -->
-            <p class="time"><%= game.tip_time.strftime("%H:%M") %></p>
+            <p class="time"><%= game.formatted_tip_time %></p>
             <p class="live-marker hidden"><i class="fas fa-circle"></i> LIVE</p>
           </div>
           <div class="competition">
@@ -77,7 +77,10 @@
         </div>
       <% end %>
     </div>
-    </br>
+
+  <% end %>
+  </div>
+  </br>
 <h1 class="heading">Past <%=@club.name%> live streams</h1>
   <div class="container">
       <!-- Dynamically insert date -->
@@ -113,7 +116,7 @@
               <!-- Fixture information -->
               <div class="fixture-details">
                 <!-- Tipoff time -->
-                <p class="time"><%= game.tip_time.strftime("%H:%M") %></p>
+                <p class="time"><%= game.formatted_tip_time %></p>
                 <p class="live-marker hidden"><i class="fas fa-circle"></i> LIVE</p>
               </div>
               <div class="competition">
@@ -123,5 +126,5 @@
             </div>
           <% end %>
         </div>
-  <% end %>
-  <% end %>
+      <% end %>
+  </div>

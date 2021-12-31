@@ -25,7 +25,7 @@
         <td><%= stream.game.home_club.name %></td>
         <td><%= stream.game.away_club.name %></td>
         <td><%= stream.game.date.strftime("%d/%m/%Y") %></td>
-        <td><%= stream.game.tip_time.strftime("%H:%M") %></td>
+        <td><%= stream.game.formatted_tip_time %></td>
         <td><%= link_to image_tag("emojis/tv.png"), stream.stream_url, target: "_blank" %></td>
         <td><%= link_to image_tag("emojis/bar-chart.png"), stream.game.live_stats_url, target: "_blank" %></td>
         <td><%= link_to 'Show', stream %></td>
