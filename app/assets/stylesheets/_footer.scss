@@ -23,7 +23,6 @@
 
 .footer-nav {
   display: flex;
-  height: 100%;
 }
 
 a.nav-link-footer {
@@ -48,4 +47,21 @@ a:visited.nav-link-footer
   padding: 15px 20px;
   border-radius: 5px;
   margin-top: 15px;
+}
+
+@media screen and (max-width: 900px) {
+  .footer .container-fluid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .love {
+    grid-column: 1/2;
+    text-align: center;
+    padding: 15px 0
+  }
+
+  .footer-nav {
+    justify-content: space-evenly;
+  }
 }
