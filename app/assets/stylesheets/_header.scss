@@ -5,11 +5,26 @@
 }
 
 .navbar {
+  position: relative;
   max-width: 1000px;
   padding: 15px;
   color: white;
   margin: 0 auto;
   background: #333333 url(https://www.hoopsfix.com/wp-content/themes/hottopix/images/menu-fade.png) repeat-x bottom;
+}
+
+.navbar .toggle {
+  font-size: 32px;
+  padding: 0 15px;
+  display: none;
+}
+
+.navbar .toggle:hover {
+  cursor: pointer;
+}
+
+.navbar-nav {
+  height: 100%;
 }
 
 .navbar .container-fluid {
@@ -22,12 +37,7 @@
   align-items: center;
 }
 
-.navbar-nav {
-  height: 100%;
-}
-
 a.nav-link {
-  max-width: 110px;
   padding: 5px 20px;
   text-transform: uppercase;
   height: 100%;
@@ -48,4 +58,35 @@ a:visited.nav-link
   padding: 15px 20px;
   border-radius: 5px;
   margin-top: 15px;
+}
+
+@media screen and (max-width: 900px) {
+  .navbar .toggle {
+    display: block;
+  }
+
+  .navbar-nav.show {
+    display: flex;
+  }
+
+  .navbar-nav {
+    display: none;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #333333;
+    padding: 25px;
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 25px 10px; 
+  }
 }

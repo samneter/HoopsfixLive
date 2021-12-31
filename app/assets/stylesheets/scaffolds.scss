@@ -14,13 +14,15 @@ pre {
   font-size: 11px; }
 
 a {
-  color: #000; }
+  color: inherit;
+}
 
 a:visited {
   color: #666; }
 
 a:hover {
-  color: #fff;
+  color: #333;
+  font-weight: 600;
    }
 
 th {
@@ -29,11 +31,36 @@ th {
 td {
   padding: 0 5px 7px; }
 
+ul {
+  list-style-type: none;
+}
+
 div.field,
-div.actions {
-  margin-bottom: 10px; }
+div.actions,
+div.field.form-group {
+  margin: 10px 0; 
+  padding: 0;
+  width: 100%
+}
 
+.field select {
+  width: 100%;
+}
 
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 70px;
+}
+
+.heading, 
+.form-h1 {
+  font-size: 1.5rem;
+  margin: 30px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
 
 #notice {
   color: green; }
