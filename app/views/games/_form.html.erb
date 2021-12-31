@@ -1,49 +1,44 @@
 <script>
-    (function($) {
-        $(function(){
-            const gameHomeClubId = $('#game_home_club_id');
-            const gameAwayClubId = $('#game_away_club_id');
-            const gameHomeClubOptionGroups = $('#game_home_club_id > optgroup');
-            const gameAwayClubOptionGroups = $('#game_away_club_id > optgroup');
-            const gameCompetitionId = $('#game_competition_id');
+  (function($) {
+    $(function(){
+      const isNewRoute = location.pathname.endsWith('new');
+      const gameHomeClubId = $('#game_home_club_id');
+      const gameAwayClubId = $('#game_away_club_id');
+      const gameHomeClubOptionGroups = $('#game_home_club_id > optgroup');
+      const gameAwayClubOptionGroups = $('#game_away_club_id > optgroup');
+      const gameCompetitionId = $('#game_competition_id');
 
-            function updateMenuOptions(selectedGameText) {
-                const teamOptionGroups = [
-                    gameHomeClubOptionGroups,
-                    gameAwayClubOptionGroups,
-                ];
-
-                for (let teamOptionGroup of teamOptionGroups) {
-                    for (let optionGroup of teamOptionGroup) {
-                        const optionGroupLabel = optionGroup.label;
-
-                        if (optionGroupLabel === selectedGameText) {
-                            optionGroup.style.display = "inherit";
-                        } else {
-                            optionGroup.style.display = "none";
-                        }
-                    }
-
-                    gameHomeClubId[0].value = null;
-                    gameAwayClubId[0].value = null;
-                }
+      function updateMenuOptions(selectedGameText, gameHomeClubValue, gameAwayClubValue) {
+        const teamOptionGroups = [
+          gameHomeClubOptionGroups,
+          gameAwayClubOptionGroups,
+	@@ -24,8 +25,8 @@
             }
+          }
 
-            function handleCompetitionChange(event) {
-                const gameCompetitionMenuOptions = event.target.options;
-                const selectedGameIndex = event.target.selectedIndex;
-                const selectedGameText = gameCompetitionMenuOptions[selectedGameIndex].innerText;
+          gameHomeClubId[0].value = gameHomeClubValue;
+          gameAwayClubId[0].value = gameAwayClubValue;
+        }
+      }
 
-                updateMenuOptions(selectedGameText);
-            }
+      function handleCompetitionChange(event) {
+        const gameCompetitionMenuOptions = event.target.options;
+        const selectedGameIndex = event.target.selectedIndex;
+        const selectedGameText = gameCompetitionMenuOptions[selectedGameIndex].innerText;
 
+        updateMenuOptions(selectedGameText, null, null);
+      }
 
-            const initialSelectedGameText = gameCompetitionId[0].options[0].innerText;
-            updateMenuOptions(initialSelectedGameText);
+      const initialSelectedGameText = gameCompetitionId[0].options[0].innerText;
+      if (!isNewRoute) {
+        updateMenuOptions(initialSelectedGameText, gameHomeClubId[0].value, gameAwayClubId[0].value);
+      } else {
+        updateMenuOptions(initialSelectedGameText, null, null);
+      }
 
-            gameCompetitionId.change(handleCompetitionChange);
-        });
-    })(jQuery)
+      gameCompetitionId.change(handleCompetitionChange);
+    });
+})(jQuery)
 </script>
 <%= form_with(model: game) do |form| %>
   <% if game.errors.any? %>
