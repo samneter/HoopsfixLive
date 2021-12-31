@@ -1,49 +1,49 @@
 <script>
-  (function($) {
-    $(function(){
-      const gameHomeClubId = $('#game_home_club_id');
-      const gameAwayClubId = $('#game_away_club_id');
-      const gameHomeClubOptionGroups = $('#game_home_club_id > optgroup');
-      const gameAwayClubOptionGroups = $('#game_away_club_id > optgroup');
-      const gameCompetitionId = $('#game_competition_id');
+    (function($) {
+        $(function(){
+            const gameHomeClubId = $('#game_home_club_id');
+            const gameAwayClubId = $('#game_away_club_id');
+            const gameHomeClubOptionGroups = $('#game_home_club_id > optgroup');
+            const gameAwayClubOptionGroups = $('#game_away_club_id > optgroup');
+            const gameCompetitionId = $('#game_competition_id');
 
-      function updateMenuOptions(selectedGameText) {
-        const teamOptionGroups = [
-          gameHomeClubOptionGroups,
-          gameAwayClubOptionGroups,
-        ];
+            function updateMenuOptions(selectedGameText) {
+                const teamOptionGroups = [
+                    gameHomeClubOptionGroups,
+                    gameAwayClubOptionGroups,
+                ];
 
-        for (let teamOptionGroup of teamOptionGroups) {
-          for (let optionGroup of teamOptionGroup) {
-            const optionGroupLabel = optionGroup.label;
+                for (let teamOptionGroup of teamOptionGroups) {
+                    for (let optionGroup of teamOptionGroup) {
+                        const optionGroupLabel = optionGroup.label;
 
-            if (optionGroupLabel === selectedGameText) {
-              optionGroup.style.display = "inherit";
-            } else {
-              optionGroup.style.display = "none";
+                        if (optionGroupLabel === selectedGameText) {
+                            optionGroup.style.display = "inherit";
+                        } else {
+                            optionGroup.style.display = "none";
+                        }
+                    }
+
+                    gameHomeClubId[0].value = null;
+                    gameAwayClubId[0].value = null;
+                }
             }
-          }
 
-          gameHomeClubId[0].value = null;
-          gameAwayClubId[0].value = null;
-        }
-      }
+            function handleCompetitionChange(event) {
+                const gameCompetitionMenuOptions = event.target.options;
+                const selectedGameIndex = event.target.selectedIndex;
+                const selectedGameText = gameCompetitionMenuOptions[selectedGameIndex].innerText;
 
-      function handleCompetitionChange(event) {
-        const gameCompetitionMenuOptions = event.target.options;
-        const selectedGameIndex = event.target.selectedIndex;
-        const selectedGameText = gameCompetitionMenuOptions[selectedGameIndex].innerText;
-
-        updateMenuOptions(selectedGameText);
-      }
+                updateMenuOptions(selectedGameText);
+            }
 
 
-      const initialSelectedGameText = gameCompetitionId[0].options[0].innerText;
-      updateMenuOptions(initialSelectedGameText);
+            const initialSelectedGameText = gameCompetitionId[0].options[0].innerText;
+            updateMenuOptions(initialSelectedGameText);
 
-      gameCompetitionId.change(handleCompetitionChange);
-    });
-})(jQuery)
+            gameCompetitionId.change(handleCompetitionChange);
+        });
+    })(jQuery)
 </script>
 <%= form_with(model: game) do |form| %>
   <% if game.errors.any? %>
