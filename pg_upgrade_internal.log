@@ -1,0 +1,7 @@
+
+-----------------------------------------------------------------
+  pg_upgrade run on Fri Dec 31 19:01:14 2021
+-----------------------------------------------------------------
+
+check for "/usr/local/Cellar/postgresql/bin" failed: No such file or directory
+
