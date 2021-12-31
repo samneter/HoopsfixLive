@@ -12,7 +12,16 @@
         const teamOptionGroups = [
           gameHomeClubOptionGroups,
           gameAwayClubOptionGroups,
-	@@ -24,8 +25,8 @@
+        ];
+
+        for (let teamOptionGroup of teamOptionGroups) {
+          for (let optionGroup of teamOptionGroup) {
+            const optionGroupLabel = optionGroup.label;
+
+            if (optionGroupLabel === selectedGameText) {
+              optionGroup.style.display = "inherit";
+            } else {
+              optionGroup.style.display = "none";
             }
           }
 
