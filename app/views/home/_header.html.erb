@@ -8,13 +8,17 @@
           <%= link_to 'Submit Your Live Stream', new_game_path, class:"btn btn-warning" %>
       </ul>
       <div class="toggle" id="toggle">
-        <i class="fas fa-bars"></i>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
       </div>
     </div>
 </nav>
 
 <script>
-  document.getElementById('toggle').addEventListener('click', (e) => {
+  let toggle = document.getElementById('toggle')
+  toggle.addEventListener('click', (e) => {
     document.querySelector('.navbar-nav').classList.toggle('show')
+    toggle.classList.toggle('active')
   })
 </script>
