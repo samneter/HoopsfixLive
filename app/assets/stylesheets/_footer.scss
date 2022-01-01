@@ -1,26 +1,11 @@
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-.footer {
-  max-width: 1000px;
+footer {
   padding: 20px;
-  color: white;
-  margin: 0 auto;
   background: #333333 url(https://www.hoopsfix.com/wp-content/themes/hottopix/images/menu-fade.png) repeat-x bottom;
-}
-
-.footer .container-fluid {
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+footer,
 .footer-nav {
   display: flex;
 }
@@ -33,28 +18,20 @@ a.nav-link-footer {
   justify-content: flex-end;
 }
 
+footer,
 a:active.nav-link-footer,
 a:visited.nav-link-footer
 {
   color: white;
 }
 
-.btn-warning {
-  background-color: #f0ad4e;
-}
-
-.btn {
-  padding: 15px 20px;
-  border-radius: 5px;
-  margin-top: 15px;
-}
-
 @media screen and (max-width: 900px) {
-  .footer .container-fluid {
+  .footer {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
   }
+
   .love {
     grid-column: 1/2;
     text-align: center;
@@ -63,5 +40,20 @@ a:visited.nav-link-footer
 
   .footer-nav {
     justify-content: space-evenly;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    grid-template-rows: 1fr 3fr;
+  }
+  
+  .footer-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-nav li {
+    padding: 5px;
   }
 }
