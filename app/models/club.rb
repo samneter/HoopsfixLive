@@ -5,7 +5,8 @@ class Club < ApplicationRecord
   has_many :memberships
   has_many :competitions, through: :memberships
   has_one_attached :logo
-
+  extend FriendlyId
+  friendly_id :name, use: :slugged
   #Gets all games
   def games
     self.home_games + self.away_games

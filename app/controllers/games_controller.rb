@@ -9,6 +9,7 @@ class GamesController < ApplicationController
 
   # GET /games/1 or /games/1.json
   def show
+    @game = Game.friendly.find(params[:id])
   end
 
   # GET /games/new
@@ -60,7 +61,7 @@ class GamesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_game
-      @game = Game.find(params[:id])
+      @game = Game.friendly.find(params[:id])
     end
 
 
