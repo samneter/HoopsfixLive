@@ -23,6 +23,16 @@
   cursor: pointer;
 }
 
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #ffffff;
+}
+
 .navbar-nav {
   height: 100%;
 }
@@ -88,5 +98,17 @@ a:visited.nav-link
     width: 100%;
     text-align: center;
     padding: 25px 10px; 
+  }
+
+  .toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .toggle.active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+  }
+
+  .toggle.active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
   }
 }
