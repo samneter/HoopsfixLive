@@ -3,6 +3,14 @@ class Game < ApplicationRecord
   belongs_to :away_club, class_name: 'Club', foreign_key: "away_club_id"
   belongs_to :competition
   enum status: [ :unapproved, :approved ]
+  extend FriendlyId
+  friendly_id :home_vs_away, use: :sequentially_slugged
+
+  def home_vs_away
+    "#{home_club.name}" + " vs " + "#{away_club.name}"
+  end
+
+
 
   def formatted_tip_time
     "#{tip_time.to_s[0..1]}:#{tip_time.to_s[2..-1]}"

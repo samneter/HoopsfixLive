@@ -1,6 +1,6 @@
 class ApproveGameController < ApplicationController
   def update
-    @game = Game.find(params[:id])
+    @game = Game.friendly.find(params[:id])
     @game.update_attribute :status, get_params
     respond_to do |format|
       format.html { redirect_to root_path, notice: 'Game was successfully approved!' }

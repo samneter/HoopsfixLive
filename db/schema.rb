@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_31_141428) do
+ActiveRecord::Schema.define(version: 2022_01_01_045056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,7 +53,9 @@ ActiveRecord::Schema.define(version: 2021_12_31_141428) do
     t.string "tiktok"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
     t.index ["name"], name: "index_clubs_on_name"
+    t.index ["slug"], name: "index_clubs_on_slug", unique: true
   end
 
   create_table "competitions", force: :cascade do |t|
@@ -61,7 +63,20 @@ ActiveRecord::Schema.define(version: 2021_12_31_141428) do
     t.string "website"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
     t.index ["name"], name: "index_competitions_on_name"
+    t.index ["slug"], name: "index_competitions_on_slug", unique: true
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -75,9 +90,11 @@ ActiveRecord::Schema.define(version: 2021_12_31_141428) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "status", default: 0, null: false
     t.integer "tip_time"
+    t.string "slug"
     t.index ["away_club_id"], name: "index_games_on_away_club_id"
     t.index ["competition_id"], name: "index_games_on_competition_id"
     t.index ["home_club_id"], name: "index_games_on_home_club_id"
+    t.index ["slug"], name: "index_games_on_slug", unique: true
   end
 
   create_table "memberships", force: :cascade do |t|
