@@ -1,18 +1,20 @@
+<header>
 <nav class="navbar">
-  <div class="container-fluid">
     <%= link_to image_tag("hoopsfix-live-logo.png"), root_path, class:"navbar-brand" %>
       <ul class="navbar-nav ml-auto">
         <%= link_to 'Competitions', competitions_path, class:"nav-link" %>
         <%= link_to 'Clubs', clubs_path, class:"nav-link" %>
         <%= link_to 'Archive', archive_path, class:"nav-link" %>
-          <%= link_to 'Submit Your Live Stream', new_game_path, class:"btn btn-warning" %>
+        <%= link_to 'Submit Your Live Stream', new_game_path, class:"btn btn-warning submit-btn" %>
       </ul>
-      <div class="toggle" id="toggle">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+      <div class="responsive-controls">
+        <%= link_to 'Submit Your Live Stream', new_game_path, class:"btn btn-warning submit-btn" %>
+        <div class="toggle" id="toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
       </div>
-    </div>
 </nav>
 
 <script>
@@ -22,3 +24,4 @@
     toggle.classList.toggle('active')
   })
 </script>
+</header>

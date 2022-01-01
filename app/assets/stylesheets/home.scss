@@ -4,20 +4,9 @@
 /* Import Goopgle font Montserrat for the body */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500&display=swap");
 
-/* Set all elements to have 0 padding and margin. Border-box makes all dimension factored into the total */
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
 
 /* Off white bg and grey text throughout */
-body {
-  background-color: #efefef;
-  font-family: "Montserrat", sans-serif;
-  color: rgb(77, 77, 77);
-}
+
 
 /* Remove default styling on links */
 a,
