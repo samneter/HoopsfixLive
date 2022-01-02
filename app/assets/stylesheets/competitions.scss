@@ -1,9 +1,6 @@
 // Place all the styles related to the Competitions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.heading {
-
-}
 
 .comp-container {
   display: flex;
@@ -18,14 +15,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.comp-competition {
-
-}
-
-.comp-competition-name {
-
 }
 
 .new-competition {
@@ -48,4 +37,45 @@
   font-size: x-small;
   padding: 15px;
   justify-content: space-evenly;
+}
+
+.comp-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50px repeat(2, auto);
+  gap: 30px;
+  padding: 50px;
+  text-align: center;
+}
+
+.comp-info h1,
+.comp-info .comp-links {
+  text-align: left;
+}
+
+.comp-info .comp-logo {
+  grid-row: 1/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comp-info .comp-controls {
+  padding: 20px 0;
+}
+
+.comp-info .comp-clubs {
+  grid-column: 1/3;
+  padding: 20px 5px;
+}
+
+.comp-info .comp-clubs .comp-clubs-logos {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.comp-socials {
+  padding: 15px 0;
+  font-size: 24px;
 }
