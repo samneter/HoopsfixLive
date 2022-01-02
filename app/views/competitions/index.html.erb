@@ -3,10 +3,14 @@
 
 <div class="comp-container">
   <% @competitions.each do |competition| %>
-    <div class="comp-logo-name"
-    <%= link_to image_tag(competition.logo, size: "80x80"), competition, class:"comp-competition" %>
-      <%= link_to competition.name, competition, class:"comp-competition-name" %>
-    </div>
+      <% if competition.logo.attached? %>
+        <div class="comp-logo-name">
+          <%= link_to image_tag(competition.logo, size: "80x80"), competition, class:"comp-competition" %>
+          <%= link_to competition.name, competition, class:"comp-competition-name" %>
+        </div>
+      <% else %>
+        <%= link_to competition.name, competition, class:"comp-competition-name" %>
+      <% end %>
     <div class="competition-functions">
       <% if current_user && current_user.admin %>
         <%= link_to 'Edit', edit_competition_path(competition) %>
