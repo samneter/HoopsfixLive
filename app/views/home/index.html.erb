@@ -58,6 +58,9 @@
 <% end %>
 
 <h1 class="heading">Upcoming British basketball live streams</h1>
+<% if @grouped_games.blank? %>
+  <p>There are currently no scheduled streams!</p>
+<% else %>
 <div class="container">
   <!-- Dynamically insert date -->
   <% @grouped_games.each do |hash_elements|%>
@@ -106,6 +109,7 @@
   </div>
 
   <% end %>
+<% end %>
 </div>
   <%= link_to 'Submit Your Live Stream', new_game_path, class:"btn btn-warning" %>
 </div>
