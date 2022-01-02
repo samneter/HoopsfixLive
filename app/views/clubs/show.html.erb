@@ -34,6 +34,9 @@
 </br>
 <h1 class="heading">Upcoming <%=@club.name%> live streams</h1>
 <div class="container">
+  <% if @club_games.blank? %>
+    <p><%=@club.name%> do not currently have any scheduled streams.</p>
+  <% else %>
   <!-- Dynamically insert date -->
   <% @club_games.each do |hash_elements|%>
     <h2 class="comp-date"><%= hash_elements.first %></h2>
@@ -77,12 +80,15 @@
         </div>
       <% end %>
     </div>
-
+    <% end %>
   <% end %>
   </div>
   </br>
 <h1 class="heading">Past <%=@club.name%> live streams</h1>
   <div class="container">
+    <% if @past_games.blank? %>
+      <p><%=@club.name%> do not have any streams in our database yet.</p>
+    <% else %>
       <!-- Dynamically insert date -->
       <% @past_games.each do |hash_elements|%>
         <h2 class="comp-date"><%= hash_elements.first %></h2>
@@ -127,4 +133,5 @@
           <% end %>
         </div>
       <% end %>
+    <% end %>
   </div>
