@@ -18,18 +18,20 @@
       <a href=""><i class="fab fa-youtube"></i></a>
       <a href=""><i class="fab fa-tiktok"></i></a>
     </div>
+    <% if current_user && current_user.admin %>
     <div class="comp-controls">
       <%= link_to 'Edit', edit_competition_path(@competition) %> |
       <%= link_to 'Back', competitions_path %>
     </div>
+    <% end %>
   </div>
 
   <div class="comp-clubs">
     <h2 class="heading">Clubs:</h2>
     <div class="comp-clubs-logos">
-      <% @competition.clubs.each do |clubs| %>
-        <% if clubs.logo.attached? %>
-          <%= image_tag clubs.logo, :size => "50x50" %>
+      <% @competition.clubs.each do |club| %>
+        <% if club.logo.attached? %>
+          <%= link_to image_tag(club.logo, :size => "50x50"), club %>
         <% end %>
       <% end %>
     </div>
