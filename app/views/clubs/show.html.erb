@@ -7,13 +7,13 @@
 <% end %>
 
 <p>
-<% if @club.instagram.present? %>
+<% if @club.website.present? %>
 <%= link_to image_tag("social/web.png", :size => "20x20"), @club.website, target: "_blank" %>
 <% end %>
-<% if @club.instagram.present? %>
+<% if @club.youtube.present? %>
 <%= link_to image_tag("social/youtube.png", :size => "20x20"), @club.youtube, target: "_blank" %>
 <% end %>
-  <% if @club.instagram.present? %>
+  <% if @club.facebook.present? %>
 <%= link_to image_tag("social/facebook.png", :size => "20x20"), @club.facebook, target: "_blank" %>
 <% end %>
   <% if @club.twitter.present? %>
