@@ -5,7 +5,7 @@ class StreamsController < ApplicationController
   def index
     @games = Game.all
     @streams = Stream.where.not(game_id: nil)
-    @grouped_streams = Game.order(:date, :tip_time).group_by{ |g| g.date.strftime("%A %d %B %Y")}
+    @grouped_streams = Game.order(:date, :tip_time).group_by{ |g| g.date.strftime("%A %-d %B %Y")}
   end
 
   # GET /streams/1 or /streams/1.json

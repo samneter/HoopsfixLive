@@ -4,7 +4,7 @@ class GamesController < ApplicationController
   # GET /games or /games.json
   def index
       @games = Game.all
-      @grouped_games = Game.order(:date, :tip_time).group_by{ |g| g.date.strftime("%A %d#{g.date.day.ordinal} %B %Y")}
+      @grouped_games = Game.order(:date, :tip_time).group_by{ |g| g.date.strftime("%A %-d#{g.date.day.ordinal} %B %Y")}
   end
 
   # GET /games/1 or /games/1.json
