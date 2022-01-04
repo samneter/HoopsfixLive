@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h1 class="heading"><%= title (@club.name) %></h1>
 <% if @club.logo.attached? %>
   <p>
   <%= image_tag @club.logo, :size => "200x200" %>

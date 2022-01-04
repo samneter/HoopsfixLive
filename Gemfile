@@ -65,3 +65,7 @@ gem 'groupdate'
 gem 'youtube_addy'
 
 gem 'pry'
+
+# Add seo meta tags to pages
+gem 'meta-tags'
+

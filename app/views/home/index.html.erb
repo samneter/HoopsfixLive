@@ -1,4 +1,5 @@
 <% if current_user && current_user.admin %>
+
 <h1 class="heading">Pending British basketball live streams</h1>
 <div class="container">
   <!-- Dynamically insert date -->
@@ -56,8 +57,9 @@
 
   <% end %>
 <% end %>
-
-<h1 class="heading">Upcoming British basketball live streams</h1>
+<h1 class="heading"><%= title 'Upcoming British basketball live streams' %></h1>
+<% @page_description %>
+<% @page_keywords %>
 <% if @grouped_games.blank? %>
   <p>There are currently no scheduled streams!</p>
 <% else %>
