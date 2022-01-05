@@ -85,53 +85,43 @@
   </div>
   </br>
 <h1 class="heading">Past <%=@club.name%> live streams</h1>
-  <div class="container">
     <% if @past_games.blank? %>
       <p><%=@club.name%> do not have any streams in our database yet.</p>
     <% else %>
-      <!-- Dynamically insert date -->
-      <% @past_games.each do |hash_elements|%>
-        <h2 class="comp-date"><%= hash_elements.first %></h2>
-        <!-- Stream Info is set as grid with 3 columns and auto rows -->
-        <div class="stream-info">
-          <!-- Stream item is a single item created dynamically for each entry -->
-          <% hash_elements.last.each do |game| %>
-            <div class="stream-item">
-              <!-- Play button that takes you to the live event -->
-              <%= link_to raw('<i class="far fa-play-circle"></i>'), game, :method =>"get", class:"live" %>
+<table class="table">
+  <thead>
 
-              <!-- Team division -->
-              <div class="teams">
-                <!-- Team details on left -->
-                <div class="home-team">
-                  <!-- Home team logo -->
-                  <%= link_to image_tag(game.home_club.logo), game.home_club %>
-                  <p class="name-city"><%= link_to game.home_club.name, game.home_club %></p>
-                  <!--<p class="name-team">RIDERS</p>-->
-                </div>
-                <p class="at">VS</p>
-                <!-- Team details on right -->
-                <div class="away-team">
-                  <!-- Away team logo-->
-                  <%= link_to image_tag(game.away_club.logo), game.away_club  %>
-                  <p class="name-city"><%= link_to game.away_club.name, game.away_club %></p>
-                  <!--<p class="name-team">RAIDERS</p>-->
-                </div>
-
-              </div>
-              <!-- Fixture information -->
-              <div class="fixture-details">
-                <!-- Tipoff time -->
-                <p class="time"><%= game.formatted_tip_time %></p>
-                <p class="live-marker hidden"><i class="fas fa-circle"></i> LIVE</p>
-              </div>
-              <div class="competition">
-                <!-- Competition logo -->
-                <%= link_to image_tag(game.competition.logo), competition_path(game.competition) %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+  <tr>
+    <th>Competition</th>
+    <th>Home team</th>
+    <th>Away team</th>
+    <th>Date</th>
+    <th>Tip time</th>
+    <th>Stream link</th>
+    <th>Live stats link</th>
+    <% if current_user && current_user.admin %>
+      <th colspan="3"></th>
     <% end %>
-  </div>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @past_games.each do |game| %>
+    <tr>
+      <td><%= link_to game.competition.name, game.competition %></td>
+      <td><%= link_to game.home_club.name, game.home_club %></td>
+      <td><%= link_to game.away_club.name, game.away_club %></td>
+      <td><%= game.date.strftime("%d/%m/%Y") %></td>
+      <td><%= game.formatted_tip_time %></td>
+      <td><%= link_to image_tag("emojis/tv.png"), game_path(game), target: "_blank" %></td></td>
+      <td><%= link_to image_tag("emojis/bar-chart.png"), game.live_stat_url, target: "_blank" %></td>
+      <% if current_user && current_user.admin %>
+        <td><%= link_to 'Show', game %></td>
+        <td><%= link_to 'Edit', edit_game_path(game) %></td>
+        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<% end %>
