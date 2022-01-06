@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', '~> 4.8'
 gem 'friendly_id', '~> 5.4.0'
+gem 'will_paginate', '~> 3.3'
 
 
 group :development, :test do
@@ -68,4 +69,6 @@ gem 'pry'
 
 # Add seo meta tags to pages
 gem 'meta-tags'
+
+
 
