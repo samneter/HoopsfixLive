@@ -35,7 +35,7 @@
           <!-- Fixture information -->
           <div class="fixture-details">
             <!-- Tipoff time -->
-            <p class="time"><%= game.tip_time %></p>
+            <p class="time"><%= game.formatted_tip_time %></p>
 
             <% if game.approved? %>
               <%= link_to 'Unapprove', approve_game_path(game, status: 'unapproved'), method: :put %>

@@ -10,10 +10,12 @@ class Game < ApplicationRecord
     "#{home_club.name}" + " vs " + "#{away_club.name}"
   end
 
-
+  def tip_time
+    "#{self[:tip_time].to_s[0..1]}:#{self[:tip_time].to_s[2..-1]}".to_time
+  end
 
   def formatted_tip_time
-    "#{tip_time.to_s[0..1]}:#{tip_time.to_s[2..-1]}"
+    tip_time.strftime('%H:%M')
   end
 
   # List both clubs as array
