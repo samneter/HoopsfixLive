@@ -12,7 +12,7 @@ class CompetitionsController < ApplicationController
   def show
     @games = Game.where('date >= ?', Date.current).order(:date)
     @grouped_games = Game.where('competition_id = ? AND date >= ?', @competition, Date.today).order(:date).group_by{ |g| g.date.strftime("%A %-d#{g.date.day.ordinal} %B %Y")}
-    @past_games = Game.where('competition_id = ? AND date < ?', @competition, Date.today).order(date: :desc)
+    @past_games = Game.where('competition_id = ? AND date < ?', @competition, Date.today).order(date: :desc).paginate(page: params[:page], per_page:10)
   end
 
   # GET /competitions/new
