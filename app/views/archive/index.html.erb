@@ -1,4 +1,4 @@
-<h1 class="heading">Stream Archive Table</h1>
+<h1 class="heading"><%= title 'British Basketball Live Stream Archive' %></h1>
 <table class="table">
   <thead>
 
@@ -19,7 +19,7 @@
   <tbody>
   <% @past_games.each do |game| %>
     <tr>
-      <td><%= link_to game.competition.name, game.competition %></td>
+      <td><%= link_to image_tag(game.competition.logo, size: "40x40"), competition_path(game.competition) %></td>
       <td><%= link_to game.home_club.name, game.home_club %></td>
       <td><%= link_to game.away_club.name, game.away_club %></td>
       <td><%= game.date.strftime("%d/%m/%Y") %></td>
@@ -35,3 +35,7 @@
   <% end %>
   </tbody>
 </table>
+
+<div class="pagination-links">
+  <%= will_paginate @past_games %>
+</div>
