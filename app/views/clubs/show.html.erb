@@ -38,12 +38,12 @@
     <p><%=@club.name%> do not currently have any scheduled streams.</p>
   <% else %>
   <!-- Dynamically insert date -->
-  <% @club_games.each do |hash_elements|%>
-    <h2 class="comp-date"><%= hash_elements.first %></h2>
+  <% @club_games.each do |club_game|%>
+    <h2 class="comp-date"><%= club_game.first %></h2>
     <!-- Stream Info is set as grid with 3 columns and auto rows -->
     <div class="stream-info">
       <!-- Stream item is a single item created dynamically for each entry -->
-      <% hash_elements.last.each do |game| %>
+      <% club_game.last.each do |game| %>
         <div class="stream-item">
           <!-- Play button that takes you to the live event -->
           <%= link_to raw('<i class="far fa-play-circle"></i>'), game, :method =>"get", class:"live" %>

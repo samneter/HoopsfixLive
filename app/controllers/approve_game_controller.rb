@@ -1,4 +1,6 @@
 class ApproveGameController < ApplicationController
+  before_action :authenticate_user!, only: [:update]
+
   def update
     @game = Game.friendly.find(params[:id])
     @game.update_attribute :status, get_params
