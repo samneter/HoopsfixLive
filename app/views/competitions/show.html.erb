@@ -10,13 +10,23 @@
 
   <div class="comp-links">
     <strong>Website:</strong>
-    <%= @competition.website %>
+    <%= link_to @competition.website %>
     <div class="comp-socials">
-      <a href=""><i class="fab fa-facebook-square"></i></a>
-      <a href=""><i class="fab fa-twitter-square"></i></a>
-      <a href=""><i class="fab fa-instagram"></i></a>
-      <a href=""><i class="fab fa-youtube"></i></a>
-      <a href=""><i class="fab fa-tiktok"></i></a>
+      <% if @competition.youtube.present? %>
+        <%= link_to image_tag("social/youtube.png", :size => "20x20"), @competition.youtube, target: "_blank" %>
+      <% end %>
+      <% if @competition.facebook.present? %>
+        <%= link_to image_tag("social/facebook.png", :size => "20x20"), @competition.facebook, target: "_blank" %>
+      <% end %>
+      <% if @competition.twitter.present? %>
+        <%= link_to image_tag("social/twitter.png", :size => "20x20"), @competition.twitter, target: "_blank" %>
+      <% end %>
+      <% if @competition.instagram.present? %>
+        <%= link_to image_tag("social/instagram.png", :size => "20x20"), @competition.instagram, target: "_blank" %>
+      <% end %>
+      <% if @competition.tiktok.present? %>
+        <%= link_to image_tag("social/tiktok.png", :size => "20x20"), @competition.tiktok, target: "_blank" %>
+      <% end %>
     </div>
     <% if current_user && current_user.admin %>
     <div class="comp-controls">

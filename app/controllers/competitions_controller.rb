@@ -68,6 +68,6 @@ class CompetitionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def competition_params
-      params.require(:competition).permit(:name, :logo, :website)
+      params.require(:competition).permit(:name, :logo, :website, :facebook, :youtube, :twitter, :instagram, :tiktok)
     end
 end
