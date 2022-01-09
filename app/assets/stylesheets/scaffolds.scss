@@ -48,7 +48,6 @@ a:visited {
 
 a:hover {
   color: #333;
-  font-weight: 600;
    }
 
 th {
@@ -121,15 +120,25 @@ label {
   display: block; }
 
 .btn {
+  position: relative;
   padding: 15px 20px;
   border-radius: 5px;
   text-transform: uppercase;
   color: #f0f0f0;
   text-align: center;
+  border: none;
 }
 
 .btn-warning {
   background-color: #ffbf00;
+  color: #636363;
+}
+
+.btn:hover {
+  cursor: pointer;
+  transition: all 0.5s ease;
+  background-color: #d29f08;
+  color: #fefefe;
 }
 
 @media screen and (max-width: 600px) {
