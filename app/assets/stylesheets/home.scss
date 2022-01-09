@@ -48,8 +48,9 @@ wrap on the page when using different devices */
 Slight border radius. Fixed height. Slight shadow to add depth
 3 column, 2 row grid */
 .stream-item {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(2, minmax(50px, 75px)) 8fr;
+  grid-template-columns: repeat(2, 60px) auto;
   grid-template-rows: 2fr 1fr;
   grid-gap: 0;
   width: 100%;
@@ -69,6 +70,7 @@ add hover gradient effect */
   grid-column: 2/3;
   grid-row: 1/3;
   width: 100%;
+  max-width: 60px;
   height: 100%;
   color: #fff;
   font-size: 42px;
@@ -127,11 +129,10 @@ a:visited, .live i {
 
 /* Hover styles for team links */
 .home-team:hover,
-.away-team:hover,
-.home-team:hover .at,
-.away-team:hover .at, {
-  background-color: #ededed;
+.away-team:hover {
+  // background-color: #ededed;
   cursor: pointer;
+  font-weight: 700;
 }
 
 /* Team logo styles, occupies both rows of team info grid */
@@ -160,7 +161,6 @@ a:visited, .live i {
 /* Set font size of all team text */
 .home-team p,
 .away-team p {
-  font-size: 14px;
   font-weight: 500;
   align-self: center;
   padding: 0 10px;
@@ -190,7 +190,8 @@ a:visited, .live i {
 /* Align first part of team name to baseline */
 .home-team p.name-city,
 .away-team p.name-city {
-  align-self: center;
+  text-align: center;
+  font-size: 100%;
 }
 
 /* Occupy bottom row of item and span the width
@@ -243,6 +244,7 @@ top border grey */
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
 
 /* Set the size of the comp image */
