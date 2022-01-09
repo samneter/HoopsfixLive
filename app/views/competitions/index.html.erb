@@ -1,21 +1,23 @@
 <p id="notice"><%= notice %></p>
 <h1 class="heading">Competitions</h1>
 
-<div class="comp-container">
+<div class="container comp-container">
   <% @competitions.each do |competition| %>
-      <% if competition.logo.attached? %>
-        <div class="comp-logo-name">
-          <%= link_to image_tag(competition.logo, size: "80x80"), competition, class:"comp-competition" %>
+      <div class="comp-box">
+        <% if competition.logo.attached? %>
+          <div class="comp-logo-name">
+            <%= link_to image_tag(competition.logo), competition, class:"comp-competition" %>
+            <%= link_to competition.name, competition, class:"comp-competition-name" %>
+          </div>
+        <% else %>
           <%= link_to competition.name, competition, class:"comp-competition-name" %>
-        </div>
-      <% else %>
-        <%= link_to competition.name, competition, class:"comp-competition-name" %>
-      <% end %>
-    <div class="competition-functions">
-      <% if current_user && current_user.admin %>
-        <%= link_to 'Edit', edit_competition_path(competition) %>
-        <%= link_to 'Destroy', competition, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
+        <% end %>
+      <div class="competition-functions">
+        <% if current_user && current_user.admin %>
+          <%= link_to 'Edit', edit_competition_path(competition) %>
+          <%= link_to 'Destroy', competition, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </div>
     </div>
 
   <% end %>
