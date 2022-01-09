@@ -6,6 +6,25 @@ div.field.form-group {
   text-align: left;
 }
 
+div.field label {
+  font-size: 18px;
+  margin: 25px 0 15px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox-group input[type=checkbox] {
+  width: 100px;
+}
+
+.checkbox-group label {
+  width: 100px;
+}
+
 select, input {
   width: 50%;
   padding: 15px 25px;
