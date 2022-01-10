@@ -18,7 +18,7 @@
 
   <div class="field">
     <% if @club.logo.attached? %>
-      <%= image_tag @club.logo, style: "width: 200px; display: block" %>
+      <%= image_tag @club.logo, style: "width: 200px" %>
     <% end %>
 
     <%= form.label :logo %>
@@ -29,8 +29,10 @@
     <%= form.label "Competitions" %>
     <%= hidden_field_tag "club[competition_ids][]", nil %>
     <% Competition.all.each do |competition| %>
-      <%= check_box_tag "club[competition_ids][]", competition.id, @club.competitions.include?(competition), id: dom_id(competition) %>
-      <%= label_tag dom_id(competition), competition.name %>
+      <div class="checkbox-group">
+        <%= check_box_tag "club[competition_ids][]", competition.id, @club.competitions.include?(competition), id: dom_id(competition) %>
+        <%= label_tag dom_id(competition), competition.name %>
+      </div>
     <% end %>
     </div>
 
