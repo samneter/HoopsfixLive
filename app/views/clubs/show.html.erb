@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <h1 class="heading"><%= title (@club.name) %></h1>
 <% if @club.logo.attached? %>
   <p>
@@ -26,12 +25,17 @@
 <%= link_to image_tag("social/tiktok.png", :size => "20x20"), @club.tiktok, target: "_blank" %>
 <% end %>
 </p>
-<strong>Competitions:</strong>
-<% @club.competitions.each do |competitions| %>
-  <%= link_to competitions.name, competitions, target: "_blank" %>
-<% end %>
-</br>
-</br>
+<div class="comp-clubs">
+  <h2 class="heading">Competitions:</h2>
+  <div class="comp-clubs-logos">
+    <% @club.competitions.each do |competition| %>
+      <% if competition.logo.attached? %>
+        <%= link_to image_tag(competition.logo, :size => "50x50"), competition %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
 <h1 class="heading">Upcoming <%=@club.name%> live streams</h1>
 <div class="container">
   <% if @club_games.blank? %>
