@@ -3,18 +3,30 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .comp-container {
-  display: flex;
+  display: grid;
+  gap: 40px 15px;
   width: 100%;
-  max-width: 1000px;
-  align-items: center;
-  margin: 0 auto;
-  justify-content: space-evenly;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.comp-box {
+  display: flex;
+  flex-direction: column;
 }
 
 .comp-logo-name {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.comp-logo-name img {
+  width: 80px;
+}
+
+.comp-competition-name {
+  font-size: 18px;
+  padding: 15px;
 }
 
 .competition-functions {
@@ -25,6 +37,8 @@
   padding: 15px;
   justify-content: space-evenly;
 }
+
+// Competition Show Page //
 
 .comp-info {
   display: grid;
@@ -71,7 +85,27 @@
   font-size: 24px;
 }
 
+@media screen and (max-width: 900px) {
+  .comp-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .comp-logo-name img {
+    width: 100px;
+  }
+}
+
 @media screen and (max-width: 600px) {
+
+  .comp-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .comp-logo-name img {
+    width: 200px;
+  }
+
+  // Competition Show Page //
   .comp-info {
     grid-template-columns: repeat(1, 1fr);
   }
