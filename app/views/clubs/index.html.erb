@@ -22,7 +22,7 @@
   </div>
 
   <% if current_user && current_user.admin %>
-  <div class="new-club">
-  <%= link_to 'New Club', new_club_path %>
-  </div>
+  <a href="/clubs/new">
+  <button class="btn btn-success">New Club</button>
+  </a>
   <% end %>

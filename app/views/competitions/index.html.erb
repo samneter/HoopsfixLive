@@ -21,7 +21,7 @@
   <% end %>
     </div>
   <% if user_signed_in? %>
-    <div class="new-competition">
-    <%= link_to 'New Competition', new_competition_path %>
-    </div>
+    <a href="/competitions/new">
+    <button class="btn btn-success">New Competition</button>
+    </a>
   <% end %>

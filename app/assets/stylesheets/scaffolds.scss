@@ -119,9 +119,11 @@ div.field.form-group {
 label {
   display: block; }
 
-.btn {
+.btn,
+.actions input {
   position: relative;
   padding: 15px 20px;
+  margin: 20px 0;
   border-radius: 5px;
   text-transform: uppercase;
   color: #f0f0f0;
@@ -129,16 +131,31 @@ label {
   border: none;
 }
 
+.btn:hover,
+.actions input:hover {
+  cursor: pointer;
+}
+
 .btn-warning {
   background-color: #ffbf00;
   color: #636363;
 }
 
-.btn:hover {
-  cursor: pointer;
+.btn-warning:hover {
   transition: all 0.5s ease;
   background-color: #d29f08;
   color: #fefefe;
+}
+
+.btn-success,
+.actions input {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.btn-success:hover,
+.actions input:hover {
+  background-color: #0d8644;
 }
 
 @media screen and (max-width: 600px) {
