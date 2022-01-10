@@ -27,7 +27,7 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       if @game.save
-        AdminMailer.with(user: @user).submission_email.deliver_now
+        AdminMailer.submission_email(@user).deliver_now
         format.html { redirect_to @game, notice: "Game was successfully submitted for approval." }
         format.json { render :show, status: :created, location: @game }
       else
