@@ -5,6 +5,13 @@ class Game < ApplicationRecord
   enum status: [ :unapproved, :approved ]
   extend FriendlyId
   friendly_id :home_vs_away, use: :sequentially_slugged
+  validates :competition_id, presence: true
+  validates :home_club_id, presence: true
+  validates :away_club_id, presence: true
+  validates :date, presence: true
+  validates :stream_url, presence: true
+  validates :tip_time, presence: true
+
 
   def home_vs_away
     "#{home_club.name}" + " vs " + "#{away_club.name}"
@@ -27,6 +34,5 @@ class Game < ApplicationRecord
     start_time = "#{date} #{formatted_tip_time}".to_time
     Time.zone.now.between?(start_time, start_time + 105.minutes)
   end
-
 
 end
