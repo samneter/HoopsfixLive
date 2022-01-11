@@ -1,4 +1,5 @@
 class LiveStatsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_live_stat, only: %i[ show edit update destroy ]
 
   # GET /live_stats or /live_stats.json

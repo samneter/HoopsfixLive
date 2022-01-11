@@ -1,10 +1,10 @@
 class StreamsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_stream, only: %i[ show edit update destroy ]
 
   # GET /streams or /streams.json
   def index
     @games = Game.all
-    @streams = Stream.where.not(game_id: nil)
     @grouped_streams = Game.order(:date, :tip_time).group_by{ |g| g.date.strftime("%A %-d %B %Y")}
   end
 
