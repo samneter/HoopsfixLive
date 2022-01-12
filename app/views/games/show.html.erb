@@ -33,11 +33,12 @@
   <strong>Stream:</strong>
   <%= link_to image_tag("emojis/tv.png"), @game.stream_url, target: "_blank" %>
 </p>
-
+  <% if @game.live_stat_url.present? %>
 <p>
   <strong>Live stats:</strong>
   <%= link_to image_tag("emojis/bar-chart.png"), @game.live_stat_url, target: "_blank" %>
 </p>
+  <% end %>
 </div>
 
 <% if current_user && current_user.admin %>

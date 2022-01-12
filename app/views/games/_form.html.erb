@@ -63,35 +63,35 @@
   <% end %>
   <div class="field form-group">
     <%= form.label "Competition" %>
-    <%= form.collection_select(:competition_id, Competition.all, :id, :name, {}, { :multiple => false } ) %>
+    <%= form.collection_select(:competition_id, Competition.all, :id, :name, {}, { :multiple => false, :required => true } ) %>
   </div>
   </br>
 
   <div class="field form-group">
     <%= form.label "Home Team" %>
-    <%= form.grouped_collection_select(:home_club_id, Competition.order(:name), :clubs, :name, :id, :name, {}, { :multiple => false } ) %>
+    <%= form.grouped_collection_select(:home_club_id, Competition.order(:name), :clubs, :name, :id, :name, {}, { :multiple => false, :required => true } ) %>
   </div>
   </br>
 
   <div class="field form-group">
     <%= form.label "Away Team" %>
-    <%= form.grouped_collection_select(:away_club_id, Competition.order(:name), :clubs, :name, :id, :name, {}, { :multiple => false } ) %>
+    <%= form.grouped_collection_select(:away_club_id, Competition.order(:name), :clubs, :name, :id, :name, {}, { :multiple => false, :required => true } ) %>
   </div>
   </br>
 
 
   <div class="field form-group">
     <%= form.label :date %>
-    <%= form.date_field :date, class:"form-control" %>
+    <%= form.date_field :date, :required => true, class:"form-control" %>
   </div>
   </br>
   <div class="field form-group">
     <%= form.label :tip_time %>
-    <%= form.time_field :tip_time, class:"form-control" %>
+    <%= form.time_field :tip_time, :required => true, class:"form-control" %>
   </div>
   </br>
   <div class="field form-group">
-    <%= form.text_field :stream_url, class:"form-control", placeholder: "Stream link" %>
+    <%= form.text_field :stream_url, :required => true, class:"form-control", placeholder: "Stream link" %>
   </div>
   </br>
   <div class="field form-group">
