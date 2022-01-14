@@ -1,8 +1,9 @@
 <!doctype html>
 <html lang="en">
-<head>
 
+<head>
   <!-- Required meta tags -->
+  <%= display_meta_tags(default_meta_tags) %>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,11 +15,6 @@
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
     crossorigin="anonymous"
     />
-  <%= display_meta_tags site: 'Hoopsfix Live | British Basketball Streams' %>
-  <title>Hoopsfix Live | British Basketball Streams</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -52,3 +48,5 @@
 
 </div>
 </html>
+
+
