@@ -11,7 +11,12 @@
       <% unapproved_game.last.each do |game| %>
         <div class="stream-item">
           <!-- Play button that takes you to the live event -->
-          <%= link_to raw('<i class="far fa-play-circle"></i>'), game, :method =>"get", class:"live" %>
+          <%# <%= link_to raw('<i class="far fa-play-circle"></i>'), game, :method =>"get", class:"live" %>
+          <% if game.approved? %>
+              <%= link_to raw('<i class="far fa-play-circle"></i>'), approve_game_path(game, status: 'unapproved'), method: :put, class:"live" %>
+            <% else %>
+              <%= link_to raw('<i class="far fa-check-circle"></i>'), approve_game_path(game, status: 'approved'), method: :put, class:"live" %>
+            <% end %>
 
           <!-- Team division -->
           <div class="teams">
@@ -34,23 +39,18 @@
           </div>
           <!-- Fixture information -->
           <div class="fixture-details">
+            <div class="competition">
+              <!-- Competition logo -->
+              <%= link_to image_tag(game.competition.logo), competition_path(game.competition) %>
+            </div>
             <!-- Tipoff time -->
             <p class="time"><%= game.formatted_tip_time %></p>
-
-            <% if game.approved? %>
-              <%= link_to 'Unapprove', approve_game_path(game, status: 'unapproved'), method: :put %>
-            <% else %>
-              <%= link_to 'Approve', approve_game_path(game, status: 'approved'), method: :put %>
-            <% end %>
 
             <% if game.is_live? %>
               <p class="live-marker"><i class="fas fa-circle"></i> LIVE</p>
             <% end %>
           </div>
-          <div class="competition">
-            <!-- Competition logo -->
-            <%= link_to image_tag(game.competition.logo), competition_path(game.competition) %>
-          </div>
+          
         </div>
       <% end %>
     </div>
@@ -101,11 +101,12 @@
         <% if game.is_live? %>
         <p class="live-marker"><i class="fas fa-circle"></i> LIVE</p>
         <% end %>
-      </div>
-      <div class="competition">
+        <div class="competition">
         <!-- Competition logo -->
         <%= link_to image_tag(game.competition.logo), competition_path(game.competition) %>
       </div>
+      </div>
+      
     </div>
     <% end %>
   </div>
