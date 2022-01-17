@@ -70,5 +70,8 @@ gem 'pry'
 # Add seo meta tags to pages
 gem 'meta-tags'
 
+# Add Amazon AWS for imsage storage
+gem 'aws-sdk-s3', require: false
+
 
 
