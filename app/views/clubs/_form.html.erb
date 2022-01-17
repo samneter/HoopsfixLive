@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :abbreviation %>
+    <%= form.text_field :abbreviation %>
+  </div>
+
+  <div class="field">
     <% if @club.logo.attached? %>
       <%= image_tag @club.logo, style: "width: 200px" %>
     <% end %>
