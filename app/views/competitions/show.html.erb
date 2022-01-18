@@ -11,7 +11,7 @@
 
   <div class="comp-links">
     <strong>Website:</strong>
-    <%= link_to @competition.website %>
+    <%= link_to "#{@competition.website}", @competition.website, target: "_blank" %>
     <div class="comp-socials">
       <% if @competition.youtube.present? %>
         <%= link_to image_tag("social/youtube.png", :size => "20x20"), @competition.youtube, target: "_blank" %>
