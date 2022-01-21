@@ -9,9 +9,9 @@ class ClubsController < ApplicationController
 
   # GET /clubs/1 or /clubs/1.json
   def show
-    @games = Game.where('date >= ?', Date.current).order(:date)
-    @club_games = Game.where('(home_club_id = ? OR away_club_id = ?) AND date >= ?', @club.id, @club.id, Date.today).order(:date).group_by{ |g| g.date.strftime("%A %-d#{g.date.day.ordinal} %B %Y")}
-    @past_games = Game.where('(home_club_id = ? OR away_club_id = ?) AND date < ?', @club.id, @club.id, Date.today).order(date: :desc).paginate(page: params[:page], per_page:10)
+    @games = Game.approved.where('date >= ?', Date.current).order(:date)
+    @club_games = Game.approved.where('(home_club_id = ? OR away_club_id = ?) AND date >= ?', @club.id, @club.id, Date.today).order(:date).group_by{ |g| g.date.strftime("%A %-d#{g.date.day.ordinal} %B %Y")}
+    @past_games = Game.approved.where('(home_club_id = ? OR away_club_id = ?) AND date < ?', @club.id, @club.id, Date.today).order(date: :desc).paginate(page: params[:page], per_page:10)
   end
 
 

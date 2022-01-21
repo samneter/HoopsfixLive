@@ -43,6 +43,7 @@
 </div>
 
 <% if current_user && current_user.admin %>
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', root_path %>
+  <%= link_to 'Edit', edit_game_path(@game) %> |
+  <%= link_to 'Destroy', @game, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'Back', root_path %>
 <% end %>
