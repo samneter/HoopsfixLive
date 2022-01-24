@@ -5,6 +5,7 @@ class ClubsController < ApplicationController
   # GET /clubs or /clubs.json
   def index
     @clubs = Club.all
+    @sorted_clubs = Club.all.sort {|a,b| a <=> b}
   end
 
   # GET /clubs/1 or /clubs/1.json

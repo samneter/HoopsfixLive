@@ -2,7 +2,7 @@
 <h1 class="heading">Clubs</h1>
 
 <div class="container club-container">
-  <% @clubs.each do |club| %>
+  <% @sorted_clubs.each do |club| %>
 
     <div class="club-box">
         <% if club.logo.attached? %>
