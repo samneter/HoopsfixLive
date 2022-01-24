@@ -9,11 +9,11 @@
 <div class="game-show">
   <div class="game-show-body">
     <div class="game-show-home-team"><div class="game-show-team-name">  <%= link_to @game.home_club.name, @game.home_club %>
-    </div><div class="game-show-team-logo"><%= link_to image_tag(@game.home_club.logo), @game.home_club %></div></div>
+    </div><div class="game-show-team-logo"><%= link_to image_tag(@game.home_club.logo, size: "65x65"), @game.home_club %></div></div>
     <div class="game-show-comp"><div class="game-show-date">  <%= @game.date.strftime("%d/%m/%Y") %>
     </div><div class="game-show-comp-logo"><%= link_to image_tag(@game.competition.logo), @game.competition %></div><div class="game-show-time">  <%= @game.formatted_tip_time  %>
     </div></div>
-    <div class="game-show-away-team"><div class="game-show-team-logo"><%= link_to image_tag(@game.away_club.logo), @game.away_club %></div><div class="game-show-team-name"><%= link_to @game.away_club.name, @game.away_club %></div></div>
+    <div class="game-show-away-team"><div class="game-show-team-logo"><%= link_to image_tag(@game.away_club.logo, size: "65x65"), @game.away_club %></div><div class="game-show-team-name"><%= link_to @game.away_club.name, @game.away_club %></div></div>
   </div>
   <div class="game-show-controls">
     <% if current_user && current_user.admin %>
