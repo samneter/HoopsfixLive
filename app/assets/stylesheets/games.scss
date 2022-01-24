@@ -4,3 +4,95 @@
 .game-details {
   text-align: left;
 }
+
+
+.game-show {
+  width: 100%;
+  height: 200px;
+  margin: 25px auto;
+
+  .game-show-body {
+    display: grid;
+    grid-template-columns: 400px 150px 400px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .game-show-body::before {
+    content: '';
+    position: absolute;
+    height: 15px;
+    top: 35px;
+    left: 80px;
+    right: 80px;
+    background-color: #000;
+  }
+
+  .game-show-home-team,
+  .game-show-away-team {
+    height: 100px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 3px 0 10px rgba(0,0,0,0.2);
+  }
+
+  .game-show-home-team {
+    justify-content: flex-end;
+  }
+
+  .game-show-away-team {
+    justify-content: flex-start;
+  }
+
+  .game-show-team-logo {
+    width: 65px;
+    height: 65px;
+  }
+
+  .game-show-team-name {
+    flex-grow: 1;
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+
+  .game-show-comp {
+    background: #9D3D3D;
+    height: 200px;
+    display: grid;
+    grid-template-rows: 30px 130px 40px;
+    align-items: center;
+    color: #fff;
+    z-index: 999;
+  }
+
+  .game-show-comp img {
+    width: 50px;
+  }
+
+  .game-show-date,
+  .game-show-time {
+    background-color: #842D2D;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .game-show-date {
+    font-size: 12px;
+  }
+
+  .game-show-time {
+    font-size: 22px;
+  }
+
+  .game-show-controls {
+    margin-top: 25px;
+  }
+
+
+}

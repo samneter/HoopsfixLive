@@ -4,46 +4,21 @@
 <h2 class="heading">Live Stream</h2>
 
 <iframe width="100%" height="500" src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(@game.stream_url) %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<div class="game-details">
-<p>
-  <strong>Date:</strong>
-  <%= @game.date.strftime("%d/%m/%Y") %>
-</p>
 
-<p>
-  <strong>Tip time:</strong>
-  <%= @game.formatted_tip_time  %>
-</p>
 
-<p>
-  <strong>Home team:</strong>
-  <%= link_to @game.home_club.name, @game.home_club %>
-</p>
-
-<p>
-  <strong>Away team:</strong>
-  <%= link_to @game.away_club.name, @game.away_club %>
-</p>
-
-<p>
-  <strong>Competition:</strong>
-  <%= link_to @game.competition.name, @game.competition %>
-</p>
-
-<p>
-  <strong>Stream:</strong>
-  <%= link_to image_tag("emojis/tv.png"), @game.stream_url, target: "_blank" %>
-</p>
-  <% if @game.live_stat_url.present? %>
-<p>
-  <strong>Live stats:</strong>
-  <%= link_to image_tag("emojis/bar-chart.png"), @game.live_stat_url, target: "_blank" %>
-</p>
-  <% end %>
+<div class="game-show">
+  <div class="game-show-body">
+    <div class="game-show-home-team"><div class="game-show-team-name">  <%= link_to @game.home_club.name, @game.home_club %>
+    </div><div class="game-show-team-logo"><%= link_to image_tag(@game.home_club.logo), @game.home_club %></div></div>
+    <div class="game-show-comp"><div class="game-show-date">  <%= @game.date.strftime("%d/%m/%Y") %>
+    </div><div class="game-show-comp-logo"><%= link_to image_tag(@game.competition.logo), @game.competition %></div><div class="game-show-time">  <%= @game.formatted_tip_time  %>
+    </div></div>
+    <div class="game-show-away-team"><div class="game-show-team-logo"><%= link_to image_tag(@game.away_club.logo), @game.away_club %></div><div class="game-show-team-name"><%= link_to @game.away_club.name, @game.away_club %></div></div>
+  </div>
+  <div class="game-show-controls">
+    <% if current_user && current_user.admin %>
+    <%= link_to 'Edit', edit_game_path(@game) %> |
+    <%= link_to 'Destroy', @game, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <%= link_to 'Back', root_path %>
+  <% end %></div>
 </div>
-
-<% if current_user && current_user.admin %>
-  <%= link_to 'Edit', edit_game_path(@game) %> |
-  <%= link_to 'Destroy', @game, method: :delete, data: { confirm: 'Are you sure?' } %> |
-  <%= link_to 'Back', root_path %>
-<% end %>
