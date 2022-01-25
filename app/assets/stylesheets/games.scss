@@ -47,7 +47,8 @@
     justify-content: flex-start;
   }
 
-  .game-show-team-logo {
+  .game-show-team-logo,
+  .game-show-team-logo img{
     width: 65px;
     height: 65px;
   }
@@ -88,6 +89,28 @@
 
   .game-show-time {
     font-size: 22px;
+  }
+
+  .game-show-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #842d2d;
+    margin: 10px 0;
+  }
+
+  .game-show-link__stream,
+  .game-show-link__follow {
+    margin: 0 15px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .game-show-link__stream i,
+  .game-show-link__follow i {
+    margin: 0 5px;
   }
 
   .game-show-controls {
