@@ -1,0 +1,17 @@
+<h1 class="heading"><%= @organisation.name %></h1>
+<% if @organisation.logo.attached? %>
+  <p>
+    <%= image_tag @organisation.logo, :size => "200x200" %>
+  </p>
+<% end %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @organisation.name %>
+</p>
+<p>
+  <strong>Abbreviation:</strong>
+  <%= @organisation.abbreviation %>
+</p>
+<%= link_to 'Edit', edit_organisation_path(@organisation) %> |
+<%= link_to 'Back', organisations_path %>

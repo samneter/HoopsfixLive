@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_17_053150) do
+ActiveRecord::Schema.define(version: 2022_01_29_071136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,7 +70,11 @@ ActiveRecord::Schema.define(version: 2022_01_17_053150) do
     t.string "twitter"
     t.string "instagram"
     t.string "tiktok"
+    t.string "type"
+    t.integer "parent_competition_id"
+    t.integer "organisation_id"
     t.index ["name"], name: "index_competitions_on_name"
+    t.index ["parent_competition_id"], name: "index_competitions_on_parent_competition_id"
     t.index ["slug"], name: "index_competitions_on_slug", unique: true
   end
 
@@ -97,9 +101,11 @@ ActiveRecord::Schema.define(version: 2022_01_17_053150) do
     t.integer "status", default: 0, null: false
     t.integer "tip_time"
     t.string "slug"
+    t.bigint "season_id"
     t.index ["away_club_id"], name: "index_games_on_away_club_id"
     t.index ["competition_id"], name: "index_games_on_competition_id"
     t.index ["home_club_id"], name: "index_games_on_home_club_id"
+    t.index ["season_id"], name: "index_games_on_season_id"
     t.index ["slug"], name: "index_games_on_slug", unique: true
   end
 
@@ -110,6 +116,20 @@ ActiveRecord::Schema.define(version: 2022_01_17_053150) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["club_id"], name: "index_memberships_on_club_id"
     t.index ["competition_id"], name: "index_memberships_on_competition_id"
+  end
+
+  create_table "organisations", force: :cascade do |t|
+    t.string "name"
+    t.string "abbreviation"
+    t.string "slug"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "seasons", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -130,6 +150,7 @@ ActiveRecord::Schema.define(version: 2022_01_17_053150) do
   add_foreign_key "games", "clubs", column: "away_club_id"
   add_foreign_key "games", "clubs", column: "home_club_id"
   add_foreign_key "games", "competitions"
+  add_foreign_key "games", "seasons"
   add_foreign_key "memberships", "clubs"
   add_foreign_key "memberships", "competitions"
 end

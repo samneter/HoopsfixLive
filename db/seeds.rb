@@ -56,3 +56,4 @@ Club.create( name: "University of East London", abbreviation: "UEL", website: ""
 Club.create( name: "Southwark Pride", abbreviation: "SOU", website: "", youtube: "", facebook: "", twitter: "", instagram: "", tiktok: "", created_at: "2021-12-05 06:14:26.113453000 +0000", updated_at: "2022-01-01 05:54:26.770088000 +0000", slug: "southwark-pride")
 Club.create( name: "Cardiff Met Archers", abbreviation: "CAR", website: "https://cardiffmetarchers.leaguerepublic.com/index...", youtube: "https://www.youtube.com/user/cardiffmetarchers", facebook: "https://www.facebook.com/archersbasket/", twitter: "https://twitter.com/ArchersBasket", instagram: "https://www.instagram.com/archersbasket", tiktok: "", created_at: "2021-12-06 05:52:41.478582000 +0000", updated_at: "2022-01-01 05:54:37.666208000 +0000", slug: "cardiff-met-archers")
 
+

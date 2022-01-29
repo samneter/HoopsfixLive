@@ -1,7 +1,8 @@
 class Competition < ApplicationRecord
-  has_many :memberships
-  has_many :clubs, through: :memberships
-  has_many :games
+  belongs_to :organisation
+  belongs_to :season
+  has_many :clubs, through: :seasons
+  has_many :games, through: :season
   has_one_attached :logo
   extend FriendlyId
   friendly_id :name, use: :slugged
