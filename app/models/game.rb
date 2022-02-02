@@ -1,21 +1,21 @@
 class Game < ApplicationRecord
-  belongs_to :home_club, class_name: 'Club', foreign_key: "home_club_id"
-  belongs_to :away_club, class_name: 'Club', foreign_key: "away_club_id"
+  belongs_to :home_team, class_name: 'Team', foreign_key: "home_team_id"
+  belongs_to :away_team, class_name: 'Team', foreign_key: "away_team_id"
   belongs_to :season, inverse_of: :game
   belongs_to :competition
   enum status: [ :unapproved, :approved ]
   extend FriendlyId
   friendly_id :home_vs_away, use: :sequentially_slugged
   validates :competition_id, presence: true
-  validates :home_club_id, presence: true
-  validates :away_club_id, presence: true
+  validates :home_team_id, presence: true
+  validates :away_team_id, presence: true
   validates :date, presence: true
   validates :stream_url, presence: true
   validates :tip_time, presence: true
 
 
   def home_vs_away
-    "#{home_club.name}" + " vs " + "#{away_club.name}"
+    "#{home_team.name}" + " vs " + "#{away_team.name}"
   end
 
   def tip_time
@@ -26,9 +26,9 @@ class Game < ApplicationRecord
     tip_time.strftime('%H:%M')
   end
 
-  # List both clubs as array
-  def clubs
-    [home_club, away_club]
+  # List both teams as array
+  def teams
+    [home_team, away_team]
   end
 
   def is_live?

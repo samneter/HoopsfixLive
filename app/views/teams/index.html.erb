@@ -1,0 +1,28 @@
+<% set_meta_tags title: 'British Basketball teams', description: 'British basketball teams who live stream their games' %>
+<h1 class="heading">teams</h1>
+
+<div class="container team-container">
+  <% @sorted_teams.each do |team| %>
+
+    <div class="team-box">
+        <% if team.logo.attached? %>
+          <%= link_to image_tag(team.logo, size: "80x80"), team, class:"team-logo" %>
+          <%= link_to team.name, team, class:"team-name" %>
+      <% else %>
+        <%= link_to team.name, team, class:"team-name" %>
+      <% end %>
+            <div class="team-functions">
+              <% if current_user && current_user.admin %>
+              <%= link_to 'Edit', edit_team_path(team) %>
+              <%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <% if current_user && current_user.admin %>
+  <a href="/teams/new">
+  <button class="btn btn-success">New team</button>
+  </a>
+  <% end %>

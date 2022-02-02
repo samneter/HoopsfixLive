@@ -1,6 +1,6 @@
-<% set_meta_tags title: "#{@game.home_club.name+' vs '+ @game.away_club.name}", description: "#{@game.home_club.name+' vs '+ @game.away_club.name+' live stream from the '+ @game.competition.name}" %>
+<% set_meta_tags title: "#{@game.home_team.name+' vs '+ @game.away_team.name}", description: "#{@game.home_team.name+' vs '+ @game.away_team.name+' live stream from the '+ @game.competition.name}" %>
 
-<h1 class="heading"><%= title "#{@game.home_club.name+' vs '+ @game.away_club.name}" %></h1>
+<h1 class="heading"><%= title "#{@game.home_team.name+' vs '+ @game.away_team.name}" %></h1>
 <h2 class="heading">Live Stream</h2>
 
 <iframe width="100%" height="500" src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(@game.stream_url) %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -10,10 +10,10 @@
   <div class="game-show-body">
     <div class="game-show-home-team">
       <div class="game-show-team-name">  
-        <%= link_to @game.home_club.name, @game.home_club %>
+        <%= link_to @game.home_team.name, @game.home_team %>
       </div>
       <div class="game-show-team-logo">
-        <%= link_to image_tag(@game.home_club.logo), @game.home_club %>
+        <%= link_to image_tag(@game.home_team.logo), @game.home_team %>
       </div>
     </div>
     <div class="game-show-comp">
@@ -29,10 +29,10 @@
     </div>
     <div class="game-show-away-team">
       <div class="game-show-team-logo">
-        <%= link_to image_tag(@game.away_club.logo), @game.away_club %>
+        <%= link_to image_tag(@game.away_team.logo), @game.away_team %>
       </div>
       <div class="game-show-team-name">
-        <%= link_to @game.away_club.name, @game.away_club %>
+        <%= link_to @game.away_team.name, @game.away_team %>
       </div>
     </div>
   </div>

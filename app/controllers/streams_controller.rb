@@ -28,13 +28,13 @@ class StreamsController < ApplicationController
   def create
     sp = stream_params
     comp_id = sp[:competition_id]
-    away_club_id = sp[:away_club_id]
-    home_club_id = sp[:home_club_id]
+    away_team_id = sp[:away_team_id]
+    home_team_id = sp[:home_team_id]
     stream_url = sp[:stream_url]
     live_stats_url = sp[:live_stats_url]
     tip_time = sp[:tip_time]
     date = sp[:date]
-    @game = Game.create(competition_id: comp_id, away_club_id: away_club_id, home_club_id: home_club_id, tip_time: tip_time, date: date)
+    @game = Game.create(competition_id: comp_id, away_team_id: away_team_id, home_team_id: home_team_id, tip_time: tip_time, date: date)
     @stream = @game.create_stream(stream_url: stream_url)
     @live_stat = @game.create_live_stat(live_stats_url: live_stats_url)
     @live_stat.save
@@ -82,7 +82,7 @@ class StreamsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def stream_params
-      params.require(:stream).permit(:home_club_id, :away_club_id, :competition_id, :live_stats_url, :tip_time, :date, :stream_url, :live_stats_url)
+      params.require(:stream).permit(:home_team_id, :away_team_id, :competition_id, :live_stats_url, :tip_time, :date, :stream_url, :live_stats_url)
     end
   end
 

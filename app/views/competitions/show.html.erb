@@ -37,12 +37,12 @@
     <% end %>
   </div>
 
-  <div class="comp-clubs">
-    <h2 class="heading">Clubs:</h2>
-    <div class="comp-clubs-logos">
-      <% @competition.clubs.each do |club| %>
-        <% if club.logo.attached? %>
-          <%= link_to image_tag(club.logo, :size => "50x50"), club %>
+  <div class="comp-teams">
+    <h2 class="heading">teams:</h2>
+    <div class="comp-teams-logos">
+      <% @competition.teams.each do |team| %>
+        <% if team.logo.attached? %>
+          <%= link_to image_tag(team.logo, :size => "50x50"), team %>
         <% end %>
       <% end %>
     </div>
@@ -70,16 +70,16 @@
               <!-- Team details on left -->
               <div class="home-team">
                 <!-- Home team logo -->
-                <%= link_to image_tag(game.home_club.logo), game.home_club %>
-                <p class="name-city"><%= link_to game.home_club.name, game.home_club %></p>
+                <%= link_to image_tag(game.home_team.logo), game.home_team %>
+                <p class="name-city"><%= link_to game.home_team.name, game.home_team %></p>
                 <!--<p class="name-team">RIDERS</p>-->
               </div>
               <p class="at">VS</p>
               <!-- Team details on right -->
               <div class="away-team">
                 <!-- Away team logo-->
-                <%= link_to image_tag(game.away_club.logo), game.away_club  %>
-                <p class="name-city"><%= link_to game.away_club.name, game.away_club %></p>
+                <%= link_to image_tag(game.away_team.logo), game.away_team  %>
+                <p class="name-city"><%= link_to game.away_team.name, game.away_team %></p>
                 <!--<p class="name-team">RAIDERS</p>-->
               </div>
 
@@ -123,8 +123,8 @@
         <tbody>
         <% @past_games.each do |game| %>
           <tr>
-            <td><%= link_to game.home_club.name, game.home_club %></td>
-            <td><%= link_to game.away_club.name, game.away_club %></td>
+            <td><%= link_to game.home_team.name, game.home_team %></td>
+            <td><%= link_to game.away_team.name, game.away_team %></td>
             <td><%= game.date.strftime("%d/%m/%Y") %></td>
             <td><%= game.formatted_tip_time %></td>
             <td><%= link_to image_tag("emojis/tv.png"), game_path(game), target: "_blank" %></td></td>

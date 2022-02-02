@@ -14,7 +14,7 @@ class MembershipsTest < ApplicationSystemTestCase
     visit memberships_url
     click_on "New Membership"
 
-    fill_in "Club", with: @membership.club
+    fill_in "Team", with: @membership.club
     fill_in "Competition", with: @membership.competition
     click_on "Create Membership"
 
@@ -26,7 +26,7 @@ class MembershipsTest < ApplicationSystemTestCase
     visit memberships_url
     click_on "Edit", match: :first
 
-    fill_in "Club", with: @membership.club
+    fill_in "Team", with: @membership.club
     fill_in "Competition", with: @membership.competition
     click_on "Update Membership"
 

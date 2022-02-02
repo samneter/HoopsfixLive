@@ -1,10 +1,10 @@
-<%= form_with(model: club) do |form| %>
-  <% if club.errors.any? %>
+<%= form_with(model: team) do |form| %>
+  <% if team.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(club.errors.count, "error") %> prohibited this club from being saved:</h2>
+      <h2><%= pluralize(team.errors.count, "error") %> prohibited this team from being saved:</h2>
 
       <ul>
-        <% club.errors.each do |error| %>
+        <% team.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -22,8 +22,8 @@
   </div>
 
   <div class="field">
-    <% if @club.logo.attached? %>
-      <%= image_tag @club.logo, style: "width: 200px" %>
+    <% if @team.logo.attached? %>
+      <%= image_tag @team.logo, style: "width: 200px" %>
     <% end %>
 
     <%= form.label :logo %>
@@ -32,10 +32,10 @@
 
   <div class="field">
     <%= form.label "Competitions" %>
-    <%= hidden_field_tag "club[competition_ids][]", nil %>
+    <%= hidden_field_tag "team[competition_ids][]", nil %>
     <% Competition.all.each do |competition| %>
       <div class="checkbox-group">
-        <%= check_box_tag "club[competition_ids][]", competition.id, @club.competitions.include?(competition), id: dom_id(competition) %>
+        <%= check_box_tag "team[competition_ids][]", competition.id, @team.competitions.include?(competition), id: dom_id(competition) %>
         <%= label_tag dom_id(competition), competition.name %>
       </div>
     <% end %>

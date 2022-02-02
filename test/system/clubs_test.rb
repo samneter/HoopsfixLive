@@ -6,38 +6,38 @@ class ClubsTest < ApplicationSystemTestCase
   end
 
   test "visiting the index" do
-    visit clubs_url
+    visit teams_url
     assert_selector "h1", text: "Clubs"
   end
 
-  test "creating a Club" do
-    visit clubs_url
-    click_on "New Club"
+  test "creating a Team" do
+    visit teams_url
+    click_on "New Team"
 
     fill_in "Name", with: @club.name
-    click_on "Create Club"
+    click_on "Create Team"
 
-    assert_text "Club was successfully created"
+    assert_text "Team was successfully created"
     click_on "Back"
   end
 
-  test "updating a Club" do
-    visit clubs_url
+  test "updating a Team" do
+    visit teams_url
     click_on "Edit", match: :first
 
     fill_in "Name", with: @club.name
-    click_on "Update Club"
+    click_on "Update Team"
 
-    assert_text "Club was successfully updated"
+    assert_text "Team was successfully updated"
     click_on "Back"
   end
 
-  test "destroying a Club" do
-    visit clubs_url
+  test "destroying a Team" do
+    visit teams_url
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
 
-    assert_text "Club was successfully destroyed"
+    assert_text "Team was successfully destroyed"
   end
 end

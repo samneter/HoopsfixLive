@@ -1,4 +1,4 @@
 class Membership < ApplicationRecord
   belongs_to :competition
-  belongs_to :club
+  belongs_to :team
 end

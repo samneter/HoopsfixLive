@@ -72,7 +72,7 @@ class GamesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def game_params
       params.require(:game)
-            .permit(:home_club_id, :away_club_id, :competition_id, :live_stat_url, :tip_time, :date, :stream_url)
+            .permit(:home_team_id, :away_team_id, :competition_id, :live_stat_url, :tip_time, :date, :stream_url)
             .tap do |p|
          p[:tip_time] = p[:tip_time].to_time.strftime("%H%M")
       end

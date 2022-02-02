@@ -65,6 +65,6 @@ class MembershipsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def membership_params
-      params.require(:membership).permit(:competition, :club)
+      params.require(:membership).permit(:competition, :team)
     end
 end

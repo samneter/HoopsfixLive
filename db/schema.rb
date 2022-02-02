@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_02_053225) do
+ActiveRecord::Schema.define(version: 2022_02_02_061458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,22 +43,6 @@ ActiveRecord::Schema.define(version: 2022_02_02_053225) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "clubs", force: :cascade do |t|
-    t.string "name"
-    t.string "website"
-    t.string "youtube"
-    t.string "facebook"
-    t.string "twitter"
-    t.string "instagram"
-    t.string "tiktok"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "slug"
-    t.string "abbreviation"
-    t.index ["name"], name: "index_clubs_on_name"
-    t.index ["slug"], name: "index_clubs_on_slug", unique: true
-  end
-
   create_table "competitions", force: :cascade do |t|
     t.string "name"
     t.string "website"
@@ -89,8 +73,8 @@ ActiveRecord::Schema.define(version: 2022_02_02_053225) do
   create_table "games", force: :cascade do |t|
     t.date "date", null: false
     t.bigint "competition_id", null: false
-    t.bigint "home_club_id", null: false
-    t.bigint "away_club_id", null: false
+    t.bigint "home_team_id", null: false
+    t.bigint "away_team_id", null: false
     t.string "live_stat_url"
     t.string "stream_url", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -99,20 +83,20 @@ ActiveRecord::Schema.define(version: 2022_02_02_053225) do
     t.integer "tip_time"
     t.string "slug"
     t.bigint "season_id"
-    t.index ["away_club_id"], name: "index_games_on_away_club_id"
+    t.index ["away_team_id"], name: "index_games_on_away_team_id"
     t.index ["competition_id"], name: "index_games_on_competition_id"
-    t.index ["home_club_id"], name: "index_games_on_home_club_id"
+    t.index ["home_team_id"], name: "index_games_on_home_team_id"
     t.index ["season_id"], name: "index_games_on_season_id"
     t.index ["slug"], name: "index_games_on_slug", unique: true
   end
 
   create_table "memberships", force: :cascade do |t|
-    t.bigint "club_id", null: false
+    t.bigint "team_id", null: false
     t.bigint "competition_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["club_id"], name: "index_memberships_on_club_id"
     t.index ["competition_id"], name: "index_memberships_on_competition_id"
+    t.index ["team_id"], name: "index_memberships_on_team_id"
   end
 
   create_table "organisations", force: :cascade do |t|
@@ -138,6 +122,22 @@ ActiveRecord::Schema.define(version: 2022_02_02_053225) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.string "website"
+    t.string "youtube"
+    t.string "facebook"
+    t.string "twitter"
+    t.string "instagram"
+    t.string "tiktok"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
+    t.string "abbreviation"
+    t.index ["name"], name: "index_teams_on_name"
+    t.index ["slug"], name: "index_teams_on_slug", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -153,12 +153,12 @@ ActiveRecord::Schema.define(version: 2022_02_02_053225) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "games", "clubs", column: "away_club_id"
-  add_foreign_key "games", "clubs", column: "home_club_id"
   add_foreign_key "games", "competitions"
   add_foreign_key "games", "seasons"
-  add_foreign_key "memberships", "clubs"
+  add_foreign_key "games", "teams", column: "away_team_id"
+  add_foreign_key "games", "teams", column: "home_team_id"
   add_foreign_key "memberships", "competitions"
+  add_foreign_key "memberships", "teams"
   add_foreign_key "season_records", "competitions"
   add_foreign_key "season_records", "seasons"
 end

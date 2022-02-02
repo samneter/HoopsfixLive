@@ -2,16 +2,16 @@
   (function($) {
     $(function(){
       const isNewRoute = location.pathname.endsWith('new');
-      const gameHomeClubId = $('#game_home_club_id');
-      const gameAwayClubId = $('#game_away_club_id');
-      const gameHomeClubOptionGroups = $('#game_home_club_id > optgroup');
-      const gameAwayClubOptionGroups = $('#game_away_club_id > optgroup');
+      const gameHometeamId = $('#game_home_team_id');
+      const gameAwayteamId = $('#game_away_team_id');
+      const gameHometeamOptionGroups = $('#game_home_team_id > optgroup');
+      const gameAwayteamOptionGroups = $('#game_away_team_id > optgroup');
       const gameCompetitionId = $('#game_competition_id');
 
-      function updateMenuOptions(selectedCompetitionText, gameHomeClubValue, gameAwayClubValue) {
+      function updateMenuOptions(selectedCompetitionText, gameHometeamValue, gameAwayteamValue) {
         const teamOptionGroups = [
-          gameHomeClubOptionGroups,
-          gameAwayClubOptionGroups,
+          gameHometeamOptionGroups,
+          gameAwayteamOptionGroups,
         ];
 
         for (let teamOptionGroup of teamOptionGroups) {
@@ -33,20 +33,20 @@
             }
           }
 
-          gameHomeClubId[0].value = gameHomeClubValue;
-          gameAwayClubId[0].value = gameAwayClubValue;
+          gameHometeamId[0].value = gameHometeamValue;
+          gameAwayteamId[0].value = gameAwayteamValue;
         }
 
-        if (gameHomeClubValue) {
-          updateOpposingClubOptionVisiblity(selectedCompetitionText, gameAwayClubOptionGroups, gameHomeClubValue)
+        if (gameHometeamValue) {
+          updateOpposingteamOptionVisiblity(selectedCompetitionText, gameAwayteamOptionGroups, gameHometeamValue)
         }
 
-        if (gameAwayClubValue) {
-          updateOpposingClubOptionVisiblity(selectedCompetitionText, gameHomeClubOptionGroups, gameAwayClubValue)
+        if (gameAwayteamValue) {
+          updateOpposingteamOptionVisiblity(selectedCompetitionText, gameHometeamOptionGroups, gameAwayteamValue)
         }
       }
 
-      function updateOpposingClubOptionVisiblity(selectedCompetitionText, optionGroups, clubValue) {
+      function updateOpposingteamOptionVisiblity(selectedCompetitionText, optionGroups, teamValue) {
         for (let optionGroup of optionGroups) {
           const optionGroupLabel = optionGroup.label;
 
@@ -54,7 +54,7 @@
             optionGroup.style.display = "inherit";
 
             for (option of optionGroup.children) {
-              if (option.value === clubValue) {
+              if (option.value === teamValue) {
                 option.style.display = "none"
               } else {
                 option.style.display = "inherit"
@@ -75,21 +75,21 @@
       function handleCompetitionTeamChange(event) {
         updateMenuOptions(
           gameCompetitionId[0].options[gameCompetitionId[0].options.selectedIndex].innerText,
-          gameHomeClubId[0].value, 
-          gameAwayClubId[0].value,
+          gameHometeamId[0].value,
+          gameAwayteamId[0].value,
         );
       }
 
       const initialSelectedGameText = gameCompetitionId[0].options[0].innerText;
       if (!isNewRoute) {
-        updateMenuOptions(initialSelectedGameText, gameHomeClubId[0].value, gameAwayClubId[0].value);
+        updateMenuOptions(initialSelectedGameText, gameHometeamId[0].value, gameAwayteamId[0].value);
       } else {
         updateMenuOptions(initialSelectedGameText, null, null);
       }
 
       gameCompetitionId.change(handleCompetitionChange);
-      gameHomeClubId.change(handleCompetitionTeamChange);
-      gameAwayClubId.change(handleCompetitionTeamChange);
+      gameHometeamId.change(handleCompetitionTeamChange);
+      gameAwayteamId.change(handleCompetitionTeamChange);
     });
 })(jQuery)
 </script>
@@ -113,13 +113,13 @@
 
   <div class="field form-group">
     <%= form.label "Home Team" %>
-    <%= form.grouped_collection_select(:home_club_id, Competition.order(:name), :clubs, :name, :id, :name, {}, { :multiple => false, :required => true } ) %>
+    <%= form.grouped_collection_select(:home_team_id, Competition.order(:name), :teams, :name, :id, :name, {}, { :multiple => false, :required => true } ) %>
   </div>
   </br>
 
   <div class="field form-group">
     <%= form.label "Away Team" %>
-    <%= form.grouped_collection_select(:away_club_id, Competition.order(:name), :clubs, :name, :id, :name, {}, { :multiple => false, :required => true } ) %>
+    <%= form.grouped_collection_select(:away_team_id, Competition.order(:name), :teams, :name, :id, :name, {}, { :multiple => false, :required => true } ) %>
   </div>
   </br>
 
