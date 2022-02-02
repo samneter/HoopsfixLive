@@ -2,7 +2,7 @@ class Game < ApplicationRecord
   belongs_to :home_club, class_name: 'Club', foreign_key: "home_club_id"
   belongs_to :away_club, class_name: 'Club', foreign_key: "away_club_id"
   belongs_to :season, inverse_of: :game
-  has_one :competition, through: :season
+  belongs_to :competition
   enum status: [ :unapproved, :approved ]
   extend FriendlyId
   friendly_id :home_vs_away, use: :sequentially_slugged
