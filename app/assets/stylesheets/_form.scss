@@ -26,10 +26,10 @@ div.field label {
 }
 
 .radio-button-group {
-  display: flex;
-  flex-direction: row;
-  align-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 475px;
+  margin: 0 auto;
 
 }
 

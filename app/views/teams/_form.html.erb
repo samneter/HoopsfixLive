@@ -44,13 +44,16 @@
   <div class="field">
     <%= form.label "Competitions" %>
     <%= hidden_field_tag "team[competition_ids][]", nil %>
+    <div class="competition-options">
     <% Competition.all.each do |competition| %>
-      <div class="checkbox-group">
+        <div class="checkbox-group">
         <%= check_box_tag "team[competition_ids][]", competition.id, @team.competitions.include?(competition), id: dom_id(competition) %>
         <%= label_tag dom_id(competition), competition.name %>
       </div>
     <% end %>
-    </div>
+  </div>
+  </div>
+
 
   <div class="field">
     <%= form.label :website %>
