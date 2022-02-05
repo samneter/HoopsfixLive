@@ -20,6 +20,7 @@ class TeamsController < ApplicationController
   def new
     @team = Team.new
     @competitions = Competition.all
+    @clubs = Club.all
   end
 
   # GET /teams/1/edit
@@ -71,6 +72,6 @@ class TeamsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def team_params
-      params.require(:team).permit(:name, :abbreviation, :logo, :website, :youtube, :facebook, :twitter, :instagram, :tiktok, :competition_ids=>[])
+      params.require(:team).permit(:name, :abbreviation, :logo, :website, :youtube, :facebook, :twitter, :instagram, :tiktok, :competition_ids=>[], :club_id=>[])
     end
 end

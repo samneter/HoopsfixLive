@@ -1,0 +1,39 @@
+// Place all the styles related to the teams controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.club-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.club-box {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.club-logo {
+  display: grid;
+  grid-column: 1/2;
+  grid-row: 1/3;
+  padding: 20px;
+}
+
+.club-name {
+  display: grid;
+  grid-column: 2/3;
+  grid-row: -3/-1;
+  align-items: center;
+}
+
+.club-functions {
+  display: flex;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  font-size: x-small;
+  padding: 15px;
+  justify-content: space-evenly;
+
+}

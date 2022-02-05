@@ -1,0 +1,28 @@
+<% set_meta_tags title: 'British Basketball clubs', description: 'British basketball clubs who live stream their games' %>
+<h1 class="heading">clubs</h1>
+
+<div class="container club-container">
+  <% @sorted_clubs.each do |club| %>
+
+    <div class="club-box">
+        <% if club.logo.attached? %>
+          <%= link_to image_tag(club.logo, size: "80x80"), club, class:"club-logo" %>
+          <%= link_to club.name, club, class:"club-name" %>
+      <% else %>
+        <%= link_to club.name, club, class:"club-name" %>
+      <% end %>
+            <div class="club-functions">
+              <% if current_user && current_user.admin %>
+              <%= link_to 'Edit', edit_club_path(club) %>
+              <%= link_to 'Destroy', club, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <% if current_user && current_user.admin %>
+  <a href="/clubs/new">
+  <button class="btn btn-success">New club</button>
+  </a>
+  <% end %>

@@ -25,6 +25,22 @@ div.field label {
   width: 100px;
 }
 
+.radio-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio-button-group input[type=radio-button] {
+  width: 100px;
+}
+
+.radio-button-group label {
+  width: 100px;
+}
+
 select, input {
   width: 50%;
   padding: 15px 25px;
