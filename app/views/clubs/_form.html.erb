@@ -33,12 +33,14 @@
   <div class="field">
     <%= form.label "Competitions" %>
     <%= hidden_field_tag "club[competition_ids][]", nil %>
+    <div class="competition-options">
     <% Competition.all.each do |competition| %>
       <div class="checkbox-group">
         <%= check_box_tag "club[competition_ids][]", competition.id, @club.competitions.include?(competition), id: dom_id(competition) %>
         <%= label_tag dom_id(competition), competition.name %>
       </div>
     <% end %>
+    </div>
     </div>
 
   <div class="field">
