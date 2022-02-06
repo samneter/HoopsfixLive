@@ -16,6 +16,19 @@
     <%= form.text_field :name %>
   </div>
 
+  <div class="field">
+    <%= form.label "Competitions" %>
+    <%= hidden_field_tag "season[competition_ids][]", nil %>
+    <div class="competition-options">
+      <% Competition.all.each do |competition| %>
+        <div class="checkbox-group">
+          <%= check_box_tag "season[competition_ids][]", competition.id, @season.competitions.include?(competition), id: dom_id(competition) %>
+          <%= label_tag dom_id(competition), competition.name %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

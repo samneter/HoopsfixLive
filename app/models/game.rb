@@ -6,12 +6,6 @@ class Game < ApplicationRecord
   enum status: [ :unapproved, :approved ]
   extend FriendlyId
   friendly_id :home_vs_away, use: :sequentially_slugged
-  validates :competition_id, presence: true
-  validates :home_team_id, presence: true
-  validates :away_team_id, presence: true
-  validates :date, presence: true
-  validates :stream_url, presence: true
-  validates :tip_time, presence: true
 
 
   def home_vs_away

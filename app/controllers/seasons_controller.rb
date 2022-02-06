@@ -64,6 +64,6 @@ class SeasonsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def season_params
-      params.require(:season).permit(:name)
+      params.require(:season).permit(:name, :competition_ids=>[])
     end
 end
