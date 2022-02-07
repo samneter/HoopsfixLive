@@ -32,10 +32,10 @@
 
   <div class="field">
     <%= form.label "Club" %>
-    <%= hidden_field_tag "team[club_ids][]", nil %>
+    <%= hidden_field_tag "team[club_id][]", nil %>
     <% Club.all.each do |club| %>
       <div class="radio-button-group">
-        <%= radio_button_tag "team[club_ids][]", club.id, @team.club == club, id: dom_id(club) %>
+        <%= radio_button_tag "team[club_id][]", club.id, @team.club == club, id: dom_id(club) %>
         <%= label_tag dom_id(club), club.name %>
       </div>
     <% end %>
