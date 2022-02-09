@@ -3,7 +3,6 @@ class Competition < ApplicationRecord
   #has_many :memberships
   #has_many :games, through: :memberships
   #has_many :teams, through: :memberships
-  has_many :seasons
   has_many :games, through: :seasons
   has_many :teams, through: :seasons
   has_many :season_records
