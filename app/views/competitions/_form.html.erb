@@ -27,11 +27,10 @@
 
   <div class="field">
     <%= form.label "Organisation" %>
-    <%= hidden_field_tag "competition[organisation_id]", nil %>
     <div class="competition-options">
       <% Organisation.all.each do |organisation| %>
         <div class="radio-button-group">
-          <%= radio_button_tag "competition[organisation_id]", organisation.id, @competition.organisation == organisation, id: dom_id(organisation) %>
+          <%= form.radio_button :organisation_id, organisation.id %>
           <%= label_tag dom_id(organisation), organisation.name %>
         </div>
       <% end %>
