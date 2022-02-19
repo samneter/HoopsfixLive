@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_10_055446) do
+ActiveRecord::Schema.define(version: 2022_02_19_061452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,11 +97,9 @@ ActiveRecord::Schema.define(version: 2022_02_10_055446) do
     t.integer "status", default: 0, null: false
     t.integer "tip_time"
     t.string "slug"
-    t.bigint "season_id"
     t.index ["away_team_id"], name: "index_games_on_away_team_id"
     t.index ["competition_id"], name: "index_games_on_competition_id"
     t.index ["home_team_id"], name: "index_games_on_home_team_id"
-    t.index ["season_id"], name: "index_games_on_season_id"
     t.index ["slug"], name: "index_games_on_slug", unique: true
   end
 
@@ -118,21 +116,6 @@ ActiveRecord::Schema.define(version: 2022_02_10_055446) do
     t.string "name"
     t.string "abbreviation"
     t.string "slug"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "season_records", force: :cascade do |t|
-    t.bigint "season_id", null: false
-    t.bigint "competition_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["competition_id"], name: "index_season_records_on_competition_id"
-    t.index ["season_id"], name: "index_season_records_on_season_id"
-  end
-
-  create_table "seasons", force: :cascade do |t|
-    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -170,11 +153,8 @@ ActiveRecord::Schema.define(version: 2022_02_10_055446) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "games", "competitions"
-  add_foreign_key "games", "seasons"
   add_foreign_key "games", "teams", column: "away_team_id"
   add_foreign_key "games", "teams", column: "home_team_id"
   add_foreign_key "memberships", "competitions"
   add_foreign_key "memberships", "teams"
-  add_foreign_key "season_records", "competitions"
-  add_foreign_key "season_records", "seasons"
 end
