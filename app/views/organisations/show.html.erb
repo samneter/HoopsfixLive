@@ -13,5 +13,20 @@
   <strong>Abbreviation:</strong>
   <%= @organisation.abbreviation %>
 </p>
+
+<div class="comp-teams">
+  <h2 class="heading">Competitions:</h2>
+  <div class="comp-teams-logos">
+    <% @organisation.competitions.each do |competition| %>
+      <% if competition.logo.attached? %>
+        <%= link_to image_tag(competition.logo, :size => "50x50"), competition %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+
+
 <%= link_to 'Edit', edit_organisation_path(@organisation) %> |
 <%= link_to 'Back', organisations_path %>

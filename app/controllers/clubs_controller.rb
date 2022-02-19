@@ -44,7 +44,7 @@ class ClubsController < ApplicationController
   # PATCH/PUT /teams/1 or /teams/1.json
   def update
     respond_to do |format|
-      if @club.update(team_params)
+      if @club.update(club_params)
         format.html { redirect_to @club, notice: "Club was successfully updated." }
         format.json { render :show, status: :ok, location: @club }
       else
