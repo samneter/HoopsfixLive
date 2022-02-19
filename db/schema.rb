@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_19_061452) do
+ActiveRecord::Schema.define(version: 2022_02_19_064647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2022_02_19_061452) do
     t.string "instagram"
     t.string "tiktok"
     t.integer "organisation_id"
+    t.string "season"
     t.index ["name"], name: "index_competitions_on_name"
     t.index ["slug"], name: "index_competitions_on_slug", unique: true
   end
