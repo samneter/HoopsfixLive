@@ -1,6 +1,6 @@
 class ClubsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :set_team, only: %i[ show edit update destroy ]
+  before_action :set_club, only: %i[ show edit update destroy ]
 
   # GET /teams or /teams.json
   def index
@@ -10,7 +10,7 @@ class ClubsController < ApplicationController
 
   # GET /clubs/1 or /clubs/1.json
   def show
-    @games = Game.approved.where('date >= ?', Date.current).order(:date)
+    #@games = Game.approved.where('date >= ?', Date.current).order(:date)
     @club_games = Game.approved.where('(home_team_id = ? OR away_team_id = ?) AND date >= ?', @team.id, @team.id, Date.today).order(:date).group_by{ |g| g.date.strftime("%A %-d#{g.date.day.ordinal} %B %Y")}
     @past_games = Game.approved.where('(home_team_id = ? OR away_team_id = ?) AND date < ?', @team.id, @team.id, Date.today).order(date: :desc).paginate(page: params[:page], per_page:10)
   end
@@ -65,7 +65,7 @@ class ClubsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_team
+    def set_club
       @club = Club.friendly.find(params[:id])
     end
 
