@@ -37,6 +37,12 @@
   </div>
 </div>
 
+<% if current_user && current_user.admin %>
+  <%= link_to 'Edit', edit_team_path(@team) %> |
+  <%= link_to 'Destroy', @team, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'Back', teams_path %>
+<% end %>
+
 <h1 class="heading">Upcoming <%=@team.name%> live streams</h1>
 <div class="container">
   <% if @team_games.blank? %>
