@@ -9,6 +9,7 @@ class Game < ApplicationRecord
   friendly_id :home_vs_away, use: :sequentially_slugged
 
   scope :from_team, ->(team) { where(home_team: team).or(where(away_team: team)) }
+  scope :from_competition, ->(competition) { where(competition: competition) }
   scope :past, -> { where('date < ?', Date.today) }
   scope :upcoming, -> { where('date >= ?', Date.today) }
 
