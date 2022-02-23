@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Club < ApplicationRecord
   has_many :teams
   has_many :away_games, through: :teams, foreign_key: 'away_team_id'
