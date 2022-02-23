@@ -14,7 +14,7 @@ class Game < ApplicationRecord
   scope :upcoming, -> { where('date >= ?', Date.today) }
 
   def home_vs_away
-    "#{home_team.name}" + " vs " + "#{away_team.name}"
+    [home_team.name, away_team.name].join(' vs ')
   end
 
   def tip_time
@@ -25,7 +25,6 @@ class Game < ApplicationRecord
     tip_time.strftime('%H:%M')
   end
 
-  # List both teams as array
   def teams
     [home_team, away_team]
   end

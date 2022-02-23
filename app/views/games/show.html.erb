@@ -1,10 +1,9 @@
-<% set_meta_tags title: "#{@game.home_team.name+' vs '+ @game.away_team.name}", description: "#{@game.home_team.name+' vs '+ @game.away_team.name+' live stream from the '+ @game.competition.name}" %>
+<% set_meta_tags title: @game.home_vs_away, description: "#{@game.home_vs_away} live stream from the #{@game.competition.name}" %>
 
-<h1 class="heading"><%= title "#{@game.home_team.name+' vs '+ @game.away_team.name}" %></h1>
+<h1 class="heading"><%= title @game.home_vs_away %></h1>
 <h2 class="heading">Live Stream</h2>
 
 <iframe width="100%" height="500" src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(@game.stream_url) %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 
 <div class="game-show">
   <div class="game-show-body">
