@@ -1,31 +1,29 @@
+# frozen_string_literal: true
+
 class StreamsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_stream, only: %i[ show edit update destroy ]
+  before_action :set_stream, only: %i[show edit update destroy]
 
-  # GET /streams or /streams.json
   def index
     @games = Game.all
-    @grouped_streams = Game.order(:date, :tip_time).group_by{ |g| g.date.strftime("%A %-d %B %Y")}
+    @grouped_streams = Game.order(:date, :tip_time)
+                           .group_by { |g| g.date.strftime('%A %-d %B %Y') }
   end
 
-  # GET /streams/1 or /streams/1.json
   def show
     puts '#####################'
     puts @stream.attributes
     puts @stream.game_id
   end
 
-  # GET /streams/new
   def new
     @stream = Stream.new
   end
 
-  # GET /streams/1/edit
-  def edit
-  end
+  def edit; end
 
-  # POST /streams or /streams.json
   def create
+    # @@@
     sp = stream_params
     comp_id = sp[:competition_id]
     away_team_id = sp[:away_team_id]
@@ -40,10 +38,9 @@ class StreamsController < ApplicationController
     @live_stat.save
     @game.update(live_stats_id: @live_stat.id, stream_id: @stream.id)
 
-
     respond_to do |format|
       if @stream.save
-        format.html { redirect_to @stream, notice: "Stream was successfully created." }
+        format.html { redirect_to @stream, notice: 'Stream was successfully created.' }
         format.json { render :show, status: :created, location: @stream }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -52,11 +49,10 @@ class StreamsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /streams/1 or /streams/1.json
   def update
     respond_to do |format|
       if @stream.update(stream_params)
-        format.html { redirect_to @stream, notice: "Stream was successfully updated." }
+        format.html { redirect_to @stream, notice: 'Stream was successfully updated.' }
         format.json { render :show, status: :ok, location: @stream }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -65,24 +61,23 @@ class StreamsController < ApplicationController
     end
   end
 
-  # DELETE /streams/1 or /streams/1.json
   def destroy
     @stream.destroy
     respond_to do |format|
-      format.html { redirect_to streams_url, notice: "Stream was successfully destroyed." }
+      format.html { redirect_to streams_url, notice: 'Stream was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_stream
-      @stream = Stream.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def stream_params
-      params.require(:stream).permit(:home_team_id, :away_team_id, :competition_id, :live_stats_url, :tip_time, :date, :stream_url, :live_stats_url)
-    end
+  def set_stream
+    @stream = Stream.find(params[:id])
   end
 
+  def stream_params
+    params.require(:stream).permit(:home_team_id, :away_team_id, :competition_id,
+                                   :live_stats_url, :tip_time, :date, :stream_url,
+                                   :live_stats_url)
+  end
+end

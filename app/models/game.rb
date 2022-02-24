@@ -9,11 +9,12 @@ class Game < ApplicationRecord
   friendly_id :home_vs_away, use: :sequentially_slugged
 
   scope :from_team, ->(team) { where(home_team: team).or(where(away_team: team)) }
+  scope :from_competition, ->(competition) { where(competition: competition) }
   scope :past, -> { where('date < ?', Date.today) }
   scope :upcoming, -> { where('date >= ?', Date.today) }
 
   def home_vs_away
-    "#{home_team.name}" + " vs " + "#{away_team.name}"
+    [home_team.name, away_team.name].join(' vs ')
   end
 
   def tip_time
@@ -24,7 +25,6 @@ class Game < ApplicationRecord
     tip_time.strftime('%H:%M')
   end
 
-  # List both teams as array
   def teams
     [home_team, away_team]
   end

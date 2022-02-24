@@ -1,35 +1,36 @@
+# frozen_string_literal: true
+
 class CompetitionsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
-  before_action :set_competition, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: %i[show index]
+  before_action :set_competition, only: %i[show edit update destroy]
 
-
-  # GET /competitions or /competitions.json
   def index
     @competitions = Competition.all.order('name ASC')
   end
 
-  # GET /competitions/1 or /competitions/1.json
   def show
-    @games = Game.approved.where('date >= ?', Date.current).order(:date)
-    @grouped_games = Game.approved.where('competition_id = ? AND date >= ?', @competition, Date.today).order(:date).group_by{ |g| g.date.strftime("%A %-d#{g.date.day.ordinal} %B %Y")}
-    @past_games = Game.approved.where('competition_id = ? AND date < ?', @competition, Date.today).order(date: :desc).paginate(page: params[:page], per_page:10)
+    @games = Game.approved.upcoming.order(:date)
+    @grouped_games = Game.approved.upcoming
+                         .from_competition(@competition)
+                         .order(:date)
+                         .group_by { |g| g.date.strftime("%A %-d#{g.date.day.ordinal} %B %Y") }
+    @past_games = Game.approved.past
+                      .from_competition(@competition)
+                      .order(date: :desc)
+                      .paginate(page: params[:page], per_page: 10)
   end
 
-  # GET /competitions/new
   def new
     @competition = Competition.new
   end
 
-  # GET /competitions/1/edit
-  def edit
-  end
+  def edit; end
 
-  # POST /competitions or /competitions.json
   def create
     @competition = Competition.new(competition_params)
     respond_to do |format|
       if @competition.save
-        format.html { redirect_to @competition, notice: "Competition was successfully created." }
+        format.html { redirect_to @competition, notice: 'Competition was successfully created.' }
         format.json { render :show, status: :created, location: @competition }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,11 +39,10 @@ class CompetitionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /competitions/1 or /competitions/1.json
   def update
     respond_to do |format|
       if @competition.update(competition_params)
-        format.html { redirect_to @competition, notice: "Competition was successfully updated." }
+        format.html { redirect_to @competition, notice: 'Competition was successfully updated.' }
         format.json { render :show, status: :ok, location: @competition }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,23 +51,23 @@ class CompetitionsController < ApplicationController
     end
   end
 
-  # DELETE /competitions/1 or /competitions/1.json
   def destroy
     @competition.destroy
     respond_to do |format|
-      format.html { redirect_to competitions_url, notice: "Competition was successfully destroyed." }
+      format.html { redirect_to competitions_url, notice: 'Competition was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_competition
-      @competition = Competition.friendly.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def competition_params
-      params.require(:competition).permit(:name, :season, :logo, :website, :facebook, :youtube, :twitter, :instagram, :tiktok, :organisation_id)
-    end
+  def set_competition
+    @competition = Competition.friendly.find(params[:id])
+  end
+
+  def competition_params
+    params.require(:competition).permit(:name, :season, :logo, :website,
+                                        :facebook, :youtube, :twitter,
+                                        :instagram, :tiktok, :organisation_id)
+  end
 end

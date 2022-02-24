@@ -4,7 +4,7 @@
 <div class="container comp-container">
   <% @competitions.each do |competition| %>
       <div class="comp-box">
-        <% if competition.logo.attached? %>
+        <% if competition.logo && competition.logo.attached? %>
           <div class="comp-logo-name">
             <%= link_to image_tag(competition.logo), competition, class:"comp-competition" %>
             <%= link_to competition.name, competition, class:"comp-competition-name" %>
