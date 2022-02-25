@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+  resources :organisations
   devise_for :users
   resources :memberships
   resources :games
   resources :live_stats
-  resources :clubs
+  resources :teams
   resources :competitions
   resources :streams
+  resources :clubs
   resources :approve_game, only:[:update]
   root :to => "home#index"
   get "submit", to: "pages#submit"

@@ -1,0 +1,29 @@
+<% set_meta_tags title: 'British Basketball Organisations', description: 'All British basketball organisations' %>
+<h1 class="heading">Organisations</h1>
+
+<div class="container comp-container">
+  <% @organisations.each do |organisation| %>
+    <div class="comp-box">
+      <% if organisation.logo.attached? %>
+        <div class="comp-logo-name">
+          <%= link_to image_tag(organisation.logo), organisation, class:"comp-competition" %>
+          <%= link_to organisation.name, organisation, class:"comp-competition-name" %>
+        </div>
+      <% else %>
+        <%= link_to organisation.name, organisation, class:"comp-competition-name" %>
+      <% end %>
+      <div class="competition-functions">
+        <% if current_user && current_user.admin %>
+          <%= link_to 'Edit', edit_organisation_path(organisation) %>
+          <%= link_to 'Destroy', organisation, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </div>
+    </div>
+
+  <% end %>
+</div>
+<% if user_signed_in? %>
+  <a href="organisations/new">
+    <button class="btn btn-success">New Organisation</button>
+  </a>
+<% end %>

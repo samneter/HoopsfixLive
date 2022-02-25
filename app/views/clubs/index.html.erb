@@ -1,5 +1,5 @@
-<% set_meta_tags title: 'British Basketball Clubs', description: 'British basketball clubs who live stream their games' %>
-<h1 class="heading">Clubs</h1>
+<% set_meta_tags title: 'British Basketball clubs', description: 'British basketball clubs who live stream their games' %>
+<h1 class="heading">clubs</h1>
 
 <div class="container club-container">
   <% @sorted_clubs.each do |club| %>
@@ -23,6 +23,6 @@
 
   <% if current_user && current_user.admin %>
   <a href="/clubs/new">
-  <button class="btn btn-success">New Club</button>
+  <button class="btn btn-success">New club</button>
   </a>
   <% end %>

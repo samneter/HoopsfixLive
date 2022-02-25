@@ -1,0 +1,96 @@
+<%= form_with(model: team) do |form| %>
+  <% if team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(team.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+        <% team.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :abbreviation %>
+    <%= form.text_field :abbreviation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :display_name %>
+    <%= form.text_field :display_name %>
+  </div>
+
+  <div class="field">
+    <% if @team.logo.attached? %>
+      <%= image_tag @team.logo, style: "width: 200px" %>
+    <% end %>
+
+    <%= form.label :logo %>
+    <%= form.file_field :logo %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Club" %>
+    <%= hidden_field_tag :club_id, nil %>
+    <% Club.all.each do |club| %>
+      <div class="radio-button-group">
+        <%= radio_button_tag "team[club_id]", club.id, @team.club == club, id: dom_id(club) %>
+        <%= label_tag dom_id(club), club.name %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Competitions" %>
+    <%= hidden_field_tag "team[competition_ids][]", nil %>
+    <div class="competition-options">
+    <% Competition.all.each do |competition| %>
+        <div class="checkbox-group">
+        <%= check_box_tag "team[competition_ids][]", competition.id, @team.competitions.include?(competition), id: dom_id(competition) %>
+        <%= label_tag dom_id(competition), competition.name %>
+      </div>
+    <% end %>
+  </div>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :website %>
+    <%= form.text_field :website %>
+  </div>
+
+  <div class="field">
+    <%= form.label :youtube %>
+    <%= form.text_field :youtube %>
+  </div>
+
+  <div class="field">
+    <%= form.label :facebook %>
+    <%= form.text_field :facebook %>
+  </div>
+
+  <div class="field">
+    <%= form.label :twitter %>
+    <%= form.text_field :twitter %>
+  </div>
+
+  <div class="field">
+    <%= form.label :instagram %>
+    <%= form.text_field :instagram %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tiktok %>
+    <%= form.text_field :tiktok %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

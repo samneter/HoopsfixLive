@@ -18,10 +18,26 @@ div.field label {
 }
 
 .checkbox-group input[type=checkbox] {
-  width: 100px;
+  width: 50px;
 }
 
 .checkbox-group label {
+  width: 100px;
+}
+
+.radio-button-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 475px;
+  margin: 0 auto;
+
+}
+
+.radio-button-group input[type=radio-button] {
+  width: 100px;
+}
+
+.radio-button-group label {
   width: 100px;
 }
 
@@ -52,4 +68,11 @@ select, input {
 
 input.form-btn {
   text-align: center;
+}
+
+.competition-options {
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 475px;
+  margin: 0 auto;
 }

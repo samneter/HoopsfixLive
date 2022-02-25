@@ -17,12 +17,29 @@
   </div>
 
   <div class="field">
+    <%= form.label :season %>
+    <%= form.text_field :season %>
+  </div>
+
+  <div class="field">
     <% if @competition.logo.attached? %>
       <%= image_tag @competition.logo, style: "width: 200px; display: block" %>
     <% end %>
 
     <%= form.label :logo %>
     <%= form.file_field :logo %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Organisation" %>
+    <div class="competition-options">
+      <% Organisation.all.each do |organisation| %>
+        <div class="radio-button-group">
+          <%= form.radio_button :organisation_id, organisation.id %>
+          <%= label_tag dom_id(organisation), organisation.name %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <div class="field">

@@ -1,38 +1,42 @@
-class ClubsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
-  before_action :set_club, only: %i[ show edit update destroy ]
+# frozen_string_literal: true
 
-  # GET /clubs or /clubs.json
+class ClubsController < ApplicationController
+  before_action :authenticate_user!, except: %i[show index]
+  before_action :set_club, only: %i[show edit update destroy]
+
   def index
     @clubs = Club.all
     @sorted_clubs = Club.all.order('name ASC')
   end
 
-  # GET /clubs/1 or /clubs/1.json
   def show
-    @games = Game.approved.where('date >= ?', Date.current).order(:date)
-    @club_games = Game.approved.where('(home_club_id = ? OR away_club_id = ?) AND date >= ?', @club.id, @club.id, Date.today).order(:date).group_by{ |g| g.date.strftime("%A %-d#{g.date.day.ordinal} %B %Y")}
-    @past_games = Game.approved.where('(home_club_id = ? OR away_club_id = ?) AND date < ?', @club.id, @club.id, Date.today).order(date: :desc).paginate(page: params[:page], per_page:10)
+    @games = Game.approved.upcoming.order(:date)
+    @teams = @club.teams
+    @club_games = Game.approved
+                      .upcoming
+                      .from_team(@teams)
+                      .order(:date)
+                      .group_by { |g| g.date.strftime("%A %-d#{g.date.day.ordinal} %B %Y") }
+    @past_games = Game.approved
+                      .past
+                      .from_team(@teams)
+                      .order(date: :desc)
+                      .paginate(page: params[:page], per_page: 10)
   end
 
-
-  # GET /clubs/new
   def new
     @club = Club.new
     @competitions = Competition.all
   end
 
-  # GET /clubs/1/edit
-  def edit
-  end
+  def edit; end
 
-  # POST /clubs or /clubs.json
   def create
     @club = Club.new(club_params)
 
     respond_to do |format|
       if @club.save
-        format.html { redirect_to @club, notice: "Club was successfully created." }
+        format.html { redirect_to @club, notice: 'Club was successfully created.' }
         format.json { render :show, status: :created, location: @club }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,11 +45,10 @@ class ClubsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /clubs/1 or /clubs/1.json
   def update
     respond_to do |format|
       if @club.update(club_params)
-        format.html { redirect_to @club, notice: "Club was successfully updated." }
+        format.html { redirect_to @club, notice: 'Club was successfully updated.' }
         format.json { render :show, status: :ok, location: @club }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,23 +57,24 @@ class ClubsController < ApplicationController
     end
   end
 
-  # DELETE /clubs/1 or /clubs/1.json
   def destroy
     @club.destroy
     respond_to do |format|
-      format.html { redirect_to clubs_url, notice: "Club was successfully destroyed." }
+      format.html { redirect_to clubs_url, notice: 'Club was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_club
-      @club = Club.friendly.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def club_params
-      params.require(:club).permit(:name, :abbreviation, :logo, :website, :youtube, :facebook, :twitter, :instagram, :tiktok, :competition_ids=>[])
-    end
+  def set_club
+    @club = Club.friendly.find(params[:id])
+  end
+
+  def club_params
+    params.require(:club).permit(:name, :abbreviation, :logo,
+                                 :website, :youtube, :facebook,
+                                 :twitter, :instagram, :tiktok,
+                                 competition_ids: [])
+  end
 end

@@ -22,8 +22,8 @@
   <% hash_elements.last.each do |game| %>
     <tr>
       <td><%= game.competition.name %></td>
-      <td><%= game.home_club.name %></td>
-      <td><%= game.away_club.name %></td>
+      <td><%= game.home_team.name %></td>
+      <td><%= game.away_team.name %></td>
       <td><%= game.date.strftime("%d/%m/%Y") %></td>
       <td><%= game.formatted_tip_time %></td>
       <td><%= link_to image_tag("emojis/tv.png"), game.stream_url, target: "_blank" %></td></td>

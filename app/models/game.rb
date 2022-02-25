@@ -1,20 +1,20 @@
+# frozen_string_literal: true
+
 class Game < ApplicationRecord
-  belongs_to :home_club, class_name: 'Club', foreign_key: "home_club_id"
-  belongs_to :away_club, class_name: 'Club', foreign_key: "away_club_id"
+  belongs_to :home_team, class_name: 'Team', foreign_key: 'home_team_id'
+  belongs_to :away_team, class_name: 'Team', foreign_key: 'away_team_id'
   belongs_to :competition
-  enum status: [ :unapproved, :approved ]
+  enum status: %w[unapproved approved]
   extend FriendlyId
   friendly_id :home_vs_away, use: :sequentially_slugged
-  validates :competition_id, presence: true
-  validates :home_club_id, presence: true
-  validates :away_club_id, presence: true
-  validates :date, presence: true
-  validates :stream_url, presence: true
-  validates :tip_time, presence: true
 
+  scope :from_team, ->(team) { where(home_team: team).or(where(away_team: team)) }
+  scope :from_competition, ->(competition) { where(competition: competition) }
+  scope :past, -> { where('date < ?', Date.today) }
+  scope :upcoming, -> { where('date >= ?', Date.today) }
 
   def home_vs_away
-    "#{home_club.name}" + " vs " + "#{away_club.name}"
+    [home_team.name, away_team.name].join(' vs ')
   end
 
   def tip_time
@@ -25,9 +25,8 @@ class Game < ApplicationRecord
     tip_time.strftime('%H:%M')
   end
 
-  # List both clubs as array
-  def clubs
-    [home_club, away_club]
+  def teams
+    [home_team, away_team]
   end
 
   def is_live?
@@ -35,4 +34,11 @@ class Game < ApplicationRecord
     Time.zone.now.between?(start_time, start_time + 105.minutes)
   end
 
+  def home_club
+    home_team&.club
+  end
+
+  def away_club
+    away_team&.club
+  end
 end
