@@ -16,6 +16,7 @@ class TeamsController < ApplicationController
                       .order(:date)
                       .group_by { |g| g.date.strftime("%A %-d#{g.date.day.ordinal} %B %Y") }
     @past_games = Game.approved.past
+                      .from_team(@team)
                       .order(date: :desc)
                       .paginate(page: params[:page], per_page: 10)
   end

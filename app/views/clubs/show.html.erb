@@ -39,11 +39,11 @@
 
 <h1 class='heading'>Upcoming <%=@club.name%> live streams</h1>
 <div class='container'>
-  <% if @club.games.blank? %>
+  <% if @club_games.blank? %>
     <p><%=@club.name%> do not currently have any scheduled streams.</p>
   <% else %>
     <!-- Dynamically insert date -->
-    <% @club.games.each do |club_game|%>
+    <% @club_games.each do |club_game|%>
       <h2 class='comp-date'><%= club_game.first %></h2>
       <!-- Stream Info is set as grid with 3 columns and auto rows -->
       <div class='stream-info'>
@@ -114,8 +114,8 @@
     <% @past_games.each do |game| %>
       <tr>
         <td><%= link_to game.competition.name, game.competition %></td>
-        <td><%= link_to game.home_club.name, game.home_club %></td>
-        <td><%= link_to game.away_club.name, game.away_club %></td>
+        <td><%= link_to game.home_club.name, game.home_team %></td>
+        <td><%= link_to game.away_club.name, game.away_team %></td>
         <td><%= game.date.strftime('%d/%m/%Y') %></td>
         <td><%= game.formatted_tip_time %></td>
         <td><%= link_to image_tag('emojis/tv.png'), game_path(game), target: '_blank' %></td></td>
