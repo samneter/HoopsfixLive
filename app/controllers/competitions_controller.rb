@@ -66,7 +66,7 @@ class CompetitionsController < ApplicationController
   end
 
   def competition_params
-    params.require(:competition).permit(:name, :season, :logo, :website,
+    params.require(:competition).permit(:name, :season, :slug, :logo, :website,
                                         :facebook, :youtube, :twitter,
                                         :instagram, :tiktok, :organisation_id)
   end

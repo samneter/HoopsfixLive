@@ -72,7 +72,7 @@ class ClubsController < ApplicationController
   end
 
   def club_params
-    params.require(:club).permit(:name, :abbreviation, :logo,
+    params.require(:club).permit(:name, :abbreviation, :slug, :logo,
                                  :website, :youtube, :facebook,
                                  :twitter, :instagram, :tiktok,
                                  competition_ids: [])

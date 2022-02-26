@@ -22,6 +22,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :slug %>
+    <%= form.text_field :slug %>
+  </div>
+
+  <div class="field">
     <% if @club.logo.attached? %>
       <%= image_tag @club.logo, style: "width: 200px" %>
     <% end %>

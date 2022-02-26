@@ -70,7 +70,7 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.require(:team).permit(:name, :abbreviation, :display_name,
+    params.require(:team).permit(:name, :abbreviation, :display_name, :slug,
                                  :logo, :website, :youtube, :facebook,
                                  :twitter, :instagram, :tiktok, :club_id,
                                  competition_ids: [])
