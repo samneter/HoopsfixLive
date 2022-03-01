@@ -5,7 +5,15 @@
   <% if @game.stream_url.include?('youtube') %>
   <iframe width="100%" height="500" src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(@game.stream_url) %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   <% else %>
-  <%= link_to image_tag('bbl_player_thumb.png'), @game.stream_url, target: "_blank" %>
+    <div class="background-player">
+    <%= link_to image_tag('bbl_player_thumb.png'), @game.stream_url, target: "_blank" %>
+        <div class="home-team-logo-player">
+          <%= image_tag(@game.home_team.logo) %>
+        </div>
+        <div class="away-team-logo-player">
+        <%= image_tag(@game.away_team.logo) %>
+        </div>
+      </div>
   <% end %>
 <div class="game-show">
   <div class="game-show-body">
