@@ -5,7 +5,6 @@
   text-align: left;
 }
 
-
 .game-show {
   width: 100%;
   height: 200px;
@@ -116,21 +115,36 @@
   .game-show-controls {
     margin-top: 25px;
   }
+}
 
-  .background-player {
-  }
+.background-player {
+  position: relative;
+}
 
-  .away-team-logo-player,
-  .away-team-logo-player img{
-    width: 65px;
-    height: 65px;
-  }
+.background-player,
+.background-player img {
+  width: 100%;
 
-  .home-team-logo-player,
-  .home-team-logo-player img{
-    width: 65px;
-    height: 65px;
-  }
+}
 
+.home-team-logo-player,
+.away-team-logo-player {
+  position: absolute;
+  top: 50%;
+}
 
+.home-team-logo-player {
+  left: 10%;
+}
+
+.away-team-logo-player {
+  right: 10%;
+}
+
+.home-team-logo-player,
+.away-team-logo-player,
+.home-team-logo-player img,
+.away-team-logo-player img{
+  height: 100px;
+  transform: translateY(-25%);
 }
