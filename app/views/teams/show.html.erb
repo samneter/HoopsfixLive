@@ -36,6 +36,15 @@
     <% end %>
   </div>
 </div>
+<div class='team-club'>
+  <h2 class='heading'>Club:</h2>
+  <div class='comp-clubs-logos'>
+    <%= link_to @club.name, @club %>
+      <% if @club.logo.attached? %>
+        <%= link_to image_tag(@club.logo, size: '50x50'), @club %>
+      <% end %>
+  </div>
+</div>
 
 <% if current_user && current_user.admin %>
   <%= link_to 'Edit', edit_team_path(@team) %> |

@@ -123,8 +123,8 @@
         <tbody>
         <% @past_games.each do |game| %>
           <tr>
-            <td><%= link_to game.home_team.name, game.home_team %></td>
-            <td><%= link_to game.away_team.name, game.away_team %></td>
+            <td><%= link_to game.home_team.decorated_name, game.home_team %></td>
+            <td><%= link_to game.away_team.decorated_name, game.away_team %></td>
             <td><%= game.date.strftime("%d/%m/%Y") %></td>
             <td><%= game.formatted_tip_time %></td>
             <td><%= link_to image_tag("emojis/tv.png"), game_path(game), target: "_blank" %></td></td>

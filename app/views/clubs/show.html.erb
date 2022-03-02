@@ -35,6 +35,16 @@
       <% end %>
     <% end %>
   </div>
+   <div class='club-teams'>
+     <h2 class='heading'>Club Teams:</h2>
+     <div class='comp-clubs-logos'>
+       <% @club.teams.each do |team| %>
+         <% if team.logo.attached? %>
+           <%= link_to image_tag(team.logo, size: '50x50'), team %>
+           <%= link_to team.name, team %>
+         <% end %>
+       <% end %>
+     </div>
 </div>
 
 <h1 class='heading'>Upcoming <%=@club.name%> live streams</h1>

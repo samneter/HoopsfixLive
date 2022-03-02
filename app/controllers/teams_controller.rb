@@ -19,6 +19,7 @@ class TeamsController < ApplicationController
                       .from_team(@team)
                       .order(date: :desc)
                       .paginate(page: params[:page], per_page: 10)
+    @club = @team.club
   end
 
   def new
