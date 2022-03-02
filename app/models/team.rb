@@ -9,6 +9,11 @@ class Team < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
 
+  def decorated_name
+    from_display_name = display_name unless display_name.blank?
+    from_display_name || club&.name || name
+  end
+
   #def should_generate_new_friendly_id?
   #slug.blank? && name_changed?
   #end

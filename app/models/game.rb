@@ -14,7 +14,7 @@ class Game < ApplicationRecord
   scope :upcoming, -> { where('date >= ?', Date.today) }
 
   def home_vs_away
-    [home_team.name, away_team.name].join(' vs ')
+    [home_team.decorated_name, away_team.decorated_name].join(' vs ')
   end
 
   def tip_time

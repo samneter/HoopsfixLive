@@ -1,6 +1,7 @@
 <% set_meta_tags title: @game.home_vs_away, description: "#{@game.home_vs_away} live stream from the #{@game.competition.name}" %>
 
 <h1 class="heading"><%= title @game.home_vs_away %></h1>
+<h2 class="heading"><%= @game.competition.name %></h2>
 <h2 class="heading">Live Stream</h2>
   <% if @game.stream_url.include?('youtube') %>
   <iframe width="100%" height="500" src="https://www.youtube.com/embed/<%= YouTubeAddy.extract_video_id(@game.stream_url) %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -19,7 +20,7 @@
   <div class="game-show-body">
     <div class="game-show-home-team">
       <div class="game-show-team-name">  
-        <%= link_to @game.home_team.name, @game.home_team %>
+        <%= link_to @game.home_team.decorated_name, @game.home_team %>
       </div>
       <div class="game-show-team-logo">
         <%= link_to image_tag(@game.home_team.logo), @game.home_team %>
@@ -41,7 +42,7 @@
         <%= link_to image_tag(@game.away_team.logo), @game.away_team %>
       </div>
       <div class="game-show-team-name">
-        <%= link_to @game.away_team.name, @game.away_team %>
+        <%= link_to @game.away_team.decorated_name, @game.away_team %>
       </div>
     </div>
   </div>
