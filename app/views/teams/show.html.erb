@@ -7,23 +7,23 @@
 <% end %>
 
 <p>
-<% if @team.website.present? %>
-<%= link_to image_tag("social/web.png", :size => "20x20"), @team.website, target: "_blank" %>
+<% if @team.website.present? || @club.website.present? %>
+<%= link_to image_tag("social/web.png", :size => "20x20"), show_club_website(@team), target: "_blank" %>
 <% end %>
-<% if @team.youtube.present? %>
-<%= link_to image_tag("social/youtube.png", :size => "20x20"), @team.youtube, target: "_blank" %>
+<% if @team.youtube.present? || @club.youtube.present? %>
+<%= link_to image_tag("social/youtube.png", :size => "20x20"), show_club_youtube(@team), target: "_blank" %>
 <% end %>
-  <% if @team.facebook.present? %>
-<%= link_to image_tag("social/facebook.png", :size => "20x20"), @team.facebook, target: "_blank" %>
+  <% if @team.facebook.present? || @club.facebook.present? %>
+<%= link_to image_tag("social/facebook.png", :size => "20x20"), show_club_facebook(@team), target: "_blank" %>
 <% end %>
-  <% if @team.twitter.present? %>
-<%= link_to image_tag("social/twitter.png", :size => "20x20"), @team.twitter, target: "_blank" %>
+  <% if @team.twitter.present? || @club.twitter.present? %>
+<%= link_to image_tag("social/twitter.png", :size => "20x20"), show_club_twitter(@team), target: "_blank" %>
 <% end %>
-  <% if @team.instagram.present? %>
-<%= link_to image_tag("social/instagram.png", :size => "20x20"), @team.instagram, target: "_blank" %>
+  <% if @team.instagram.present? || @club.instagram.present? %>
+<%= link_to image_tag("social/instagram.png", :size => "20x20"), show_club_instagram(@team), target: "_blank" %>
 <% end %>
-<% if @team.tiktok.present? %>
-<%= link_to image_tag("social/tiktok.png", :size => "20x20"), @team.tiktok, target: "_blank" %>
+<% if @team.tiktok.present? || @club.tiktok.present? %>
+<%= link_to image_tag("social/tiktok.png", :size => "20x20"), show_club_tiktok(@team), target: "_blank" %>
 <% end %>
 </p>
 <div class="comp-teams">
@@ -74,7 +74,7 @@
             <div class="home-team">
               <!-- Home team logo -->
               <%= link_to image_tag(game.home_team.logo), game.home_team %>
-              <p class="name-city"><%= link_to game.home_team.name, game.home_team %></p>
+              <p class="name-city"><%= link_to game.home_team.decorated_name, game.home_team %></p>
               <!--<p class="name-team">RIDERS</p>-->
             </div>
             <p class="at">VS</p>
@@ -82,7 +82,7 @@
             <div class="away-team">
               <!-- Away team logo-->
               <%= link_to image_tag(game.away_team.logo), game.away_team  %>
-              <p class="name-city"><%= link_to game.away_team.name, game.away_team %></p>
+              <p class="name-city"><%= link_to game.away_team.decorated_name, game.away_team %></p>
               <!--<p class="name-team">RAIDERS</p>-->
             </div>
 
@@ -91,8 +91,9 @@
           <div class="fixture-details">
             <!-- Tipoff time -->
             <p class="time"><%= game.formatted_tip_time %></p>
-            <p class="live-marker hidden"><i class="fas fa-circle"></i> LIVE</p>
-          </div>
+            <% if game.is_live? %>
+              <p class="live-marker"><i class="fas fa-circle"></i> LIVE</p>
+            <% end %>
           <div class="competition">
             <!-- Competition logo -->
             <%= link_to image_tag(game.competition.logo), competition_path(game.competition) %>
@@ -129,8 +130,8 @@
   <% @past_games.each do |game| %>
     <tr>
       <td><%= link_to game.competition.name, game.competition %></td>
-      <td><%= link_to show_display_name(game.home_team), game.home_team %></td>
-      <td><%= link_to show_display_name(game.away_team), game.away_team %></td>
+      <td><%= link_to game.home_team.decorated_name, game.home_team %></td>
+      <td><%= link_to game.away_team.decorated_name, game.away_team %></td>
       <td><%= game.date.strftime("%d/%m/%Y") %></td>
       <td><%= game.formatted_tip_time %></td>
       <td><%= link_to image_tag("emojis/tv.png"), game_path(game), target: "_blank" %></td></td>
