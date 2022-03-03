@@ -21,8 +21,8 @@
   <% @past_games.each do |game| %>
     <tr>
       <td><%= link_to image_tag(game.competition.logo, size: '40x40'), competition_path(game.competition) %></td>
-      <td><%= link_to show_display_name(game.home_team), game.home_team %></td>
-      <td><%= link_to show_display_name(game.away_team), game.away_team %></td>
+      <td><%= link_to game.home_team.decorated_name, game.home_team %></td>
+      <td><%= link_to game.away_team.decorated_name, game.away_team %></td>
       <td><%= game.date.strftime('%d/%m/%Y') %></td>
       <td><%= game.formatted_tip_time %></td>
       <td><%= link_to image_tag('emojis/tv.png'), game_path(game), target: '_blank' %></td></td>
