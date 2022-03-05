@@ -30,11 +30,9 @@
   <h2 class='heading'>Competitions:</h2>
   <div class='comp-clubs-logos'>
     <% @club.competitions.each do |competition| %>
-      <div class="club-comp-item">
-        <% if competition.logo.attached? %>
-          <%= link_to image_tag(competition.logo, size: '50x50'), competition, :title => competition.name %>
-        <% end %>
-      </div>
+      <% if competition.logo.attached? %>
+        <%= link_to image_tag(competition.logo, size: '50x50'), competition %>
+      <% end %>
     <% end %>
   </div>
    <div class='club-teams'>
@@ -42,9 +40,8 @@
      <div class='comp-clubs-logos'>
        <% @club.teams.each do |team| %>
          <% if team.logo.attached? %>
-         <div class="club-teams-item">
-           <%= link_to image_tag(team.logo, size: '50x50'), team, :title => team.name %>
-        </div>
+           <%= link_to image_tag(team.logo, size: '50x50'), team %>
+           <%= link_to team.name, team %>
          <% end %>
        <% end %>
      </div>

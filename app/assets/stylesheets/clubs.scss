@@ -37,38 +37,3 @@
   justify-content: space-evenly;
 
 }
-
-/* SHOW PAGE */
-
-.social-links {
-  max-width: 30%;
-  margin: 20px auto;
-  justify-content: space-around;
-}
-
-.social-links,
-.comp-clubs-logos,
-.club-show-teams,
-.club-comp-item,
-.club-teams-item {
-  display: flex;
-}
-
-.comp-clubs-logos,
-.club-show-teams {
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.club-show-teams {
-  max-width: 100%;
-}
-
-.club-comp-item,
-.club-teams-item {
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  min-width: 100px;
-}
