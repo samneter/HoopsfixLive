@@ -1,12 +1,12 @@
 <% set_meta_tags title: "#{@club.name} Live Streams", description: "All #{@club.name} live streams with live stat links where possible" %>
 <h1 class='heading'><%= @club.name %></h1>
 <% if @club.logo.attached? %>
-  <div>
+  <p>
     <%= image_tag @club.logo, size: '200x200' %>
   </p>
 <% end %>
 
-<div class="social-links">
+<p>
   <% if @club.website.present? %>
     <%= link_to image_tag('social/web.png', size: '20x20'), @club.website, target: '_blank' %>
   <% end %>
@@ -25,9 +25,9 @@
   <% if @club.tiktok.present? %>
     <%= link_to image_tag('social/tiktok.png', size: '20x20'), @club.tiktok, target: '_blank' %>
   <% end %>
-</div>
+</p>
  <div class='comp-clubs'>
-  <h2 class='heading'>Competitions</h2>
+  <h2 class='heading'>Competitions:</h2>
   <div class='comp-clubs-logos'>
     <% @club.competitions.each do |competition| %>
       <div class="club-comp-item">
@@ -37,10 +37,9 @@
       </div>
     <% end %>
   </div>
-  </div>
    <div class='club-teams'>
-     <h2 class='heading'>Club Teams</h2>
-     <div class='club-show-teams'>
+     <h2 class='heading'>Club Teams:</h2>
+     <div class='comp-clubs-logos'>
        <% @club.teams.each do |team| %>
          <% if team.logo.attached? %>
          <div class="club-teams-item">
@@ -51,7 +50,7 @@
      </div>
 </div>
 
-<h2 class='heading'>Upcoming <%=@club.name%> live streams</h2>
+<h1 class='heading'>Upcoming <%=@club.name%> live streams</h1>
 <div class='container'>
   <% if @club_games.blank? %>
     <p><%=@club.name%> do not currently have any scheduled streams.</p>
@@ -103,7 +102,8 @@
     <% end %>
   <% end %>
 </div>
-<h2 class='heading'>Past <%=@club.name%> live streams</h2>
+</br>
+<h1 class='heading'>Past <%=@club.name%> live streams</h1>
 <% if @past_games.blank? %>
   <p><%=@club.name%> do not have any streams in our database yet.</p>
 <% else %>
