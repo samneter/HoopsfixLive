@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2022_02_22_054040) do
     t.string "twitter"
     t.string "instagram"
     t.string "tiktok"
+    t.string "logo"
     t.string "abbreviation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -69,6 +70,7 @@ ActiveRecord::Schema.define(version: 2022_02_22_054040) do
     t.string "twitter"
     t.string "instagram"
     t.string "tiktok"
+    t.string "logo"
     t.integer "organisation_id"
     t.string "season"
     t.index ["name"], name: "index_competitions_on_name"
@@ -129,6 +131,7 @@ ActiveRecord::Schema.define(version: 2022_02_22_054040) do
     t.string "twitter"
     t.string "instagram"
     t.string "tiktok"
+    t.string "logo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"

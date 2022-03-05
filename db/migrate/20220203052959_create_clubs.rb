@@ -8,6 +8,7 @@ class CreateClubs < ActiveRecord::Migration[6.1]
       t.string :twitter
       t.string :instagram
       t.string :tiktok
+      t.string :logo
       t.string :abbreviation
 
       t.timestamps

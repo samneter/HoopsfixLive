@@ -1,6 +1,6 @@
 <% set_meta_tags title: "#{@club.name} Live Streams", description: "All #{@club.name} live streams with live stat links where possible" %>
 <h1 class='heading'><%= @club.name %></h1>
-<% if @club.logo.attached? %>
+<% if @club.logo? %>
   <p>
     <%= image_tag @club.logo, size: '200x200' %>
   </p>
@@ -31,7 +31,7 @@
   <div class='comp-clubs-logos'>
     <% @club.competitions.each do |competition| %>
       <div class="club-comp-item">
-        <% if competition.logo.attached? %>
+        <% if competition.logo? %>
           <%= link_to image_tag(competition.logo, size: '50x50'), competition, :title => competition.name %>
         <% end %>
       </div>
@@ -41,7 +41,7 @@
      <h2 class='heading'>Club Teams:</h2>
      <div class='comp-clubs-logos'>
        <% @club.teams.each do |team| %>
-         <% if team.logo.attached? %>
+         <% if team.logo? %>
          <div class="club-teams-item">
            <%= link_to image_tag(team.logo, size: '50x50'), team, :title => team.name %>
         </div>
