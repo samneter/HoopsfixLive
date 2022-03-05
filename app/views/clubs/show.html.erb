@@ -1,12 +1,12 @@
 <% set_meta_tags title: "#{@club.name} Live Streams", description: "All #{@club.name} live streams with live stat links where possible" %>
 <h1 class='heading'><%= @club.name %></h1>
 <% if @club.logo.attached? %>
-  <p>
+  <div>
     <%= image_tag @club.logo, size: '200x200' %>
   </p>
 <% end %>
 
-<p>
+<div class="social-links">
   <% if @club.website.present? %>
     <%= link_to image_tag('social/web.png', size: '20x20'), @club.website, target: '_blank' %>
   <% end %>
@@ -25,29 +25,35 @@
   <% if @club.tiktok.present? %>
     <%= link_to image_tag('social/tiktok.png', size: '20x20'), @club.tiktok, target: '_blank' %>
   <% end %>
-</p>
+</div>
  <div class='comp-clubs'>
-  <h2 class='heading'>Competitions:</h2>
+  <h2 class='heading'>Competitions</h2>
   <div class='comp-clubs-logos'>
     <% @club.competitions.each do |competition| %>
-      <% if competition.logo.attached? %>
-        <%= link_to image_tag(competition.logo, size: '50x50'), competition %>
-      <% end %>
+      <div class="club-comp-item">
+        <% if competition.logo.attached? %>
+          <%= link_to image_tag(competition.logo, size: '50x50'), competition, :title => competition.name %>
+          <%= link_to competition.name, competition, :title => competition.name %>
+        <% end %>
+      </div>
     <% end %>
   </div>
+  </div>
    <div class='club-teams'>
-     <h2 class='heading'>Club Teams:</h2>
-     <div class='comp-clubs-logos'>
+     <h2 class='heading'>Club Teams</h2>
+     <div class='club-show-teams'>
        <% @club.teams.each do |team| %>
          <% if team.logo.attached? %>
-           <%= link_to image_tag(team.logo, size: '50x50'), team %>
-           <%= link_to team.name, team %>
+         <div class="club-teams-item">
+           <%= link_to image_tag(team.logo, size: '50x50'), team, :title => team.name %>
+           <%= link_to team.name, team, :title => team.name %>
+        </div>
          <% end %>
        <% end %>
      </div>
 </div>
 
-<h1 class='heading'>Upcoming <%=@club.name%> live streams</h1>
+<h2 class='heading'>Upcoming <%=@club.name%> live streams</h2>
 <div class='container'>
   <% if @club_games.blank? %>
     <p><%=@club.name%> do not currently have any scheduled streams.</p>
@@ -99,8 +105,7 @@
     <% end %>
   <% end %>
 </div>
-</br>
-<h1 class='heading'>Past <%=@club.name%> live streams</h1>
+<h2 class='heading'>Past <%=@club.name%> live streams</h2>
 <% if @past_games.blank? %>
   <p><%=@club.name%> do not have any streams in our database yet.</p>
 <% else %>
