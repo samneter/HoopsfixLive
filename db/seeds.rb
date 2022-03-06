@@ -289,220 +289,435 @@ Game.create({"date"=>Sat, 05 Mar 2022, "competition_id"=>3, "home_team_id"=>7, "
 Game.create({"date"=>Sat, 05 Mar 2022, "competition_id"=>6, "home_team_id"=>67, "away_team_id"=>36, "live_stat_url"=>"https://fibalivestats.dcd.shared.geniussports.com/u/BBE/1943028/", "stream_url"=>"https://www.youtube.com/watch?v=uUj6SFMV5ac", "status"=>"approved", "tip_time"=>2022-03-06 14:00:00 +0000, "slug"=>"loughborough-riders-vs-ipswich-basketball"})
 Game.create({"date"=>Sun, 06 Mar 2022, "competition_id"=>3, "home_team_id"=>7, "away_team_id"=>65, "live_stat_url"=>"https://fibalivestats.dcd.shared.geniussports.com/u/BBE/1936844/", "stream_url"=>"https://www.youtube.com/watch?v=Yh1WFLJddNA", "status"=>"approved", "tip_time"=>2022-03-06 14:00:00 +0000, "slug"=>"team-solent-kestrels-vs-essex-rebels"})
 
+#1 London Lions BBL
 Membership.create({"team_id"=>1, "competition_id"=>5})
 Membership.create({"team_id"=>1, "competition_id"=>7})
 Membership.create({"team_id"=>1, "competition_id"=>10})
 Membership.create({"team_id"=>1, "competition_id"=>13})
 Membership.create({"team_id"=>1, "competition_id"=>21})
+
+#2 Newcastle Eagles BBL
 Membership.create({"team_id"=>2, "competition_id"=>5})
 Membership.create({"team_id"=>2, "competition_id"=>7})
 Membership.create({"team_id"=>2, "competition_id"=>10})
 Membership.create({"team_id"=>2, "competition_id"=>21})
+
+#3 Sheffield Sharks BBL
 Membership.create({"team_id"=>3, "competition_id"=>5})
 Membership.create({"team_id"=>3, "competition_id"=>7})
 Membership.create({"team_id"=>3, "competition_id"=>10})
 Membership.create({"team_id"=>3, "competition_id"=>21})
+
+#4 Surrey Scorchers BBL
 Membership.create({"team_id"=>4, "competition_id"=>5})
 Membership.create({"team_id"=>4, "competition_id"=>7})
 Membership.create({"team_id"=>4, "competition_id"=>10})
 Membership.create({"team_id"=>4, "competition_id"=>21})
+
+#5 Team Solent Kestrels Senior Men (D1)
 Membership.create({"team_id"=>5, "competition_id"=>4})
 Membership.create({"team_id"=>5, "competition_id"=>7})
 Membership.create({"team_id"=>5, "competition_id"=>12})
 Membership.create({"team_id"=>5, "competition_id"=>20})
+
+#6 Thames Valley Cavaliers Senior Men (D1)
 Membership.create({"team_id"=>6, "competition_id"=>4})
 Membership.create({"team_id"=>6, "competition_id"=>7})
 Membership.create({"team_id"=>6, "competition_id"=>12})
 Membership.create({"team_id"=>6, "competition_id"=>20})
+
+#7 University of East London
 Membership.create({"team_id"=>7, "competition_id"=>14})
+
+#8 Sheffield Hatters WBBL
 Membership.create({"team_id"=>8, "competition_id"=>1})
 Membership.create({"team_id"=>8, "competition_id"=>2})
 Membership.create({"team_id"=>8, "competition_id"=>3})
 Membership.create({"team_id"=>8, "competition_id"=>9})
+
+#9 Oaklands Wolves WBBL
 Membership.create({"team_id"=>9, "competition_id"=>1})
 Membership.create({"team_id"=>9, "competition_id"=>2})
 Membership.create({"team_id"=>9, "competition_id"=>3})
 Membership.create({"team_id"=>9, "competition_id"=>9})
+
+#10 Sevenoaks Suns WBBL
 Membership.create({"team_id"=>10, "competition_id"=>1})
 Membership.create({"team_id"=>10, "competition_id"=>2})
 Membership.create({"team_id"=>10, "competition_id"=>3})
 Membership.create({"team_id"=>10, "competition_id"=>9})
+
+#11 Worthing Thunder Senior Men (D1)
 Membership.create({"team_id"=>11, "competition_id"=>4})
 Membership.create({"team_id"=>11, "competition_id"=>12})
 Membership.create({"team_id"=>11, "competition_id"=>20})
+
+
+#12 Derby Trailblazers Senior Men (D1)
 Membership.create({"team_id"=>12, "competition_id"=>4})
 Membership.create({"team_id"=>12, "competition_id"=>7})
 Membership.create({"team_id"=>12, "competition_id"=>12})
 Membership.create({"team_id"=>12, "competition_id"=>20})
+
+#13 Hemel Storm Senior Men (D1)
 Membership.create({"team_id"=>13, "competition_id"=>4})
 Membership.create({"team_id"=>13, "competition_id"=>7})
 Membership.create({"team_id"=>13, "competition_id"=>12})
 Membership.create({"team_id"=>13, "competition_id"=>20})
+
+#14 Loughborough Riders Senior Men (D1)
 Membership.create({"team_id"=>14, "competition_id"=>4})
 Membership.create({"team_id"=>14, "competition_id"=>12})
 Membership.create({"team_id"=>14, "competition_id"=>20})
+
+#15 CoLA Southwark Pride Senior Women
 Membership.create({"team_id"=>15, "competition_id"=>6})
 Membership.create({"team_id"=>15, "competition_id"=>11})
+
+
+#16 Manchester Met Mystics WBBL
 Membership.create({"team_id"=>16, "competition_id"=>1})
 Membership.create({"team_id"=>16, "competition_id"=>2})
 Membership.create({"team_id"=>16, "competition_id"=>3})
 Membership.create({"team_id"=>16, "competition_id"=>9})
+
+#17 Cardiff Met Archers WBBL
 Membership.create({"team_id"=>17, "competition_id"=>1})
 Membership.create({"team_id"=>17, "competition_id"=>2})
 Membership.create({"team_id"=>17, "competition_id"=>3})
 Membership.create({"team_id"=>17, "competition_id"=>9})
+
+
+#18 Gloucester City Queens
 Membership.create({"team_id"=>18, "competition_id"=>1})
 Membership.create({"team_id"=>18, "competition_id"=>2})
 Membership.create({"team_id"=>18, "competition_id"=>3})
 Membership.create({"team_id"=>18, "competition_id"=>9})
+
+#19 Leicester Riders BBL
 Membership.create({"team_id"=>19, "competition_id"=>5})
 Membership.create({"team_id"=>19, "competition_id"=>7})
 Membership.create({"team_id"=>19, "competition_id"=>10})
 Membership.create({"team_id"=>19, "competition_id"=>21})
+
+#20 Bristol Flyers BBL
 Membership.create({"team_id"=>20, "competition_id"=>5})
 Membership.create({"team_id"=>20, "competition_id"=>7})
 Membership.create({"team_id"=>20, "competition_id"=>10})
 Membership.create({"team_id"=>20, "competition_id"=>21})
+
+#21 Cheshire Phoenix BBL
 Membership.create({"team_id"=>21, "competition_id"=>5})
 Membership.create({"team_id"=>21, "competition_id"=>7})
 Membership.create({"team_id"=>21, "competition_id"=>10})
 Membership.create({"team_id"=>21, "competition_id"=>21})
+
+#22 Glasgow Rocks BBL
 Membership.create({"team_id"=>22, "competition_id"=>5})
 Membership.create({"team_id"=>22, "competition_id"=>7})
 Membership.create({"team_id"=>22, "competition_id"=>10})
 Membership.create({"team_id"=>22, "competition_id"=>21})
+
+#23 Durham Palatinates WBBL
 Membership.create({"team_id"=>23, "competition_id"=>1})
 Membership.create({"team_id"=>23, "competition_id"=>2})
 Membership.create({"team_id"=>23, "competition_id"=>3})
 Membership.create({"team_id"=>23, "competition_id"=>9})
+
+#24 Caledonia Pride WBBL
 Membership.create({"team_id"=>24, "competition_id"=>1})
 Membership.create({"team_id"=>24, "competition_id"=>2})
 Membership.create({"team_id"=>24, "competition_id"=>3})
 Membership.create({"team_id"=>24, "competition_id"=>9})
+
+#25 Manchester Giants BBL
 Membership.create({"team_id"=>25, "competition_id"=>5})
 Membership.create({"team_id"=>25, "competition_id"=>7})
 Membership.create({"team_id"=>25, "competition_id"=>10})
 Membership.create({"team_id"=>25, "competition_id"=>21})
+
+#26 Castors Braine
 Membership.create({"team_id"=>26, "competition_id"=>8})
+
+#27 Basketball Wales Senior Men
 Membership.create({"team_id"=>27, "competition_id"=>7})
+
+#28 Bourges Basket
 Membership.create({"team_id"=>28, "competition_id"=>8})
+
+#29 Ipswich Basketball Senior Women
 Membership.create({"team_id"=>29, "competition_id"=>6})
 Membership.create({"team_id"=>29, "competition_id"=>11})
+
+#30 Nottingham Hoods Senior Men (D1)
 Membership.create({"team_id"=>30, "competition_id"=>4})
 Membership.create({"team_id"=>30, "competition_id"=>12})
 Membership.create({"team_id"=>30, "competition_id"=>20})
+
+#31 Team Newcastle University Senior Men (D1)
 Membership.create({"team_id"=>31, "competition_id"=>4})
 Membership.create({"team_id"=>31, "competition_id"=>12})
 Membership.create({"team_id"=>31, "competition_id"=>20})
+
+#32 Reading Rockets Senior Men (D1)
 Membership.create({"team_id"=>32, "competition_id"=>4})
 Membership.create({"team_id"=>32, "competition_id"=>12})
 Membership.create({"team_id"=>32, "competition_id"=>20})
+
+#33 Kapfenberg Bulls
 Membership.create({"team_id"=>33, "competition_id"=>13})
+
+#34 Bradford Dragons Senior Men (D1)
 Membership.create({"team_id"=>34, "competition_id"=>4})
 Membership.create({"team_id"=>34, "competition_id"=>12})
 Membership.create({"team_id"=>34, "competition_id"=>20})
+
+
+#35 Leicester Warriors Senior Men (D1)
 Membership.create({"team_id"=>35, "competition_id"=>4})
 Membership.create({"team_id"=>35, "competition_id"=>12})
 Membership.create({"team_id"=>35, "competition_id"=>20})
+
+#36 Oaklands Wolves Senior Men (D1)
 Membership.create({"team_id"=>36, "competition_id"=>4})
 Membership.create({"team_id"=>36, "competition_id"=>12})
 Membership.create({"team_id"=>36, "competition_id"=>20})
+
+#37 Nottingham Trent University Senior Women
 Membership.create({"team_id"=>37, "competition_id"=>6})
 Membership.create({"team_id"=>37, "competition_id"=>11})
+
+#38 Charnwood College U19 Men
 Membership.create({"team_id"=>38, "competition_id"=>15})
+
+#39 Medi Bayreuth
 Membership.create({"team_id"=>39, "competition_id"=>13})
+
+#40 Zabiny Brno
 Membership.create({"team_id"=>40, "competition_id"=>8})
+
+#41 Sheffield College U19 Women
 Membership.create({"team_id"=>41, "competition_id"=>17})
+
+#42 Rutronik Stars Keltern
 Membership.create({"team_id"=>42, "competition_id"=>8})
+
+#43 Gran Canaria
 Membership.create({"team_id"=>43, "competition_id"=>8})
+
+#44 Avtodor Saratov
 Membership.create({"team_id"=>44, "competition_id"=>13})
+
+#45 London Lions WBBL
 Membership.create({"team_id"=>45, "competition_id"=>1})
 Membership.create({"team_id"=>45, "competition_id"=>2})
 Membership.create({"team_id"=>45, "competition_id"=>3})
 Membership.create({"team_id"=>45, "competition_id"=>8})
 Membership.create({"team_id"=>45, "competition_id"=>9})
+
+#46 Bakken Bears
 Membership.create({"team_id"=>46, "competition_id"=>13})
+
+#47 Bahcesehir College
 Membership.create({"team_id"=>47, "competition_id"=>13})
+
+#48 Donar Groningen
 Membership.create({"team_id"=>48, "competition_id"=>13})
+
+#49 Cardiff Met Archers Senior Women (D1)
 Membership.create({"team_id"=>49, "competition_id"=>6})
 Membership.create({"team_id"=>49, "competition_id"=>11})
+
+#50 Sussex Storm U18 Men
 Membership.create({"team_id"=>50, "competition_id"=>16})
+
+
+
+#51 Thames Valley Cavaliers Senior Women
 Membership.create({"team_id"=>51, "competition_id"=>6})
 Membership.create({"team_id"=>51, "competition_id"=>11})
+
+#52 Essex Rebels WBBL
 Membership.create({"team_id"=>52, "competition_id"=>5})
 Membership.create({"team_id"=>52, "competition_id"=>7})
 Membership.create({"team_id"=>52, "competition_id"=>10})
 Membership.create({"team_id"=>52, "competition_id"=>21})
+
+#53 Reading Rockets Senior Women (D1)
 Membership.create({"team_id"=>53, "competition_id"=>6})
 Membership.create({"team_id"=>53, "competition_id"=>11})
+
+#54 Newcastle Eagles WBBL
 Membership.create({"team_id"=>54, "competition_id"=>5})
 Membership.create({"team_id"=>54, "competition_id"=>7})
 Membership.create({"team_id"=>54, "competition_id"=>10})
 Membership.create({"team_id"=>54, "competition_id"=>21})
+
+#55 Stockport Lapwings
 Membership.create({"team_id"=>55, "competition_id"=>11})
+
+#56 James Watt College
 Membership.create({"team_id"=>56, "competition_id"=>15})
+
+#57 Plymouth City Patriots BBL
 Membership.create({"team_id"=>57, "competition_id"=>5})
 Membership.create({"team_id"=>57, "competition_id"=>7})
 Membership.create({"team_id"=>57, "competition_id"=>10})
 Membership.create({"team_id"=>57, "competition_id"=>21})
+
+#59 Falkirk Fury Senior Men
 Membership.create({"team_id"=>59, "competition_id"=>7})
+
+#58 Bristol Academy Flyers Senior Women
 Membership.create({"team_id"=>58, "competition_id"=>6})
 Membership.create({"team_id"=>58, "competition_id"=>11})
+
+#60 Islington Panthers U16 Boys
 Membership.create({"team_id"=>60, "competition_id"=>16})
+
+#61 Leicester Riders WBBL
 Membership.create({"team_id"=>61, "competition_id"=>5})
 Membership.create({"team_id"=>61, "competition_id"=>7})
 Membership.create({"team_id"=>61, "competition_id"=>10})
 Membership.create({"team_id"=>61, "competition_id"=>21})
+
+#62 GCA Haringey Angels U16 Girls
 Membership.create({"team_id"=>62, "competition_id"=>16})
+
+#63 Nottingham Wildcats
 Membership.create({"team_id"=>63, "competition_id"=>5})
 Membership.create({"team_id"=>63, "competition_id"=>7})
 Membership.create({"team_id"=>63, "competition_id"=>10})
 Membership.create({"team_id"=>63, "competition_id"=>21})
+
+#64 Anglia Ruskin University Senior Women
 Membership.create({"team_id"=>64, "competition_id"=>6})
 Membership.create({"team_id"=>64, "competition_id"=>11})
+
+#66 Worcester Wolves Senior Women
 Membership.create({"team_id"=>66, "competition_id"=>6})
 Membership.create({"team_id"=>66, "competition_id"=>11})
+
+#65 Canterbury High School
 Membership.create({"team_id"=>65, "competition_id"=>15})
+
+
+#67 Oaklands College U19 Men
 Membership.create({"team_id"=>67, "competition_id"=>15})
+
+#68 Newcastle Eagles Academy U19 Men
 Membership.create({"team_id"=>68, "competition_id"=>15})
+
+#69 Itchen College U19 Men
 Membership.create({"team_id"=>69, "competition_id"=>15})
+
+#70 Copleston High School U19 Men
 Membership.create({"team_id"=>70, "competition_id"=>15})
+
+#71 City of London Academy U19 Men
 Membership.create({"team_id"=>71, "competition_id"=>15})
+
+#72 Barking Abbey U19 Men
 Membership.create({"team_id"=>72, "competition_id"=>15})
+
+
+#73 SGS College
 Membership.create({"team_id"=>73, "competition_id"=>15})
+
+#74 Myerscough U19 Men
 Membership.create({"team_id"=>74, "competition_id"=>15})
+
+#75 James Watt College-BMet U19 Men
 Membership.create({"team_id"=>75, "competition_id"=>15})
+
+#76 Manchester Magic Academy U19 Men
 Membership.create({"team_id"=>76, "competition_id"=>15})
+
+#77 Derby College Trailblazers U19 Men
 Membership.create({"team_id"=>77, "competition_id"=>15})
+
+#78 Derby College Trailblazers U19 Women
 Membership.create({"team_id"=>78, "competition_id"=>17})
+
+#79 Manchester Mystics Academy U19 Women
 Membership.create({"team_id"=>79, "competition_id"=>17})
+
+#80 Nottingham Academy Wildcats U19 Women
 Membership.create({"team_id"=>80, "competition_id"=>17})
+
+#81 Barking Abbey U19 Women
 Membership.create({"team_id"=>81, "competition_id"=>17})
+
+#82 John Madejski Academy U19 Men
 Membership.create({"team_id"=>82, "competition_id"=>15})
+
+#83 The Sheffield College U19 Men
 Membership.create({"team_id"=>83, "competition_id"=>15})
+
+#84 Loughborough Riders Senior Women
 Membership.create({"team_id"=>84, "competition_id"=>6})
 Membership.create({"team_id"=>84, "competition_id"=>11})
+
+#85 Richmond Knights U16 Boys
 Membership.create({"team_id"=>85, "competition_id"=>16})
+
+#86 BA London Lions II Senior Women
 Membership.create({"team_id"=>86, "competition_id"=>6})
 Membership.create({"team_id"=>86, "competition_id"=>11})
+
+#87 Essex Rebels Senior Men (D1)
 Membership.create({"team_id"=>87, "competition_id"=>4})
 Membership.create({"team_id"=>87, "competition_id"=>12})
 Membership.create({"team_id"=>87, "competition_id"=>20})
+
+#88 City of London Academy U19 Women
 Membership.create({"team_id"=>88, "competition_id"=>17})
+
+#89 Copleston High School U19 Women
 Membership.create({"team_id"=>89, "competition_id"=>17})
+
+#90 Itchen College U19 Women
 Membership.create({"team_id"=>90, "competition_id"=>17})
+
+#91 John Madejski Academy U19 Women
 Membership.create({"team_id"=>91, "competition_id"=>17})
+
+#92 Oaklands College U19 Women
 Membership.create({"team_id"=>92, "competition_id"=>17})
+
+#93 American School in London U19 Women
 Membership.create({"team_id"=>93, "competition_id"=>17})
+
+#94 Great Britain Senior Men
 Membership.create({"team_id"=>94, "competition_id"=>19})
+
+#95 Great Britain Senior Women
 Membership.create({"team_id"=>95, "competition_id"=>18})
+
+#96 Charnwood College U19 Women
 Membership.create({"team_id"=>96, "competition_id"=>17})
+
+#97 Team Solent Kestrels Senior Women (D1)
 Membership.create({"team_id"=>97, "competition_id"=>6})
 Membership.create({"team_id"=>97, "competition_id"=>11})
+
+
+#98 CoLA Southwark Pride U18 Women
 Membership.create({"team_id"=>98, "competition_id"=>16})
+
+
+
+#99 Ipswich Basketball U18 Women
 Membership.create({"team_id"=>99, "competition_id"=>16})
+
+#100 Manchester Mystics U16 Girls
 Membership.create({"team_id"=>100, "competition_id"=>16})
+
+#101 Manchester Magic U18 Men
 Membership.create({"team_id"=>101, "competition_id"=>16})
+
+#102 BA London Lions Senior Men (D1)
 Membership.create({"team_id"=>104, "competition_id"=>4})
 Membership.create({"team_id"=>104, "competition_id"=>12})
 Membership.create({"team_id"=>104, "competition_id"=>20})
+
