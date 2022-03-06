@@ -39,9 +39,10 @@
 <div class='team-club'>
   <h2 class='heading'>Club:</h2>
   <div class='comp-clubs-logos'>
-    <%= link_to @club.name, @club %>
       <% if @club.logo.attached? %>
-        <%= link_to image_tag(@club.logo, size: '50x50'), @club %>
+       <div class="club-teams-item">
+           <%= link_to image_tag(@club.logo, size: '50x50'), @club, :title => @club.name %>
+        </div>
       <% end %>
   </div>
 </div>
