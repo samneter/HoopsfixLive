@@ -496,11 +496,11 @@ Membership.create({"team_id"=>39, "competition_id"=>13})
 #40 Zabiny Brno
 Membership.create({"team_id"=>40, "competition_id"=>8})
 
-#41 Sheffield College U19 Women
-Membership.create({"team_id"=>41, "competition_id"=>17})
+#41 Rutronik Stars Keltern
+Membership.create({"team_id"=>41, "competition_id"=>8})
 
-#42 Rutronik Stars Keltern
-Membership.create({"team_id"=>42, "competition_id"=>8})
+#42 Sheffield College U19 Women
+Membership.create({"team_id"=>42, "competition_id"=>17})
 
 #43 Gran Canaria
 Membership.create({"team_id"=>43, "competition_id"=>8})
@@ -538,20 +538,20 @@ Membership.create({"team_id"=>51, "competition_id"=>6})
 Membership.create({"team_id"=>51, "competition_id"=>11})
 
 #52 Essex Rebels WBBL
-Membership.create({"team_id"=>52, "competition_id"=>5})
-Membership.create({"team_id"=>52, "competition_id"=>7})
-Membership.create({"team_id"=>52, "competition_id"=>10})
-Membership.create({"team_id"=>52, "competition_id"=>21})
+Membership.create({"team_id"=>52, "competition_id"=>1})
+Membership.create({"team_id"=>52, "competition_id"=>2})
+Membership.create({"team_id"=>52, "competition_id"=>3})
+Membership.create({"team_id"=>52, "competition_id"=>9})
 
 #53 Reading Rockets Senior Women (D1)
 Membership.create({"team_id"=>53, "competition_id"=>6})
 Membership.create({"team_id"=>53, "competition_id"=>11})
 
 #54 Newcastle Eagles WBBL
-Membership.create({"team_id"=>54, "competition_id"=>5})
-Membership.create({"team_id"=>54, "competition_id"=>7})
-Membership.create({"team_id"=>54, "competition_id"=>10})
-Membership.create({"team_id"=>54, "competition_id"=>21})
+Membership.create({"team_id"=>54, "competition_id"=>1})
+Membership.create({"team_id"=>54, "competition_id"=>2})
+Membership.create({"team_id"=>54, "competition_id"=>3})
+Membership.create({"team_id"=>54, "competition_id"=>9})
 
 #55 Stockport Lapwings
 Membership.create({"team_id"=>55, "competition_id"=>11})
@@ -565,41 +565,41 @@ Membership.create({"team_id"=>57, "competition_id"=>7})
 Membership.create({"team_id"=>57, "competition_id"=>10})
 Membership.create({"team_id"=>57, "competition_id"=>21})
 
-#59 Falkirk Fury Senior Men
-Membership.create({"team_id"=>59, "competition_id"=>7})
+#58 Falkirk Fury Senior Men
+Membership.create({"team_id"=>58, "competition_id"=>7})
 
-#58 Bristol Academy Flyers Senior Women
-Membership.create({"team_id"=>58, "competition_id"=>6})
-Membership.create({"team_id"=>58, "competition_id"=>11})
+#59 Bristol Academy Flyers Senior Women
+Membership.create({"team_id"=>59, "competition_id"=>6})
+Membership.create({"team_id"=>59, "competition_id"=>11})
 
 #60 Islington Panthers U16 Boys
 Membership.create({"team_id"=>60, "competition_id"=>16})
 
 #61 Leicester Riders WBBL
-Membership.create({"team_id"=>61, "competition_id"=>5})
-Membership.create({"team_id"=>61, "competition_id"=>7})
-Membership.create({"team_id"=>61, "competition_id"=>10})
-Membership.create({"team_id"=>61, "competition_id"=>21})
+Membership.create({"team_id"=>61, "competition_id"=>1})
+Membership.create({"team_id"=>61, "competition_id"=>2})
+Membership.create({"team_id"=>61, "competition_id"=>3})
+Membership.create({"team_id"=>61, "competition_id"=>9})
 
 #62 GCA Haringey Angels U16 Girls
 Membership.create({"team_id"=>62, "competition_id"=>16})
 
 #63 Nottingham Wildcats
-Membership.create({"team_id"=>63, "competition_id"=>5})
-Membership.create({"team_id"=>63, "competition_id"=>7})
-Membership.create({"team_id"=>63, "competition_id"=>10})
-Membership.create({"team_id"=>63, "competition_id"=>21})
+Membership.create({"team_id"=>63, "competition_id"=>1})
+Membership.create({"team_id"=>63, "competition_id"=>2})
+Membership.create({"team_id"=>63, "competition_id"=>3})
+Membership.create({"team_id"=>63, "competition_id"=>9})
 
 #64 Anglia Ruskin University Senior Women
 Membership.create({"team_id"=>64, "competition_id"=>6})
 Membership.create({"team_id"=>64, "competition_id"=>11})
 
-#66 Worcester Wolves Senior Women
-Membership.create({"team_id"=>66, "competition_id"=>6})
-Membership.create({"team_id"=>66, "competition_id"=>11})
+#65 Worcester Wolves Senior Women
+Membership.create({"team_id"=>65, "competition_id"=>6})
+Membership.create({"team_id"=>65, "competition_id"=>11})
 
-#65 Canterbury High School
-Membership.create({"team_id"=>65, "competition_id"=>15})
+#66 Canterbury High School
+Membership.create({"team_id"=>66, "competition_id"=>15})
 
 
 #67 Oaklands College U19 Men
@@ -720,4 +720,5 @@ Membership.create({"team_id"=>101, "competition_id"=>16})
 Membership.create({"team_id"=>104, "competition_id"=>4})
 Membership.create({"team_id"=>104, "competition_id"=>12})
 Membership.create({"team_id"=>104, "competition_id"=>20})
+
 
