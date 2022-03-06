@@ -62,6 +62,7 @@ a:visited.nav-link
 
   .navbar-nav.show {
     display: flex;
+    z-index: 999;
   }
 
   .navbar-nav {
