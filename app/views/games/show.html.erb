@@ -19,6 +19,9 @@
 <div class="game-show">
   <div class="game-show-body">
     <div class="game-show-home-team">
+      <div class="game-show-team-abr">
+        <%= link_to @game.home_team.abbreviation, @game.home_team %>
+      </div>
       <div class="game-show-team-name">  
         <%= link_to @game.home_team.decorated_name, @game.home_team %>
       </div>
@@ -43,6 +46,9 @@
       </div>
       <div class="game-show-team-name">
         <%= link_to @game.away_team.decorated_name, @game.away_team %>
+      </div>
+      <div class="game-show-team-abr">
+        <%= link_to @game.away_team.abbreviation, @game.away_team %>
       </div>
     </div>
   </div>

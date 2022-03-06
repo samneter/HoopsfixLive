@@ -12,7 +12,7 @@
 
   .game-show-body {
     display: grid;
-    grid-template-columns: 400px 150px 400px;
+    grid-template-columns: minmax(50px, 400px) 150px minmax(50px, 400px);
     justify-content: center;
     align-items: center;
     position: relative;
@@ -52,10 +52,15 @@
     height: 65px;
   }
 
+  .game-show-team-abr,
   .game-show-team-name {
     flex-grow: 1;
     font-size: 20px;
     text-transform: uppercase;
+  }
+
+  .game-show-team-abr {
+    display: none;
   }
 
   .game-show-comp {
@@ -147,4 +152,36 @@
 .away-team-logo-player img{
   height: 100px;
   transform: translateY(-25%);
+}
+
+
+@media screen and (max-width: 850px) {
+  .game-show .game-show-team-name {
+    display: none;
+  }
+
+  .game-show .game-show-team-abr {
+    display: block;
+  }
+
+  .game-show .game-show-home-team,
+  .game-show .game-show-away-team {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .game-show .game-show-home-team,
+  .game-show .game-show-away-team {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .game-show .game-show-home-team {
+    flex-direction: column-reverse;
+  }
+
+  .game-show .game-show-away-team {
+    flex-direction: column;
+  }
 }
