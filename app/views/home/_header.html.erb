@@ -18,10 +18,9 @@
 </nav>
 
 <script>
-  let toggle = document.getElementById('toggle')
-  toggle.addEventListener('click', (e) => {
+    document.getElementById('toggle').addEventListener('click', (e) => {
     document.querySelector('.navbar-nav').classList.toggle('show')
-    toggle.classList.toggle('active')
+    document.getElementById('toggle').classList.toggle('active')
   })
 </script>
 </header>
