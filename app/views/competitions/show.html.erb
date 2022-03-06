@@ -71,7 +71,7 @@
               <div class="home-team">
                 <!-- Home team logo -->
                 <%= link_to image_tag(game.home_team.logo), game.home_team %>
-                <p class="name-city"><%= link_to game.home_team.name, game.home_team %></p>
+                <p class="name-city"><%= link_to game.home_team.decorated_name, game.home_team %></p>
                 <!--<p class="name-team">RIDERS</p>-->
               </div>
               <p class="at">VS</p>
@@ -79,7 +79,7 @@
               <div class="away-team">
                 <!-- Away team logo-->
                 <%= link_to image_tag(game.away_team.logo), game.away_team  %>
-                <p class="name-city"><%= link_to game.away_team.name, game.away_team %></p>
+                <p class="name-city"><%= link_to game.away_team.decorated_name, game.away_team %></p>
                 <!--<p class="name-team">RAIDERS</p>-->
               </div>
 
