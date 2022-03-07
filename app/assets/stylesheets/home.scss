@@ -195,6 +195,23 @@ a:visited, .live i {
   font-size: 100%;
 }
 
+  .home-team p.name-city.abr,
+  .away-team p.name-city.abr {
+    display: none;
+  }
+
+@media screen and (max-width: 414px) {
+  .home-team p.name-city.full,
+  .away-team p.name-city.full {
+    display: none;
+  }
+
+  .home-team p.name-city.abr,
+  .away-team p.name-city.abr {
+    display: block;
+  }
+}
+
 /* Occupy bottom row of item and span the width
 top border grey */
 .fixture-details {
