@@ -33,7 +33,6 @@ main {
   padding: 25px;
 }
 
-
 pre {
   background-color: #eee;
   padding: 10px;
@@ -43,12 +42,26 @@ a {
   color: inherit;
 }
 
-a:visited {
-  color: #666; }
+a.nav-link,
+a.nav-link-footer {
+  padding: 15px;
+  transition: all 1s ease;
+  text-transform: uppercase;
+  height: 100%;
+}
 
-a:hover {
-  color: #333;
-   }
+a.nav-link:hover,
+a.nav-link-footer:hover {
+  background-color: #3c3c3c;
+}
+
+a:active.nav-link,
+a:visited.nav-link,
+a:active.nav-link-footer,
+a:visited.nav-link-footer
+{
+  color: white;
+}
 
 th {
   padding-bottom: 5px; }
