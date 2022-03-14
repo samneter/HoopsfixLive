@@ -10,17 +10,7 @@ footer,
   display: flex;
 }
 
-a.nav-link-footer {
-  max-width: 110px;
-  padding: 5px 20px;
-  text-transform: uppercase;
-  height: 100%;
-  justify-content: flex-end;
-}
-
-footer,
-a:active.nav-link-footer,
-a:visited.nav-link-footer
+footer
 {
   color: white;
 }

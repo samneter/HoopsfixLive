@@ -40,18 +40,6 @@
   align-items: center;
 }
 
-a.nav-link {
-  padding: 5px 20px;
-  text-transform: uppercase;
-  height: 100%;
-}
-
-a:active.nav-link,
-a:visited.nav-link
-{
-  color: white;
-}
-
 @media screen and (max-width: 900px) {
   .navbar .responsive-controls {
     display: flex;
