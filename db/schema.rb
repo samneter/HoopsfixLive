@@ -43,21 +43,6 @@ ActiveRecord::Schema.define(version: 2022_02_22_054040) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "clubs", force: :cascade do |t|
-    t.string "name"
-    t.string "website"
-    t.string "youtube"
-    t.string "facebook"
-    t.string "twitter"
-    t.string "instagram"
-    t.string "tiktok"
-    t.string "abbreviation"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "slug"
-    t.index ["slug"], name: "index_clubs_on_slug", unique: true
-  end
-
   create_table "competitions", force: :cascade do |t|
     t.string "name"
     t.string "website"
@@ -129,13 +114,12 @@ ActiveRecord::Schema.define(version: 2022_02_22_054040) do
     t.string "twitter"
     t.string "instagram"
     t.string "tiktok"
+    t.string "abbreviation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
-    t.string "abbreviation"
     t.integer "club_id"
     t.string "display_name"
-    t.index ["name"], name: "index_teams_on_name"
     t.index ["slug"], name: "index_teams_on_slug", unique: true
   end
 
