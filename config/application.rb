@@ -19,6 +19,6 @@ module HoopsfixLive
     #
     config.time_zone = 'Europe/London'
     # config.eager_load_paths << Rails.root.join('extras')
-    #config.exceptions_app = routes
+    config.exceptions_app = routes
   end
 end
