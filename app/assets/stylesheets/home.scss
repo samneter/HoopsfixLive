@@ -92,9 +92,9 @@ add hover gradient effect */
   background-position: -100% 0;
 }
 
-a .live i,
-a:active .live i,
-a:visited, .live i {
+a.live i,
+a.live:active i,
+a.live:visited i {
   color: white;
 
 }
