@@ -9,9 +9,9 @@
 
 
 /* Remove default styling on links */
-a,
-a:active,
-a:visited {
+.name-city a,
+.name-city a:active,
+.name-city a:visited {
   text-decoration: none;
   color: rgb(77, 77, 77);
 }
