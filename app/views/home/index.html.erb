@@ -118,9 +118,26 @@
   <% end %>
 <% end %>
 <a href="/games/new" ><button class="btn btn-warning" >Submit Your Live Stream</button></a>
-</div>
-<div class="stream-counter"><%= "Total streams in database: #{Game.count}" %></div>
-</div>
 
+<div class="stream-counter">
+  <div class="streamcnt-title">Total streams in database:</div>
+  <div class="scorechart-container">
+    <div class="scorechart">
+      <%= @counter_1st_number %>
+    </div>
+    <div class="scorechart">
+      <%= @counter_2nd_number %>
+    </div>
+    <div class="scorechart">
+      <%= @counter_3rd_number %>
+    </div>
+    <div class="scorechart">
+      <%= @counter_4th_number %>
+    </div>
+    <div class="scorechart">
+      <%= @counter_5th_number %>
+    </div>
+  </div>
+</div>
 
 
