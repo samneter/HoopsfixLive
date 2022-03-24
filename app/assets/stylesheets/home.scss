@@ -273,45 +273,40 @@ p {
   margin: 0
 }
 
-/*.stream-counter {
-  position:absolute;
-  bottom:0;
-  border: 3px solid black;
-  padding: 10px;
-  margin: 20px;
-} */
-
-.stream-counter{
+.stream-counter {
   display: grid;
-  grid-template-columns: 65%;
-  grid-gap: 10px;
-  margin-top:50px;
-  font-size:20px;
-  width:900px;
-  border:3px solid black;
-  padding:20px;
+  grid-template-columns: 260px 110px;
+  grid-gap: 5px;
+  margin-top: 50px;
+  font-size: 20px;
+  width: 100%;
+  padding: 20px;
   align-items: center;
-  color:#181818;
+  color: #181818;
+  justify-content: end;
 }
+
+
 .scorechart-container {
-  height: 120px;
-  text-align: center;
+  height: 24px;
 }
-.scorechart{
-  height:120px;
-  width:85px;
-  font-size: 90px;
-  color:#fff;
+
+
+.scorechart {
+  height: 24px;
+  width: 16px;
+  color: #fff;
   background: linear-gradient(to bottom, #181818 50%, #2a2a2a 0);
-  position:relative;
+  position: relative;
   display: inline-block;
   border-radius: 5px;
-  line-height:120px;
-  box-shadow:0 2px 5px #111, inset 0px 10px 30px 10px #111111, inset 0px -50px 30px 10px #202020;
-
+  line-height: 24px;
+  box-shadow: 0 1px 1px #111, inset 0px 10px 30px 10px #111, inset 0px -50px 30px 10px #202020;
 }
-.scorechart:before {
-  border-bottom: 3px solid black;
+
+
+.scorechart::before {
+  border-bottom: 2px solid black;
   content: '';
   position: absolute;
   left: 0;
