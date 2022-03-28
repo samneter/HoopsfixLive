@@ -1,6 +1,7 @@
-<% set_meta_tags title: @game.home_vs_away, description: "#{@game.home_vs_away} live stream from the #{@game.competition.name}" %>
+<% content_for :meta_title, "#{@game.home_vs_away} - Live Stream" %>
+<% content_for :meta_description, "#{@game.home_vs_away} live stream from the #{@game.competition.name}" %>
 
-<h1 class="heading"><%= title @game.home_vs_away %></h1>
+<h1 class="heading"><%= @game.home_vs_away %></h1>
 <h2 class="heading"><%= @game.competition.name %></h2>
 <h2 class="heading">Live Stream</h2>
   <% if @game.stream_url.include?('youtube') %>

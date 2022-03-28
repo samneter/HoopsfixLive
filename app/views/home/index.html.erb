@@ -1,4 +1,4 @@
-<% set_meta_tags title: 'British Basketball Live Streams', description: 'Watch British basketball live with our live stream directory of BBL, WBBL, NBL, WNBL & more.' %>
+
 <% if current_user && current_user.admin %>
 
 <h1 class="heading">Pending British basketball live streams</h1>
@@ -59,9 +59,7 @@
 
   <% end %>
 <% end %>
-<h1 class="heading"><%= title 'Upcoming British basketball live streams' %></h1>
-<% @page_description %>
-<% @page_keywords %>
+<h1 class="heading"><%= 'Upcoming British basketball live streams' %></h1>
 <% if @grouped_games.blank? %>
   <p>There are currently no scheduled streams!</p>
 <% else %>

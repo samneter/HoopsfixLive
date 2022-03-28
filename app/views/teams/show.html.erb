@@ -1,4 +1,6 @@
-<% set_meta_tags title: "#{@team.name+' Live Streams'}", description: "All #{@team.name+' live streams with live stat links where possible'}" %>
+<% content_for :meta_title, "#{@team.name} Live Streams" %>
+<% content_for :meta_description, "All #{@team.name+' live streams with live stat links where possible'}" %>
+
 <h1 class="heading"><%= @team.name %></h1>
 <% if @team.logo.attached? %>
   <p>

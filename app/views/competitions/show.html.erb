@@ -1,4 +1,7 @@
-<% set_meta_tags title: "#{@competition.name+' Live Streams'}", description: "All #{@competition.name+' live streams with live stat links where possible'}" %>
+<% content_for :meta_title, "#{@competition.name+' Live Streams'}" %>
+<% content_for :meta_description, "All #{@competition.name+' live streams with live stat links where possible'}" %>
+
+
 <div class="comp-info">
   <div class="comp-logo">
     <% if @competition.logo.attached? %>

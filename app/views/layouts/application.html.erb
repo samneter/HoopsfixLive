@@ -12,10 +12,27 @@
       gtag('config', 'G-QGKWSXKH00');
   </script>
   <!-- Required meta tags -->
-  <%= display_meta_tags(default_meta_tags) %>
+  <title><%= meta_title %></title>
+  <meta name="description" content="<%= meta_description %>">
+
+  <!-- Facebook Open Graph data -->
+  <meta property="og:title" content="<%= meta_title %>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <meta property="og:image" content="<%= meta_image %>" />
+  <meta property="og:description" content="<%= meta_description %>" />
+  <meta property="og:site_name" content="<%= meta_title %>" />
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+  <meta name="twitter:title" content="<%= meta_title %>">
+  <meta name="twitter:description" content="<%= meta_description %>">
+  <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+  <meta name="twitter:image:src" content="<%= meta_image %>">
+  <!-- Data from before lewagon meta set up maybe delete? -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= csrf_meta_tags %>
 
   <!-- Bootstrap CSS -->
   <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">-->
