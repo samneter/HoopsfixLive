@@ -1,5 +1,6 @@
 <% content_for :meta_title, "#{@game.home_vs_away} - Live Stream" %>
 <% content_for :meta_description, "#{@game.home_vs_away} live stream from the #{@game.competition.name}" %>
+<% content_for :meta_image, ('player_thumb.png') %>
 
 <h1 class="heading"><%= @game.home_vs_away %></h1>
 <h2 class="heading"><%= @game.competition.name %></h2>
