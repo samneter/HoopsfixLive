@@ -6,6 +6,8 @@
   <p>
   <%= image_tag @team.logo, :size => "200x200" %>
 </p>
+<% else %>
+  <%= image_tag @club.logo, :size => "200x200" %>
 <% end %>
 
 <p>

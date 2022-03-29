@@ -12,6 +12,7 @@
           <%= link_to image_tag(team.logo, size: "80x80"), team, class:"team-logo" %>
           <%= link_to team.name, team, class:"team-name" %>
       <% else %>
+        <%= link_to image_tag(team.club.logo, size: "80x80"), team, class:"team-logo" %>
         <%= link_to team.name, team, class:"team-name" %>
       <% end %>
             <div class="team-functions">
