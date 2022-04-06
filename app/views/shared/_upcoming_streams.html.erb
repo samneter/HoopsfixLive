@@ -33,13 +33,17 @@
           </div>
           <!-- Fixture information -->
           <div class="fixture-details">
+            <div class="competition">
+              <!-- Competition logo -->
+              <%= link_to image_tag(game.competition.logo), competition_path(game.competition) %>
+            </div>
             <!-- Tipoff time -->
-            <p class="time"><%= game.formatted_tip_time %></p>
-            <p class="live-marker hidden"><i class="fas fa-circle"></i> LIVE</p>
-          </div>
-          <div class="competition">
-            <!-- Competition logo -->
-            <%= link_to image_tag(game.competition.logo), competition_path(game.competition) %>
+            <p class="time"><%= link_to game.formatted_tip_time, game %></p>
+
+            <% if game.is_live? %>
+              <p class="live-marker"><i class="fas fa-circle"></i> LIVE</p>
+            <% end %>
+            <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
         </div>
       <% end %>
