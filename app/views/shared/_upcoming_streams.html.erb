@@ -43,7 +43,9 @@
             <% if game.is_live? %>
               <p class="live-marker"><i class="fas fa-circle"></i> LIVE</p>
             <% end %>
+            <% if current_user && current_user.admin %>
             <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
           </div>
         </div>
       <% end %>
