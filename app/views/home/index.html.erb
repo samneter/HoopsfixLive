@@ -60,61 +60,13 @@
   <% end %>
 <% end %>
 <h1 class="heading"><%= 'Upcoming British basketball live streams' %></h1>
-<% if @grouped_games.blank? %>
-  <p>There are currently no scheduled streams!</p>
-<% else %>
+
+
 <div class="container">
-  <!-- Dynamically insert date -->
-  <% @grouped_games.each do |grouped_game|%>
-  <h2 class="comp-date"><%= grouped_game.first %></h2>
-  <!-- Stream Info is set as grid with 3 columns and auto rows -->
-  <div class="stream-info">
-    <!-- Stream item is a single item created dynamically for each entry -->
-    <% grouped_game.last.each do |game| %>
-    <div class="stream-item">
-      <!-- Play button that takes you to the live event -->
-        <%= link_to raw('<i class="far fa-play-circle"></i>'), game, :method =>"get", class:"live" %>
+  <%= render "shared/upcoming_streams", {upcoming_streams: @grouped_games} %>
 
-      <!-- Team division -->
-      <div class="teams">
-        <!-- Team details on left -->
-        <div class="home-team">
-          <!-- Home team logo -->
-          <%= link_to image_tag(game.home_team.logo), game.home_team %>
-          <p class="name-city full"><%= link_to game.home_team.decorated_name, game.home_team %></p>
-          <p class="name-city abr"><%= link_to game.home_team.abbreviation, game.home_team %></p>
-          <!--<p class="name-team">RIDERS</p>-->
-        </div>
-        <p class="at">VS</p>
-        <!-- Team details on right -->
-        <div class="away-team">
-          <!-- Away team logo-->
-          <%= link_to image_tag(game.away_team.logo), game.away_team  %>
-          <p class="name-city full"><%= link_to game.away_team.decorated_name, game.away_team %></p>
-          <p class="name-city abr"><%= link_to game.away_team.abbreviation, game.away_team %></p>
-          <!--<p class="name-team">RAIDERS</p>-->
-        </div>
-
-      </div>
-      <!-- Fixture information -->
-      <div class="fixture-details">
-        <!-- Tipoff time -->
-        <p class="time"><%= game.formatted_tip_time %></p>
-        <% if game.is_live? %>
-        <p class="live-marker"><i class="fas fa-circle"></i> LIVE</p>
-        <% end %>
-        <div class="competition">
-        <!-- Competition logo -->
-        <%= link_to image_tag(game.competition.logo), competition_path(game.competition) %>
-      </div>
-      </div>
-      
-    </div>
-    <% end %>
   </div>
 
-  <% end %>
-<% end %>
 <a href="/games/new" ><button class="btn btn-warning" >Submit Your Live Stream</button></a>
 
 <div class="stream-counter">
