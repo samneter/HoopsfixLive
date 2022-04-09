@@ -200,7 +200,7 @@ a.live:visited i {
     display: none;
   }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 500px) {
   .home-team p.name-city.full,
   .away-team p.name-city.full {
     display: none;
@@ -283,6 +283,15 @@ p {
   align-items: center;
   color: #181818;
   justify-content: end;
+}
+
+@media screen and (max-width: 500px) {
+  .stream-counter {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
 }
 
 
