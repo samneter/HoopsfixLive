@@ -17,7 +17,7 @@ module HoopsfixLive
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    config.time_zone = 'Europe/London'
+    config.time_zone = 'London'
     # config.eager_load_paths << Rails.root.join('extras')
     config.exceptions_app = self.routes
   end
