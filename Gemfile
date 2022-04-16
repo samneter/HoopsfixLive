@@ -70,5 +70,6 @@ gem 'pry'
 # Add Amazon AWS for imsage storage
 gem 'aws-sdk-s3', require: false
 
+gem 'rack-cors'
 
 
