@@ -5,3 +5,4 @@ json.url game_url(game, format: :json)
 json.id game.id
 json.image_url url_for(game.home_team.logo) if game.home_team.logo.attached?
 json.image_url url_for(game.away_team.logo) if game.away_team.logo.attached?
+json.startTime "#{game.date}#{game.tip_time}"
