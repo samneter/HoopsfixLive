@@ -31,7 +31,7 @@ class Game < ApplicationRecord
 
   def is_live?
     start_time = "#{date} #{formatted_tip_time}".to_time
-    Time.zone.now.between?(start_time, start_time + 105.minutes)
+    Time.current.between?(start_time, start_time + 105.minutes)
   end
 
   def home_club
