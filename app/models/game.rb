@@ -18,7 +18,8 @@ class Game < ApplicationRecord
   end
 
   def tip_time
-    "#{self[:tip_time].to_s[0..1]}:#{self[:tip_time].to_s[2..-1]}".to_time
+    str = self[:tip_time].to_s.rjust(4, '0')
+    "#{str[0..1]}:#{str[2..-1]}".to_time
   end
 
   def formatted_tip_time
